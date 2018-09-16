@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Smart Logistics Cargo - Contact Us</title>
+        <meta charset="utf-8">
+    
+        <script type="text/javascript" src="../../static/js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="../../static/js/bootstrap.js"></script>
+
+		<link rel="stylesheet" href="../../static/css/bootstrap.css" type="text/css" media="all">
+        <link rel="stylesheet" href="style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="../../static/css/fontawesome-all.css" />
+		
+        <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,latin-ext,vietnamese" rel="stylesheet">	
+		
+		<script type="text/javascript">
+			var lang = localStorage.getItem("lParam");
+			if (!lang) {lang = "en"}
+		</script>
+	</head>
+	
+	<body style="background-color: #FFFFFF;">
+		<div class="col-md-6 contact-right" style="padding: 20px;">
+			<h3 id="ContactUS" class="title-contact" style="color:#005292 ">Contact Us</h3>
+
+			<form name="miFormulario" method="post" action="grabar.php">
+				<div class="contact-input">
+					<input id="name" type="text" class="name" name="name" placeholder="Name" required="">
+				</div>	
+
+				<div class="contact-input">
+					<input id="lastname" type="text" class="lastname" name="lastname" placeholder="Last Name" required="">
+				</div>	
+
+				<div class="contact-input">
+					<input id="email" type="email" class="email" name="email" placeholder="Email" required="">
+				</div>
+
+				<div class="contact-input">
+					<input id="city" type="text" class="city" name="city" placeholder="City" required="">
+				</div>	
+
+				<div class="contact-input">
+					<textarea id="message" placeholder="Message" required="" name="message"></textarea>
+				</div>
+
+				<input id="send" type="submit" value="SEND" style="background-color: #005292;">
+				
+				<br><br>
+				
+				<span id="descargar">
+					<em>
+						(or download <a href='atpa_sol_en.docx' target="_blank">here</a> our quotation form)
+					</em>
+				</span>
+
+			</form>
+		</div>
+	</body>
+</html>

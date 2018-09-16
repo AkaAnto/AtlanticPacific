@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+
+	<head>
+		<title>Contáctenos</title>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
+		
+		<style type="text/css">
+			.gracias {
+				font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+				font-size: 25px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			var lang = localStorage.getItem("lParam");			
+			if (!lang) {lang = "en"}
+		</script>
+	</head>
+
+	<body>
+		<br /><br /><br /><br />
+		<div class="gracias" id="mensaje">
+			Muchas Gracias! <br />
+			Nos comunicaremos en breve!
+		</div>
+		
+		<br/ ><br />
+		
+		<span id="volver">
+			<em>
+				(para volver al formulario, utilice <a href='index2.html'>este</a> vínculo)
+			</em>
+		</span>		
+		
+		<script>
+			switch(lang) {
+				case "en":
+					$("#mensaje").html("Thank you!<br />We'll Contact You Very Soon!");
+					$("#volver").html("<em>(To return to the form, use <a href='index2.html'>this</a> link)</em>");
+					break;
+				case "po":
+					$("#mensaje").html("Obrigado!<br />Nós entraremos em contato com você em breve!");
+					$("#volver").html("<em>Para retornar ao formulário, use (<a href='index2.html'>este</a> link)</em>");
+					break;
+				case "fr":
+					$("#mensaje").html("Merci beaucoup!<br />Nous vous contacterons dans les plus brefs délais!");
+					$("#volver").html("<em>(Pour retourner au formulaire, utilisez <a href='index2.html'>ce</a> link)</em>");
+					break;
+				case "it":
+					$("#mensaje").html("Grazie!<br />Ti contatteremo a breve!");
+					$("#volver").html("<em>(Per tornare al modulo, utilizzare <a href='index2.html'>questo</a> link)</em>");
+					break;
+				case "de":
+					$("#mensaje").html("Danke!<br />Wir werden Sie sehr bald kontaktieren!");
+					$("#volver").html("<em>(Verwenden Sie <a href='index2.html'>diesen<a> Link, um zum Formular zurückzukehren.)</em>");
+					break;
+			};
+		</script>
+	</body>
+</html>
