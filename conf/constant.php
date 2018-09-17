@@ -17,8 +17,13 @@ $local = [
 
     //Lib
     "Lib_Database" => "lib/Database.php",
+    "Lib_String" => "lib/CustomString.php",
     "Lib_Email" => "lib/Email.php",
     "Lib_File" => "lib/File.php",
+
+    //Model
+    "Login" => "model/Login.php",
+    "Barco" => "model/Barco.php",
 
 ];
 
@@ -44,3 +49,4 @@ $smarty->compile_dir = Smarty_Template_Dir_Comp;
 $smarty->assign("css",css);
 $smarty->assign("js",js);
 $smarty->assign("img",img);
+$smarty->addTemplateDir(Smarty_Template_Dir.'/admin/');

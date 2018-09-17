@@ -1,70 +1,45 @@
 <?php
 
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'atlantic');
+
 $production = false;
 
 if ($production){  // Site is on production server
-    if (@include("conf/db_server.php")){// Trying to load configuration from root directory
-        include_once "conf/db_server.php";
-    }
-    else{  // Trying to load configuration from section directory
-        include_once "../conf/db_server.php";
-    }
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+    define('DB_NAME', 'atlantic');
 }
-else{
-    if (@include("conf/db_local.php")){// Trying to load configuration from root directory
-        include_once "conf/db_local.php";
-    }
-    else{  // Trying to load configuration from section directory
-        include_once "../conf/db_local.php";
-    }
-}
+
 
 abstract class DataBase {
     
     
-    private static function mysql_connection(){    
-        $connection = mysql_connect(server_mysql,mysql_user,mysql_pass,mysql_db);     
-        mysql_select_db(mysql_db);
+    private static function mysql_connection(){
+        $connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         return $connection;
     }
      
-    public static function execute_mysql_query($query){  
+    public static function run_query($query_string){
         $connection= DataBase::mysql_connection();
-        $execute = mysql_query($query) or die (mysql_error());
-        mysql_close($connection);
-        return $execute;
+        $result_set = $connection->query($query_string);
+        return $result_set;
     }
     
-    public static function execute_mysql_select($query){  
-        $connection= DataBase::mysql_connection();
-        $execute = mysql_query($query) or die (mysql_error());
+    public static function run_select($query){
+        $result_set= DataBase::run_query($query);
         $values = array();
         $i = 0;
-        while ($result = mysql_fetch_array($execute)){
+        while ($result = mysqli_fetch_array($result_set)){
             $values[$i] = $result;
             $i++;
-	}
-        mysql_close($connection);
+	    }
         return $values;
     }
-    
-    public static function execute_select($query,$oracle = 0){
-        if ($oracle == 0){
-            return DataBase::execute_mysql_select($query); 
-        }
-         else {
-            return null;
-        }
-    }
-    
-    public static function execute_query($query,$oracle = 0){
-        if ($oracle == 0){
-            return DataBase::execute_mysql_query($query); 
-        }
-         else {
-            return null;
-        }
-    }
+
     
     
 }

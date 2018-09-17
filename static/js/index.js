@@ -725,6 +725,7 @@ $(document).ready(function() {
             scrollTop: $(this.hash).offset().top
         }, 1000);
     });
+
     var next_trip = new Date();
     var next_trip_format = (next_trip.getMonth()+1) + '/'+ (next_trip.getDate() + 4) + '/' + next_trip.getFullYear();
     var next_trip_back_format = (next_trip.getMonth()+1) + '/'+ (next_trip.getDate() + 6) + '/' + next_trip.getFullYear();

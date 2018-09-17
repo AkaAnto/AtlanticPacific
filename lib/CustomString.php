@@ -10,7 +10,7 @@ abstract class CustomString {
         $requested_values_amount = substr_count($string, '%');
         $given_values_amount = sizeof($values);
         if ($requested_values_amount != $given_values_amount){  
-            return CustomException::build_exception(concatenate_values_exception, "11", "Custom_String::concatenate");
+            return CustomException::build_exception(concatenate_values_exception, "11", "CustomString::concatenate");
         }       
         $string_iterator = strtok($string,"%");
         $response = "";     
