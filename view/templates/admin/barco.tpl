@@ -51,7 +51,7 @@
                         <th>Acciones</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="add_barco_success_table">
                     {foreach  from=$barcos item=barco}
                         <tr id="barco_{$barco.id}">
                             <td>{$barco.nombre}</td>
@@ -68,17 +68,13 @@
                             </td>
                         </tr>
                     {/foreach}
-                    <div id="resultados"></div>
                     </tbody>
                 </table>
-                <!--<div id="resultados"></div><!-- Carga los datos ajax -->
-                <!--<div class='outer_div'></div><!-- Carga los datos ajax -->
             </div>
         </div>
-            <hr>
+        <hr>
         </div>
     </div>
-
     {include file="admin/modal/add_barco.tpl"}
 {/block}
 

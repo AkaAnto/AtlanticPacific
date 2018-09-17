@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-17 20:36:08
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-17 21:21:10
          compiled from "view/templates/admin/barco.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14770043605b9f2ad6700877-67851936%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3cbcaeec221762411bfe0cae02d239e92c3caad2' => 
     array (
       0 => 'view/templates/admin/barco.tpl',
-      1 => 1537209364,
+      1 => 1537212065,
       2 => 'file',
     ),
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
@@ -97,7 +97,7 @@ custom.css" />
                         <th>Acciones</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="add_barco_success_table">
                     <?php  $_smarty_tpl->tpl_vars['barco'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['barco']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['barcos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['barco']->key => $_smarty_tpl->tpl_vars['barco']->value){
@@ -127,21 +127,17 @@ $_smarty_tpl->tpl_vars['barco']->_loop = true;
                             </td>
                         </tr>
                     <?php } ?>
-                    <div id="resultados"></div>
                     </tbody>
                 </table>
-                <!--<div id="resultados"></div><!-- Carga los datos ajax -->
-                <!--<div class='outer_div'></div><!-- Carga los datos ajax -->
             </div>
         </div>
-            <hr>
+        <hr>
         </div>
     </div>
-
     <?php /*  Call merged included template "admin/modal/add_barco.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/add_barco.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '14770043605b9f2ad6700877-67851936');
-content_5b9ff41893a9a4_50218600($_smarty_tpl);
+content_5b9ffea6dfaaa9_13588616($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/add_barco.tpl" */?>
 
     </div><!-- /container -->
@@ -155,9 +151,9 @@ barco.js"></script>
 
 </body>
 </html>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-17 20:36:08
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-17 21:21:10
          compiled from "view/templates/admin/modal/add_barco.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9ff41893a9a4_50218600')) {function content_5b9ff41893a9a4_50218600($_smarty_tpl) {?><!-- Modal -->
+<?php if ($_valid && !is_callable('content_5b9ffea6dfaaa9_13588616')) {function content_5b9ffea6dfaaa9_13588616($_smarty_tpl) {?><!-- Modal -->
 <div class="modal fade" id="barcoAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

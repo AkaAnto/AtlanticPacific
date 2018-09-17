@@ -5,11 +5,11 @@ include_once Lib_String;
 
 
 define ("get_all_barcos", 'SELECT *  FROM barco order by id DESC');
+define ("get_barco_by_name", 'SELECT *  FROM barco where nombre="%"');
 define ("create_barco", "INSERT INTO barco (nombre, alto, ancho, largo, capacidad) VALUES('%', %, %, %,%)");
 
 
 class Barco extends Login {
-
 
     public static function get_list() {
         $barcos = Barco::run_select(get_all_barcos);
@@ -29,8 +29,19 @@ class Barco extends Login {
         $values[3] = $largo;
         $values[4] = $capacidad ;
         $query = CustomString::concatenate(create_barco, $values);
-        echo $query;
         return Barco::run_query($query);
     }
 
+    public static function get_barco_as_row_by_name($barco_name) {
+        $values = array();
+        $values[0] = $barco_name;
+        $query = CustomString::concatenate(get_barco_by_name, $values);
+        $barcos = Barco::run_select($query);
+        if (sizeof($barcos) >= 1){
+            return $barcos;
+        }
+        else {
+            return "No se encontro el  barco con nombre ".$barco_name;
+        }
+    }
 }
