@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:07:22
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 21:16:08
          compiled from "view/templates/admin/tarifa_carga.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13477395075ba07eebbb62d8-48816488%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,25 +7,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c2812c98503c31769ae7b660bbbd2fcf8411216a' => 
     array (
       0 => 'view/templates/admin/tarifa_carga.tpl',
-      1 => 1537286826,
+      1 => 1537293914,
       2 => 'file',
     ),
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
     array (
       0 => 'view/templates/admin/base.tpl',
-      1 => 1537153860,
+      1 => 1537293062,
       2 => 'file',
     ),
     '1458a078deb397ab14f0332ffd7131da2ef65564' => 
     array (
       0 => 'view/templates/admin/modal/add_tarifa_carga.tpl',
-      1 => 1537248158,
+      1 => 1537293062,
       2 => 'file',
     ),
     'e0566c7f03c1b791fda45933da07d4cc10d4e9c9' => 
     array (
       0 => 'view/templates/admin/modal/edit_tarifa_carga.tpl',
-      1 => 1537286792,
+      1 => 1537293914,
       2 => 'file',
     ),
   ),
@@ -170,12 +170,12 @@ $</b></td>
     <?php /*  Call merged included template "admin/modal/add_tarifa_carga.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/add_tarifa_carga.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '13477395075ba07eebbb62d8-48816488');
-content_5ba122ba35fd39_92496060($_smarty_tpl);
+content_5ba14ef8510561_89332537($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/add_tarifa_carga.tpl" */?>
     <?php /*  Call merged included template "admin/modal/edit_tarifa_carga.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/edit_tarifa_carga.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '13477395075ba07eebbb62d8-48816488');
-content_5ba122ba36a763_09771819($_smarty_tpl);
+content_5ba14ef8561018_12589656($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/edit_tarifa_carga.tpl" */?>
 
     </div><!-- /container -->
@@ -189,9 +189,9 @@ tarifa_carga.js"></script>
 
 </body>
 </html>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:07:22
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 21:16:08
          compiled from "view/templates/admin/modal/add_tarifa_carga.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5ba122ba35fd39_92496060')) {function content_5ba122ba35fd39_92496060($_smarty_tpl) {?><!-- Modal -->
+<?php if ($_valid && !is_callable('content_5ba14ef8510561_89332537')) {function content_5ba14ef8510561_89332537($_smarty_tpl) {?><!-- Modal -->
 <div class="modal fade" id="tarifaAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -300,9 +300,9 @@ $_smarty_tpl->tpl_vars['barco']->_loop = true;
             </form>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:07:22
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 21:16:08
          compiled from "view/templates/admin/modal/edit_tarifa_carga.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5ba122ba36a763_09771819')) {function content_5ba122ba36a763_09771819($_smarty_tpl) {?><!-- Modal -->
+<?php if ($_valid && !is_callable('content_5ba14ef8561018_12589656')) {function content_5ba14ef8561018_12589656($_smarty_tpl) {?><!-- Modal -->
 <div class="modal fade" id="tarifaEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -406,7 +406,6 @@ $_smarty_tpl->tpl_vars['barco']->_loop = true;
                             <label class="control-label"> $ </label>
                         </div>
                     </div>
-
             </div>
 
             <div class="modal-footer">
