@@ -73,20 +73,27 @@ $(document).ready(function() {
 
 
     //Search
-
-    $('#search_booking_input').keyup(function (event) {
-        var searchText = event.target.value;
-        $('#add_barco_success_table tr').each(function(){
+    function doSearch(trSelector, searchText){
+        $(trSelector).each(function(){
             $(this).addClass('hide');
         });
-
-        var classSelector = '#add_barco_success_table tr[class*="' + searchText + '"]';
+        var classSelector = trSelector + '[class*="' + searchText + '"]';
         if (searchText===''){
-            classSelector = '#add_barco_success_table tr';
+            classSelector = trSelector;
         }
         $(classSelector).each(function(){
             $(this).removeClass('hide');
         });
+    };
+
+    $('#search_booking_input').keyup(function (event) {
+        var searchText = event.target.value;
+        doSearch('#add_barco_success_table tr', searchText);
+
+    });
+    $('#search_booking_button').click(function (event) {
+        var searchText = $('#search_booking_input').val();
+        doSearch('#add_barco_success_table tr', searchText);
     });
 
 });

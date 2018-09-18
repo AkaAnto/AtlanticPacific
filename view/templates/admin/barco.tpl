@@ -8,38 +8,43 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="col-md-4">
-                    <h4> Barcos</h4>
-                </div>
-                <div class="col-md-8">
-                    <div class="col-md-12">
-                        <form class="form-horizontal" role="form" id="search_booking">
-                            <div class="form-group row" style="margin-bottom: 50px; position: relative;">
-                                <div class="col-md-4">
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#barcoAdd">
-                                        <span class="glyphicon glyphicon-plus"></span> Nuevo Barco
-                                    </button>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="search_booking_input" placeholder="NOMBRE DEL BARCO">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-default" onclick="load(1);" style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
-                                            <span class="glyphicon glyphicon-search"></span> Buscar
+                <div class="panel-heading">
+                    <div class="col-md-4">
+                        {*Title*}
+                        <h4> Barcos</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+
+                            <form class="form-horizontal" role="form" id="search_booking">
+                                <div class="form-group row" style="margin-bottom: 50px; position: relative;">
+                                    <div class="col-md-4">
+                                        {*Create Button*}
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#barcoAdd">
+                                            <span class="glyphicon glyphicon-plus"></span> Nuevo Barco
                                         </button>
                                     </div>
-                                    <span id="loader"></span>
+                                    <div class="col-md-8">
+                                        <div class="col-md-9">
+                                            {*Search Input*}
+                                            <input type="text" class="form-control" id="search_booking_input" placeholder="NOMBRE DEL BARCO">
+                                        </div>
+                                        <div class="col-md-3">
+                                            {*Search Button*}
+                                            <button id="search_booking_button" type="button" class="btn btn-default"style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
+                                                <span class="glyphicon glyphicon-search"></span> Buscar
+                                            </button>
+                                        </div>
+                                        <span id="loader"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
+                    <br/>
+                    <br/>
                 </div>
-                <br/>
-                <br/>
-            </div>
-            <div class="panel-body">
+                <div class="panel-body">
                 <table class="table" id="table-booking">
                     <thead>
                         <tr>
@@ -61,9 +66,9 @@
                             <td id="capacidad_barco_{$barco.id}">{intval($barco.capacidad)} Ton</td>
                             <td>
                             <span class="">
-                                <a href="#" class="btn btn-default" title="ver barco"  data-toggle="modal" data-target="#barcoDetail">
-                                    <i data-id="barco_{$barco.id}" class="glyphicon glyphicon-eye-open"></i>
-                                </a>
+                                {*<a href="#" class="btn btn-default" title="ver barco"  data-toggle="modal" data-target="#barcoDetail">*}
+                                    {*<i data-id="barco_{$barco.id}" class="glyphicon glyphicon-eye-open"></i>*}
+                                {*</a>*}
                                 <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="editar barco" data-toggle="modal" data-target="#barcoEdit">
                                     <i class="glyphicon glyphicon-edit"></i>
                                 </a>
@@ -74,8 +79,8 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <hr>
+            </div>
+            <hr>
         </div>
     </div>
     {include file="admin/modal/add_barco.tpl"}

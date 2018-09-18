@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 04:44:38
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 05:01:28
          compiled from "view/templates/admin/barco.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14770043605b9f2ad6700877-67851936%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3cbcaeec221762411bfe0cae02d239e92c3caad2' => 
     array (
       0 => 'view/templates/admin/barco.tpl',
-      1 => 1537238536,
+      1 => 1537239440,
       2 => 'file',
     ),
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
@@ -60,38 +60,43 @@ custom.css" />
     <div class="container">
         <div class="row">
             <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="col-md-4">
-                    <h4> Barcos</h4>
-                </div>
-                <div class="col-md-8">
-                    <div class="col-md-12">
-                        <form class="form-horizontal" role="form" id="search_booking">
-                            <div class="form-group row" style="margin-bottom: 50px; position: relative;">
-                                <div class="col-md-4">
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#barcoAdd">
-                                        <span class="glyphicon glyphicon-plus"></span> Nuevo Barco
-                                    </button>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="search_booking_input" placeholder="NOMBRE DEL BARCO">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-default" onclick="load(1);" style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
-                                            <span class="glyphicon glyphicon-search"></span> Buscar
+                <div class="panel-heading">
+                    <div class="col-md-4">
+                        
+                        <h4> Barcos</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+
+                            <form class="form-horizontal" role="form" id="search_booking">
+                                <div class="form-group row" style="margin-bottom: 50px; position: relative;">
+                                    <div class="col-md-4">
+                                        
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#barcoAdd">
+                                            <span class="glyphicon glyphicon-plus"></span> Nuevo Barco
                                         </button>
                                     </div>
-                                    <span id="loader"></span>
+                                    <div class="col-md-8">
+                                        <div class="col-md-9">
+                                            
+                                            <input type="text" class="form-control" id="search_booking_input" placeholder="NOMBRE DEL BARCO">
+                                        </div>
+                                        <div class="col-md-3">
+                                            
+                                            <button id="search_booking_button" type="button" class="btn btn-default"style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
+                                                <span class="glyphicon glyphicon-search"></span> Buscar
+                                            </button>
+                                        </div>
+                                        <span id="loader"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
+                    <br/>
+                    <br/>
                 </div>
-                <br/>
-                <br/>
-            </div>
-            <div class="panel-body">
+                <div class="panel-body">
                 <table class="table" id="table-booking">
                     <thead>
                         <tr>
@@ -129,10 +134,9 @@ $_smarty_tpl->tpl_vars['barco']->_loop = true;
  Ton</td>
                             <td>
                             <span class="">
-                                <a href="#" class="btn btn-default" title="ver barco"  data-toggle="modal" data-target="#barcoDetail">
-                                    <i data-id="barco_<?php echo $_smarty_tpl->tpl_vars['barco']->value['id'];?>
-" class="glyphicon glyphicon-eye-open"></i>
-                                </a>
+                                
+                                    
+                                
                                 <a href="#" data-id="barco_<?php echo $_smarty_tpl->tpl_vars['barco']->value['id'];?>
 " class="btn btn-default" title="editar barco" data-toggle="modal" data-target="#barcoEdit">
                                     <i class="glyphicon glyphicon-edit"></i>
@@ -144,19 +148,19 @@ $_smarty_tpl->tpl_vars['barco']->_loop = true;
                     </tbody>
                 </table>
             </div>
-        </div>
-        <hr>
+            </div>
+            <hr>
         </div>
     </div>
     <?php /*  Call merged included template "admin/modal/add_barco.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/add_barco.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '14770043605b9f2ad6700877-67851936');
-content_5ba0669624e222_97329990($_smarty_tpl);
+content_5ba06a88b43d73_69267373($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/add_barco.tpl" */?>
     <?php /*  Call merged included template "admin/modal/edit_barco.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/edit_barco.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '14770043605b9f2ad6700877-67851936');
-content_5ba06696254289_88565899($_smarty_tpl);
+content_5ba06a88b49007_45732115($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/edit_barco.tpl" */?>
 
     </div><!-- /container -->
@@ -170,9 +174,9 @@ barco.js"></script>
 
 </body>
 </html>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 04:44:38
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 05:01:28
          compiled from "view/templates/admin/modal/add_barco.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5ba0669624e222_97329990')) {function content_5ba0669624e222_97329990($_smarty_tpl) {?><!-- Modal -->
+<?php if ($_valid && !is_callable('content_5ba06a88b43d73_69267373')) {function content_5ba06a88b43d73_69267373($_smarty_tpl) {?><!-- Modal -->
 <div class="modal fade" id="barcoAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -234,9 +238,9 @@ barco.js"></script>
             </form>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 04:44:38
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 05:01:28
          compiled from "view/templates/admin/modal/edit_barco.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5ba06696254289_88565899')) {function content_5ba06696254289_88565899($_smarty_tpl) {?><!-- Modal -->
+<?php if ($_valid && !is_callable('content_5ba06a88b49007_45732115')) {function content_5ba06a88b49007_45732115($_smarty_tpl) {?><!-- Modal -->
 <div class="modal fade" id="barcoEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
