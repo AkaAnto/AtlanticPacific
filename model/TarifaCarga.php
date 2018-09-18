@@ -9,7 +9,8 @@ define ("get_barcos_without_tarifa_carga", 'SELECT b.nombre, b.id from barco b w
 define ("get_tarifa_carga_by_barco_id", 'SELECT b.nombre as nombre , tc.*  FROM barco b, tarifa_carga tc where tc.id_barco=% and b.id=tc.id_barco');
 define ("create_tarifa_carga", "INSERT INTO tarifa_carga (id_barco, tres_metros, seis_metros,nueve_metros, 
                                 quince_metros, dieciocho_metros, moto_grande, moto_chica, bicicleta) VALUES(%, %, %, %, %, %, %, %, %)");
-define ("update_tarifa_carga", "update tarifa_carga set nombre='%', alto=%, ancho=%, largo=%, capacidad=% where id=%");
+define ("update_tarifa_carga", "update tarifa_carga set tres_metros=%, seis_metros=%, nueve_metros=%, quince_metros=%, dieciocho_metros=%,
+                                moto_grande=%, moto_chica=%,  bicicleta=% where id_barco=%");
 
 
 class TarifaCarga extends Login {
@@ -45,18 +46,22 @@ class TarifaCarga extends Login {
         $values[6] = $moto_grande ;
         $values[7] = $moto_chica ;
         $values[8] = $bicicleta ;
+
         $query = CustomString::concatenate(create_tarifa_carga, $values);
         return TarifaCarga::run_query($query);
     }
 
-    public static function update($id, $nombre, $alto, $ancho, $largo, $capacidad) {
+    public static function update($id_barco, $tres_metros, $seis_metros, $nueve_metros, $quince_metros, $dieciocho_metros, $moto_grande, $moto_chica, $bicicleta) {
         $values = array();
-        $values[0] = $nombre;
-        $values[1] = $alto;
-        $values[2] = $ancho;
-        $values[3] = $largo;
-        $values[4] = $capacidad ;
-        $values[5] = $id ;
+        $values[0] = $tres_metros;
+        $values[1] = $seis_metros;
+        $values[2] = $nueve_metros;
+        $values[3] = $quince_metros ;
+        $values[4] = $dieciocho_metros ;
+        $values[5] = $moto_grande;
+        $values[6] = $moto_chica;
+        $values[7] = $bicicleta;
+        $values[8] = $id_barco;
         $query = CustomString::concatenate(update_tarifa_carga, $values);
         return TarifaCarga::run_query($query);
     }
