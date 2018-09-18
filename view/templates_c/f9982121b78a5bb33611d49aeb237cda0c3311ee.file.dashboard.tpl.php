@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-17 05:44:51
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:16:04
          compiled from "view/templates/admin/dashboard.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7895773595b9e598f56e1b8-50309147%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f9982121b78a5bb33611d49aeb237cda0c3311ee' => 
     array (
       0 => 'view/templates/admin/dashboard.tpl',
-      1 => 1537154953,
+      1 => 1537293062,
       2 => 'file',
     ),
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
     array (
       0 => 'view/templates/admin/base.tpl',
-      1 => 1537153860,
+      1 => 1537293062,
       2 => 'file',
     ),
   ),
@@ -110,7 +110,6 @@ custom.css" />
             <hr>
         </div>
     </div>
-
 
     </div><!-- /container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

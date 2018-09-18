@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:44728445355a276204ea2d1-76174222%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,73 +7,73 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5df6254b46d261e43d5040048899e7ed1aa05ec5' => 
     array (
       0 => 'view/templates/index.tpl',
-      1 => 1537065528,
+      1 => 1537293062,
       2 => 'file',
     ),
     '0139c99266bb744288522bb41c85e49976da5559' => 
     array (
       0 => 'view/templates/base.tpl',
-      1 => 1537026978,
+      1 => 1537293062,
       2 => 'file',
     ),
     'd15c8e4a668ea30c234895ba0a8e4d7c27c39f33' => 
     array (
       0 => 'view/templates/navbar.tpl',
-      1 => 1537016859,
+      1 => 1537293062,
       2 => 'file',
     ),
     'e85d844f1161a73aaccb592870c3e8fb021c4948' => 
     array (
       0 => 'view/templates/banner.tpl',
-      1 => 1537025763,
+      1 => 1537293062,
       2 => 'file',
     ),
     '52f3f0abfcc446185054d89ad017f9187bd35d33' => 
     array (
       0 => 'view/templates/stats.tpl',
-      1 => 1537026601,
+      1 => 1537293062,
       2 => 'file',
     ),
     '942928a4996a06225dc9464844082d162b7af66d' => 
     array (
       0 => 'view/templates/middle.tpl',
-      1 => 1537035683,
+      1 => 1537293062,
       2 => 'file',
     ),
     'a59ab083519f9e8a571b9345155b019652996225' => 
     array (
       0 => 'view/templates/services.tpl',
-      1 => 1537036421,
+      1 => 1537293062,
       2 => 'file',
     ),
     '4c2f5a2220b0bf44fa0235bf0706d3115536b8e7' => 
     array (
       0 => 'view/templates/booking.tpl',
-      1 => 1537065974,
+      1 => 1537293062,
       2 => 'file',
     ),
     '8066b90e8e53053e3f6cf5048acfe2102c8cc921' => 
     array (
       0 => 'view/templates/slider.tpl',
-      1 => 1537052608,
+      1 => 1537293062,
       2 => 'file',
     ),
     '8d3e0f7f08ce4048eabf01764b7397acf79a80cb' => 
     array (
       0 => 'view/templates/contact.tpl',
-      1 => 1537085406,
+      1 => 1537293062,
       2 => 'file',
     ),
     '97e15a264c9f110bbb3e6d0c7fe8ce250c445c5c' => 
     array (
       0 => 'view/templates/map.tpl',
-      1 => 1537059375,
+      1 => 1537293062,
       2 => 'file',
     ),
     '97524dc7cb4d808a1106bf8db46e3c6ae83697b8' => 
     array (
       0 => 'view/templates/footer.tpl',
-      1 => 1537059808,
+      1 => 1537293062,
       2 => 'file',
     ),
   ),
@@ -122,12 +122,12 @@ style.css" type="text/css" media="all" />
         <?php /*  Call merged included template "navbar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1d7dd01_26833322($_smarty_tpl);
+content_5ba13e1340aca9_86337783($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "navbar.tpl" */?>
         <?php /*  Call merged included template "banner.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("banner.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1d83e09_04335381($_smarty_tpl);
+content_5ba13e1340ca59_74000365($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "banner.tpl" */?>
     </header>
 
@@ -136,37 +136,37 @@ $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "banner.tpl"
     <?php /*  Call merged included template "stats.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("stats.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1d8ab53_79007231($_smarty_tpl);
+content_5ba13e134109b7_77212897($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "stats.tpl" */?>
     <?php /*  Call merged included template "middle.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("middle.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1d8eb36_05056568($_smarty_tpl);
+content_5ba13e13413192_57925482($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "middle.tpl" */?>
     <?php /*  Call merged included template "services.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("services.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1d94509_24255478($_smarty_tpl);
+content_5ba13e13416a24_19133344($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "services.tpl" */?>
     <?php /*  Call merged included template "booking.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("booking.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1d99c33_77154932($_smarty_tpl);
+content_5ba13e13419ec5_54659801($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "booking.tpl" */?>
     <?php /*  Call merged included template "slider.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("slider.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1da4d31_07127039($_smarty_tpl);
+content_5ba13e1341baf9_61622274($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "slider.tpl" */?>
     <?php /*  Call merged included template "contact.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("contact.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1dc6445_13454009($_smarty_tpl);
+content_5ba13e1342c346_92593377($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "contact.tpl" */?>
     <?php /*  Call merged included template "map.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("map.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1dceb46_35663514($_smarty_tpl);
+content_5ba13e1342da62_52838002($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "map.tpl" */?>
 
 
@@ -174,7 +174,7 @@ $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "map.tpl" */
     <?php /*  Call merged included template "footer.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '44728445355a276204ea2d1-76174222');
-content_5b9e0fe1dd47d8_62600057($_smarty_tpl);
+content_5ba13e13431321_92011079($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "footer.tpl" */?>
 
 
@@ -213,9 +213,9 @@ booking.js"></script>
 
 </body>
 </html>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/navbar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1d7dd01_26833322')) {function content_5b9e0fe1d7dd01_26833322($_smarty_tpl) {?><!-- navbar -->
+<?php if ($_valid && !is_callable('content_5ba13e1340aca9_86337783')) {function content_5ba13e1340aca9_86337783($_smarty_tpl) {?><!-- navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="home.html" style="font-family:Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'; font-size: 30px;">
                 Atlantic Pacific Shipping Line
@@ -289,9 +289,9 @@ booking.js"></script>
         </div>
 </nav>
 <!-- //navbar ends here -->
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/banner.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1d83e09_04335381')) {function content_5b9e0fe1d83e09_04335381($_smarty_tpl) {?><!-- banner -->
+<?php if ($_valid && !is_callable('content_5ba13e1340ca59_74000365')) {function content_5ba13e1340ca59_74000365($_smarty_tpl) {?><!-- banner -->
 <div class="banner-w3l">
     <div class="container">
         <div class="banner-left-wthree">
@@ -302,9 +302,9 @@ booking.js"></script>
         </div>
     </div>
 </div>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/stats.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1d8ab53_79007231')) {function content_5b9e0fe1d8ab53_79007231($_smarty_tpl) {?><div class="stats-w3layouts py-5" id="about">
+<?php if ($_valid && !is_callable('content_5ba13e134109b7_77212897')) {function content_5ba13e134109b7_77212897($_smarty_tpl) {?><div class="stats-w3layouts py-5" id="about">
     <div class="container py-xl-5 py-lg-3">
         <h3 class="tittle text-center font-weight-bold text-uppercase mb-sm-5 mb-4" id="bienvenido">
             <span class="font-weight-bold text-center">APSL</span>Bienvenidos
@@ -326,9 +326,9 @@ booking.js"></script>
             <div class="row">&nbsp;</div>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/middle.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1d8eb36_05056568')) {function content_5b9e0fe1d8eb36_05056568($_smarty_tpl) {?><!-- middle section -->
+<?php if ($_valid && !is_callable('content_5ba13e13413192_57925482')) {function content_5ba13e13413192_57925482($_smarty_tpl) {?><!-- middle section -->
 <div class="middle-w3l text-center py-sm-5 py-4">
     <div class="container py-xl-5 py-lg-3">
         <p class="text-white mx-auto font-weight-bold" id="apoyamos">
@@ -336,9 +336,9 @@ booking.js"></script>
         </p>
     </div>
 </div>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/services.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1d94509_24255478')) {function content_5b9e0fe1d94509_24255478($_smarty_tpl) {?><!-- Services -->
+<?php if ($_valid && !is_callable('content_5ba13e13416a24_19133344')) {function content_5ba13e13416a24_19133344($_smarty_tpl) {?><!-- Services -->
 <div class="serives-agile py-5" id="services">
     <div class="container py-xl-5 py-lg-3">
         <h3 class="tittle text-center font-weight-bold text-uppercase mb-sm-5 mb-4" id="nServicios">
@@ -421,9 +421,9 @@ booking.js"></script>
             </div>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/booking.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1d99c33_77154932')) {function content_5b9e0fe1d99c33_77154932($_smarty_tpl) {?><div class="serives-agile py-5" id="booking">
+<?php if ($_valid && !is_callable('content_5ba13e13419ec5_54659801')) {function content_5ba13e13419ec5_54659801($_smarty_tpl) {?><div class="serives-agile py-5" id="booking">
     <div class="col-md-10" style="margin-left: 15%">
         <h3 class="tittle text-center font-weight-bold text-uppercase mb-sm-5 mb-4" id="nBooking">
             <span class="font-weight-bold text-center">B</span>Booking
@@ -644,9 +644,9 @@ booking.js"></script>
             </div>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/slider.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1da4d31_07127039')) {function content_5b9e0fe1da4d31_07127039($_smarty_tpl) {?><div class="gallery py-5" id="projects"  style="padding:0px; margin:0px; background-color:#fff;font-family:arial,helvetica,sans-serif,verdana,'Open Sans'">
+<?php if ($_valid && !is_callable('content_5ba13e1341baf9_61622274')) {function content_5ba13e1341baf9_61622274($_smarty_tpl) {?><div class="gallery py-5" id="projects"  style="padding:0px; margin:0px; background-color:#fff;font-family:arial,helvetica,sans-serif,verdana,'Open Sans'">
     <div class="container py-xl-5 py-lg-3">
         <h3 class="tittle text-center font-weight-bold text-uppercase mb-sm-5 mb-4" id="gal">
             <span class="font-weight-bold text-center">G</span>Galería
@@ -757,9 +757,9 @@ slider/040-s190x90.jpg" />
 
     </div>
     <!-- #endregion Jssor Slider End -->
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/contact.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1dc6445_13454009')) {function content_5b9e0fe1dc6445_13454009($_smarty_tpl) {?><!-- video section -->
+<?php if ($_valid && !is_callable('content_5ba13e1342c346_92593377')) {function content_5ba13e1342c346_92593377($_smarty_tpl) {?><!-- video section -->
 <div class="video-w3l py-5" data-vide-bg="video/1">
     <div class="container-fluid py-lg-5 py-md-4">
         <div class="row py-xl-3">
@@ -813,15 +813,15 @@ slider/040-s190x90.jpg" />
             </div>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/map.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1dceb46_35663514')) {function content_5b9e0fe1dceb46_35663514($_smarty_tpl) {?><!-- map -->
+<?php if ($_valid && !is_callable('content_5ba13e1342da62_52838002')) {function content_5ba13e1342da62_52838002($_smarty_tpl) {?><!-- map -->
 <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d4741.91517995632!2d-79.88520925533072!3d9.35204663592083!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spa!4v1522682370268"
             allowfullscreen></iframe>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 10:10:09
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:04:03
          compiled from "view/templates/footer.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5b9e0fe1dd47d8_62600057')) {function content_5b9e0fe1dd47d8_62600057($_smarty_tpl) {?><!-- footer -->
+<?php if ($_valid && !is_callable('content_5ba13e13431321_92011079')) {function content_5ba13e13431321_92011079($_smarty_tpl) {?><!-- footer -->
 <footer>
     <div class="w3ls-footer-grids py-sm-4 py-3">
         <div class="container py-xl-5 py-lg-3">
