@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-16 11:22:25
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:15:43
          compiled from "view/templates/admin/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12851194845b9e206166c8c5-08161197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
     array (
       0 => 'view/templates/admin/base.tpl',
-      1 => 1537089107,
+      1 => 1537153860,
       2 => 'file',
     ),
   ),
@@ -38,8 +38,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['css']->value;?>
 login.css" />
 
+    
 </head>
-<body>
+<body style="overflow-x: hidden">
+    <?php echo $_smarty_tpl->getSubTemplate ("admin/navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
     <div class="container">
         
     <div class="card card-container">
@@ -54,6 +57,11 @@ login.css" />
     </div><!-- /card-container -->
 
     </div><!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <?php echo $_smarty_tpl->getSubTemplate ("admin/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
 </html>
 <?php }} ?>

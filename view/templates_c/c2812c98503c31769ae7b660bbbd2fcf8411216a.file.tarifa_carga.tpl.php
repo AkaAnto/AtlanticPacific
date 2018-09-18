@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 17:07:26
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:07:22
          compiled from "view/templates/admin/tarifa_carga.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13477395075ba07eebbb62d8-48816488%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c2812c98503c31769ae7b660bbbd2fcf8411216a' => 
     array (
       0 => 'view/templates/admin/tarifa_carga.tpl',
-      1 => 1537283200,
+      1 => 1537286826,
       2 => 'file',
     ),
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
@@ -22,10 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       1 => 1537248158,
       2 => 'file',
     ),
-    'b1ae0cbeb733fd7f2706442657c5f7914d2e5560' => 
+    'e0566c7f03c1b791fda45933da07d4cc10d4e9c9' => 
     array (
-      0 => 'view/templates/admin/modal/edit_barco.tpl',
-      1 => 1537215035,
+      0 => 'view/templates/admin/modal/edit_tarifa_carga.tpl',
+      1 => 1537286792,
       2 => 'file',
     ),
   ),
@@ -170,13 +170,13 @@ $</b></td>
     <?php /*  Call merged included template "admin/modal/add_tarifa_carga.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/add_tarifa_carga.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '13477395075ba07eebbb62d8-48816488');
-content_5ba114aed0ede5_13341618($_smarty_tpl);
+content_5ba122ba35fd39_92496060($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/add_tarifa_carga.tpl" */?>
-    <?php /*  Call merged included template "admin/modal/edit_barco.tpl" */
+    <?php /*  Call merged included template "admin/modal/edit_tarifa_carga.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
- $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/edit_barco.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '13477395075ba07eebbb62d8-48816488');
-content_5ba114aed1c105_44007179($_smarty_tpl);
-$_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/edit_barco.tpl" */?>
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/edit_tarifa_carga.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '13477395075ba07eebbb62d8-48816488');
+content_5ba122ba36a763_09771819($_smarty_tpl);
+$_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/edit_tarifa_carga.tpl" */?>
 
     </div><!-- /container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -189,9 +189,9 @@ tarifa_carga.js"></script>
 
 </body>
 </html>
-<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 17:07:26
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:07:22
          compiled from "view/templates/admin/modal/add_tarifa_carga.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5ba114aed0ede5_13341618')) {function content_5ba114aed0ede5_13341618($_smarty_tpl) {?><!-- Modal -->
+<?php if ($_valid && !is_callable('content_5ba122ba35fd39_92496060')) {function content_5ba122ba35fd39_92496060($_smarty_tpl) {?><!-- Modal -->
 <div class="modal fade" id="tarifaAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -300,72 +300,119 @@ $_smarty_tpl->tpl_vars['barco']->_loop = true;
             </form>
         </div>
     </div>
-</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 17:07:26
-         compiled from "view/templates/admin/modal/edit_barco.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_5ba114aed1c105_44007179')) {function content_5ba114aed1c105_44007179($_smarty_tpl) {?><!-- Modal -->
-<div class="modal fade" id="barcoEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+</div><?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 18:07:22
+         compiled from "view/templates/admin/modal/edit_tarifa_carga.tpl" */ ?>
+<?php if ($_valid && !is_callable('content_5ba122ba36a763_09771819')) {function content_5ba122ba36a763_09771819($_smarty_tpl) {?><!-- Modal -->
+<div class="modal fade" id="tarifaEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Editar barco</h4>
+                <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-plus'></i> Editar tarifa</h4>
             </div>
-            <form class="form-horizontal" method="put" id="editar_barco" name="editar_barco">
-                <div class="modal-body">
+            <div class="modal-body">
+                <form class="form-horizontal" method="post" id="editar_tarifa" name="editar_tarifa">
                     <div id="ajax_message"></div>
                     <div class="form-group hide">
                         <div class="col-sm-8">
-                            <input type="number" class="form-control" id="barco_id" name="id" required>
+                            <input type="number" class="form-control" id="barco_id" name="barco_id" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nombre" class="col-sm-3 control-label">Nombre</label>
+                        <label for="nombre" class="col-sm-3 control-label">Barco</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="NOMBRE" required>
+                            <select class="form-control" id="barco_tarifa" name="barco_tarifa">
+                                <?php  $_smarty_tpl->tpl_vars['barco'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['barco']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['available_barcos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['barco']->key => $_smarty_tpl->tpl_vars['barco']->value){
+$_smarty_tpl->tpl_vars['barco']->_loop = true;
+?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['barco']->value['id'];?>
+"> <?php echo $_smarty_tpl->tpl_vars['barco']->value['nombre'];?>
+ </option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">Alto Plataforma </label>
+                        <label for="alto" class="col-sm-3 control-label">0 - 3 mts </label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="alto" name="alto" placeholder="ALTO" title="alto" required>
+                            <input type="number" step="any" class="form-control" id="tres_metros" name="tres_metros" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
-                            <label class="control-label"> MTS </label>
+                            <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ancho" class="col-sm-3 control-label">Ancho Plataforma</label>
+                        <label for="alto" class="col-sm-3 control-label">3 - 6 mts </label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="ancho" name="ancho" placeholder="ANCHO" title="ancho" required>
+                            <input type="number" step="any" class="form-control" id="seis_metros" name="seis_metros" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
-                            <label class="control-label"> MTS </label>
+                            <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="largo" class="col-sm-3 control-label">Largo Plataforma</label>
+                        <label for="alto" class="col-sm-3 control-label">6 - 9 mts </label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="largo" name="largo" placeholder="LARGO" title="largo" required>
+                            <input type="number" step="any" class="form-control" id="nueve_metros" name="nueve_metros" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
-                            <label class="control-label"> MTS </label>
+                            <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="capacidad" class="col-sm-3 control-label">Peso Max </label>
+                        <label for="alto" class="col-sm-3 control-label">9 - 15 mts </label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="capacidad" name="capacidad" placeholder="PESO" title="Capacidad" required>
+                            <input type="number" step="any" class="form-control" id="quince_metros" name="quince_metros" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
-                            <label class="control-label"> TON </label>
+                            <label class="control-label"> $ </label>
                         </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">15 - 18 mts </label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="dieciocho_metros" name="dieciocho_metros" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Moto Grande </label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="moto_grande" name="moto_grande" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Moto Chica </label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="moto_chica" name="moto_chica" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Bicicleta </label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="bicicleta" name="bicicleta" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" id="guardar_datos">Guardar</button>
-                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" id="guardar_datos">Guardar</button>
+            </div>
             </form>
         </div>
     </div>

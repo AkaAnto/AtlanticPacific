@@ -28,32 +28,39 @@ $(document).ready(function() {
 
     // Edit tarifa carga
     // Update values as the modal shows
-    $('#barcoEdit').on('show.bs.modal', function (event) {
+    $('#tarifaEdit').on('show.bs.modal', function (event) {
         var barco_id = event.relatedTarget.getAttribute("data-id");
-        var id = parseInt(barco_id.replace('barco_',''));
-        var name = $('td#nombre_' + barco_id).text();
-        var ancho = parseInt($('td#ancho_' + barco_id).text().replace('Mts', ''));
-        var alto = parseInt($('td#alto_' + barco_id).text().replace('Mts', ''));
-        var largo = parseInt($('td#largo_' + barco_id).text().replace('Mts', ''));
-        var capacidad = parseInt($('td#capacidad_' + barco_id).text().replace('Ton', ''));
-        $('div#barcoEdit input#nombre').val(name);
-        $('div#barcoEdit input#ancho').val(ancho);
-        $('div#barcoEdit input#alto').val(alto);
-        $('div#barcoEdit input#largo').val(largo);
-        $('div#barcoEdit input#capacidad').val(capacidad);
-        $('div#barcoEdit input#barco_id').val(id);
+        var id = parseInt(barco_id.replace('tarifa_',''));
+        var name = $('td#nombre_tarifa_' + barco_id).text();
+        var tarifa_3_mts = parseInt($('td#tarifa_3_mts_' + id).text().replace('$', ''));
+        var tarifa_6mts = parseInt($('td#tarifa_6_mts_' + id).text().replace('$', ''));
+        var tarifa_9_mts = parseInt($('td#tarifa_9_mts_' + id).text().replace('$', ''));
+        var tarifa_15_mts = parseInt($('td#tarifa_15_mts_' + id).text().replace('$', ''));
+        var tarifa_18_mts = parseInt($('td#tarifa_18_mts_' + id).text().replace('$', ''));
+        var moto_grande = parseInt($('td#tarifa_moto_grande_' + id).text().replace('$', ''));
+        var moto_chica = parseInt($('td#tarifa_moto_chica_' + id).text().replace('$', ''));
+        var bicicleta = parseInt($('td#tarifa_bicicleta_' + id).text().replace('$', ''));
+
+        $('div#tarifaEdit input#tres_metros').val(tarifa_3_mts);
+        $('div#tarifaEdit input#seis_metros').val(tarifa_6mts);
+        $('div#tarifaEdit input#nueve_metros').val(tarifa_9_mts);
+        $('div#tarifaEdit input#quince_metros').val(tarifa_15_mts);
+        $('div#tarifaEdit input#dieciocho_metros').val(tarifa_18_mts);
+        $('div#tarifaEdit input#moto_grande').val(moto_grande);
+        $('div#tarifaEdit input#moto_chica').val(moto_chica);
+        $('div#tarifaEdit input#bicicleta').val(bicicleta);
     });
 
-    $('#barcoEdit').on('hide.bs.modal', function (event) {
+    $('#tarifaEdit').on('hide.bs.modal', function (event) {
         setTimeout(function (){location.reload()},1000);
     });
 
-    $( "#editar_barco" ).submit(function( event ) {
-        $('#barcoEdit #guardar_datos').attr("disabled", true);
+    $( "#editar_tarifa" ).submit(function( event ) {
+        $('#tarifaEdit #guardar_datos').attr("disabled", true);
         var parametros = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "barcos.php",
+            url: "carga.php",
             data: parametros,
             beforeSend: function(objeto){
                 $("#ajax_message").html('<div class="alert alert-warning" role="alert">Editando barco</div>');

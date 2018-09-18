@@ -91,7 +91,7 @@
         </div>
     </div>
     {include file="admin/modal/add_tarifa_carga.tpl"}
-    {include file="admin/modal/edit_barco.tpl"}
+    {include file="admin/modal/edit_tarifa_carga.tpl"}
 {/block}
 
 {block name="js"}
