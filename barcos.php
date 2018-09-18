@@ -26,7 +26,7 @@ if ($show_list){
         $smarty->display(Template_Dir.'/admin/barco.tpl');
     }
     else{
-        Login::navigate('index');
+        Barco::navigate('index');
     }
 }
 
@@ -61,7 +61,7 @@ if ($create){
 
     }
     else{
-        Login::navigate('index');
+        Barco::navigate('index');
     }
 }
 
@@ -70,7 +70,6 @@ if ($create){
 if ($edit){
     $is_authenticated = Barco::verify();
     if ($is_authenticated){
-     
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
         $alto = $_POST['alto'];
@@ -99,7 +98,7 @@ if ($edit){
 
     }
     else{
-        Login::navigate('index');
+        Barco::navigate('index');
     }
 }
 
