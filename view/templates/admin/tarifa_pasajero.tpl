@@ -87,6 +87,7 @@
         </div>
     </div>
     {include file="admin/modal/add_tarifa_pasajero.tpl"}
+    {include file="admin/modal/edit_tarifa_pasajero.tpl"}
 {/block}
 
 {block name="js"}

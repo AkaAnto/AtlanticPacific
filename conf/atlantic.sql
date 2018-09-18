@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-09-2018 a las 22:55:14
+-- Tiempo de generación: 19-09-2018 a las 01:11:34
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.1.21
 
@@ -357,9 +357,9 @@ CREATE TABLE `tarifa_pasajero` (
 --
 
 INSERT INTO `tarifa_pasajero` (`id_barco`, `particular`, `en_auto`, `en_autobus`, `ayudante_gandola`, `conductor_gandola`, `conductor_autobus`, `id`) VALUES
-(33, '1', '1', '1', '1', '1', '1', 40),
-(34, '1', '55', '66', '77', '88', '67', 41),
-(43, '12', '13', '13', '145', '23', '34', 42),
+(48, '8', '8', '88', '8', '8', '8', 40),
+(47, '7', '7', '7', '7', '7', '7', 41),
+(34, '1', '1', '1', '11', '11', '1', 42),
 (44, '1', '77', '78', '888', '8', '8', 43),
 (45, '1', '2', '3', '4', '5', '6', 44),
 (46, '1', '2', '4', '5', '7', '6', 45);

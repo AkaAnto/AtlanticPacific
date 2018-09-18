@@ -29,26 +29,24 @@ $(document).ready(function() {
     // Edit tarifa carga
     // Update values as the modal shows
     $('#tarifaEdit').on('show.bs.modal', function (event) {
-        var barco_id = event.relatedTarget.getAttribute("data-id");
-        var id = parseInt(barco_id.replace('tarifa_',''));
-        var name = $('td#nombre_tarifa_' + barco_id).text();
-        var tarifa_3_mts = parseInt($('td#tarifa_3_mts_' + id).text().replace('$', ''));
-        var tarifa_6mts = parseInt($('td#tarifa_6_mts_' + id).text().replace('$', ''));
-        var tarifa_9_mts = parseInt($('td#tarifa_9_mts_' + id).text().replace('$', ''));
-        var tarifa_15_mts = parseInt($('td#tarifa_15_mts_' + id).text().replace('$', ''));
-        var tarifa_18_mts = parseInt($('td#tarifa_18_mts_' + id).text().replace('$', ''));
-        var moto_grande = parseInt($('td#tarifa_moto_grande_' + id).text().replace('$', ''));
-        var moto_chica = parseInt($('td#tarifa_moto_chica_' + id).text().replace('$', ''));
-        var bicicleta = parseInt($('td#tarifa_bicicleta_' + id).text().replace('$', ''));
+        var id_barco = event.relatedTarget.getAttribute("data-id");
+        var id = parseInt(id_barco.replace('tarifa_',''));
+        var name = $('td#nombre_tarifa_' + id_barco).text();
+        var tarifa_particular = parseInt($('td#tarifa_particular_' + id).text().replace('$', ''));
+        var tarifa_en_auto = parseInt($('td#tarifa_en_auto_' + id).text().replace('$', ''));
+        var tarifa_en_autobus = parseInt($('td#tarifa_en_autobus_' + id).text().replace('$', ''));
+        var tarifa_ayudante_gandola = parseInt($('td#tarifa_ayudante_gandola_' + id).text().replace('$', ''));
+        var tarifa_conductor_gandola = parseInt($('td#tarifa_conductor_gandola_' + id).text().replace('$', ''));
+        var tarifa_conductor_autobus = parseInt($('td#tarifa_conductor_autobus_' + id).text().replace('$', ''));
 
-        $('div#tarifaEdit input#tres_metros').val(tarifa_3_mts);
-        $('div#tarifaEdit input#seis_metros').val(tarifa_6mts);
-        $('div#tarifaEdit input#nueve_metros').val(tarifa_9_mts);
-        $('div#tarifaEdit input#quince_metros').val(tarifa_15_mts);
-        $('div#tarifaEdit input#dieciocho_metros').val(tarifa_18_mts);
-        $('div#tarifaEdit input#moto_grande').val(moto_grande);
-        $('div#tarifaEdit input#moto_chica').val(moto_chica);
-        $('div#tarifaEdit input#bicicleta').val(bicicleta);
+        $('div#tarifaEdit input#id_barco').val(id);
+        $('div#tarifaEdit input#particular').val(tarifa_particular);
+        $('div#tarifaEdit input#en_auto').val(tarifa_en_auto);
+        $('div#tarifaEdit input#en_autobus').val(tarifa_en_autobus);
+        $('div#tarifaEdit input#ayudante_gandola').val(tarifa_ayudante_gandola);
+        $('div#tarifaEdit input#conductor_gandola').val(tarifa_conductor_gandola);
+        $('div#tarifaEdit input#conductor_autobus').val(tarifa_conductor_autobus);
+  
     });
 
     $('#tarifaEdit').on('hide.bs.modal', function (event) {
@@ -58,20 +56,22 @@ $(document).ready(function() {
     $( "#editar_tarifa" ).submit(function( event ) {
         $('#tarifaEdit #guardar_datos').attr("disabled", true);
         var parametros = $(this).serialize();
+
         $.ajax({
             type: "POST",
-            url: "carga.php",
+            url: "pasajero.php",
             data: parametros,
             beforeSend: function(objeto){
-                $("#ajax_message").html('<div class="alert alert-warning" role="alert">Editando barco</div>');
+                $("#ajax_message").html('<div class="alert alert-warning" role="alert">Editando tarifa</div>');
             },
             success: function(datos){
-                var id = parametros.split('&nombre')[0].replace('id=','');
-                $("tr#barco_" + id).remove();
-                $("#add_barco_success_table").prepend(datos);
-                $('#editar_barco #guardar_datos').attr("disabled", false);
-                $("#editar_barco #ajax_message").html("");
-                $("#editar_barco #ajax_message").html('<div class="alert alert-success" role="alert">Barco editado</div>');
+                console.log(parametros);
+                var id = parametros.split('id=')[1].split('&')[0];   
+                $("tr#tarifa_" + id).remove();
+                $("#add_tarifa_success_table").prepend(datos);
+                $('#editar_tarifa #guardar_datos').attr("disabled", false);
+                $("#editar_tarifa #ajax_message").html("");
+                $("#editar_tarifa #ajax_message").html('<div class="alert alert-success" role="alert">Tarifa editada</div>');
                 setTimeout(function (){$("#editar_barco #ajax_message").html("");},3000);
             }
         });

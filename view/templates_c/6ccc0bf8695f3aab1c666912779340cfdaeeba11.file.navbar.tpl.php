@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 20:13:42
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 23:01:15
          compiled from "view/templates/admin/navbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13891214325b9e59dbcc26f7-72134849%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6ccc0bf8695f3aab1c666912779340cfdaeeba11' => 
     array (
       0 => 'view/templates/admin/navbar.tpl',
-      1 => 1537293062,
+      1 => 1537304367,
       2 => 'file',
     ),
   ),
@@ -38,8 +38,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <li class=""><a href="bookings.php"><i class='glyphicon glyphicon-barcode'></i> Bookings</a></li>
                 <li class=""><a href="viajes.php"><i class='glyphicon glyphicon-road'></i> Viajes <span class="sr-only">(current)</span></a></li>
                 <li class=""><a href="barcos.php"><i class='glyphicon glyphicon-object-align-vertical'></i> Barcos <span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="tarifas_pasajeros.php"><i class='glyphicon glyphicon-usd'></i> Tarifas Pasajero <span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="tarifas_carga.php"><i class='glyphicon glyphicon-usd'></i> Tarifas Carga <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="pasajero.php"><i class='glyphicon glyphicon-usd'></i> Tarifas Pasajero <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="carga.php"><i class='glyphicon glyphicon-usd'></i> Tarifas Carga <span class="sr-only">(current)</span></a></li>
                 <li class=""><a href="usuarios.php"><i  class='glyphicon glyphicon-lock'></i> Usuarios</a></li>
                 <li class=""><a href="perfil.php"><i  class='glyphicon glyphicon-cog'></i> Configuración</a></li>
             </ul>
