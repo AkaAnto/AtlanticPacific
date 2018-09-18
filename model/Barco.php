@@ -7,6 +7,7 @@ include_once Lib_String;
 define ("get_all_barcos", 'SELECT *  FROM barco order by id DESC');
 define ("get_barco_by_name", 'SELECT *  FROM barco where nombre="%"');
 define ("create_barco", "INSERT INTO barco (nombre, alto, ancho, largo, capacidad) VALUES('%', %, %, %,%)");
+define ("update_barco", "update barco set nombre='%', alto=%, ancho=%, largo=%, capacidad=% where id=%");
 
 
 class Barco extends Login {
@@ -29,6 +30,18 @@ class Barco extends Login {
         $values[3] = $largo;
         $values[4] = $capacidad ;
         $query = CustomString::concatenate(create_barco, $values);
+        return Barco::run_query($query);
+    }
+
+    public static function update($id, $nombre, $alto, $ancho, $largo, $capacidad) {
+        $values = array();
+        $values[0] = $nombre;
+        $values[1] = $alto;
+        $values[2] = $ancho;
+        $values[3] = $largo;
+        $values[4] = $capacidad ;
+        $values[5] = $id ;
+        $query = CustomString::concatenate(update_barco, $values);
         return Barco::run_query($query);
     }
 

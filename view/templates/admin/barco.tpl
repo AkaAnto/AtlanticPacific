@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" id="search_booking_input" placeholder="NOMBRE DEL BARCO" onkeyup='load(1);'>
+                                        <input type="text" class="form-control" id="search_booking_input" placeholder="NOMBRE DEL BARCO">
                                     </div>
                                     <div class="col-md-3">
                                         <button type="button" class="btn btn-default" onclick="load(1);" style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
@@ -42,28 +42,31 @@
             <div class="panel-body">
                 <table class="table" id="table-booking">
                     <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Ancho Plataforma</th>
-                        <th>Alto Plataforma</th>
-                        <th>Largo Plataforma</th>
-                        <th>Peso Máx</th>
-                        <th>Acciones</th>
-                    </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Ancho Plataforma</th>
+                            <th>Alto Plataforma</th>
+                            <th>Largo Plataforma</th>
+                            <th>Peso Máx</th>
+                            <th>Acciones</th>
+                        </tr>
                     </thead>
                     <tbody id="add_barco_success_table">
                     {foreach  from=$barcos item=barco}
-                        <tr id="barco_{$barco.id}">
-                            <td>{$barco.nombre}</td>
-                            <td>{$barco.ancho} Mts</td>
-                            <td>{$barco.alto} Mts</td>
-                            <td>{$barco.largo} Mts</td>
-                            <td>{$barco.capacidad} Ton</td>
+                        <tr id="barco_{$barco.id}" class="{$barco.nombre}">
+                            <td id="nombre_barco_{$barco.id}" >{$barco.nombre}</td>
+                            <td id="ancho_barco_{$barco.id}">{intval($barco.ancho)} Mts</td>
+                            <td id="alto_barco_{$barco.id}">{intval($barco.alto)} Mts</td>
+                            <td id="largo_barco_{$barco.id}">{intval($barco.largo)} Mts</td>
+                            <td id="capacidad_barco_{$barco.id}">{intval($barco.capacidad)} Ton</td>
                             <td>
                             <span class="">
-                                <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="ver booking" onclick="" data-toggle="modal" data-target="#bookingDetail"><i class="glyphicon glyphicon-eye-open"></i></a>
-                                <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="editar booking" onclick="" data-toggle="modal" data-target="#bookingEdit"><i class="glyphicon glyphicon-edit"></i></a>
-                                <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="aprobar booking" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-ok"></i></a>
+                                <a href="#" class="btn btn-default" title="ver barco"  data-toggle="modal" data-target="#barcoDetail">
+                                    <i data-id="barco_{$barco.id}" class="glyphicon glyphicon-eye-open"></i>
+                                </a>
+                                <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="editar barco" data-toggle="modal" data-target="#barcoEdit">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
                             </span>
                             </td>
                         </tr>
@@ -76,6 +79,7 @@
         </div>
     </div>
     {include file="admin/modal/add_barco.tpl"}
+    {include file="admin/modal/edit_barco.tpl"}
 {/block}
 
 {block name="js"}
