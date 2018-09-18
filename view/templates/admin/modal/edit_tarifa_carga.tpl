@@ -11,7 +11,7 @@
                     <div id="ajax_message"></div>
                     <div class="form-group hide">
                         <div class="col-sm-8">
-                            <input type="number" class="form-control" id="barco_id" name="barco_id" required>
+                            <input type="number" class="form-control" id="barco_id" name="barco_id"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label for="alto" class="col-sm-3 control-label">0 - 3 mts </label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="tres_metros" name="tres_metros" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="tres_metros" name="tres_metros" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>
