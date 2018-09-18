@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 21:18:39
+<?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 22:38:34
          compiled from "view/templates/admin/tarifa_pasajero.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1245901655ba14f8f3d8ca1-12755139%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3a590e41885fbbdd60dda123b8d8afdd3587bd7f' => 
     array (
       0 => 'view/templates/admin/tarifa_pasajero.tpl',
-      1 => 1537298232,
+      1 => 1537303111,
       2 => 'file',
     ),
     'bf835c28d3ccab3f6680d27b86afdd2fefdd9dda' => 
@@ -16,14 +16,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       1 => 1537293062,
       2 => 'file',
     ),
+    '3af58859840338512e73b893378815984e6168ac' => 
+    array (
+      0 => 'view/templates/admin/modal/add_tarifa_pasajero.tpl',
+      1 => 1537299814,
+      2 => 'file',
+    ),
   ),
   'nocache_hash' => '1245901655ba14f8f3d8ca1-12755139',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
   'unifunc' => 'content_5ba14f8f422010_32996862',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5ba14f8f422010_32996862')) {function content_5ba14f8f422010_32996862($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="es">
@@ -147,17 +153,114 @@ $</b></td>
             <hr>
         </div>
     </div>
-   
+    <?php /*  Call merged included template "admin/modal/add_tarifa_pasajero.tpl" */
+$_tpl_stack[] = $_smarty_tpl;
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("admin/modal/add_tarifa_pasajero.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0, '1245901655ba14f8f3d8ca1-12755139');
+content_5ba1624adc0704_37974053($_smarty_tpl);
+$_smarty_tpl = array_pop($_tpl_stack); /*  End of included template "admin/modal/add_tarifa_pasajero.tpl" */?>
 
     </div><!-- /container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     
     <script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['js']->value;?>
-tarifa_carga.js"></script>
+tarifa_pasajero.js"></script>
 
     <?php echo $_smarty_tpl->getSubTemplate ("admin/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 </body>
 </html>
-<?php }} ?>
+<?php }} ?><?php /* Smarty version Smarty-3.1.14, created on 2018-09-18 22:38:34
+         compiled from "view/templates/admin/modal/add_tarifa_pasajero.tpl" */ ?>
+<?php if ($_valid && !is_callable('content_5ba1624adc0704_37974053')) {function content_5ba1624adc0704_37974053($_smarty_tpl) {?><!-- Modal -->
+<div class="modal fade" id="tarifaAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-plus'></i> Agregar tarifa</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" method="post" id="agregar_tarifa" name="agregar_tarifa">
+                    <div id="ajax_message"></div>
+                    <div class="form-group">
+                        <label for="nombre" class="col-sm-3 control-label">Barco</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="barco_tarifa" name="barco_tarifa">
+                                <?php  $_smarty_tpl->tpl_vars['barco'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['barco']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['available_barcos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['barco']->key => $_smarty_tpl->tpl_vars['barco']->value){
+$_smarty_tpl->tpl_vars['barco']->_loop = true;
+?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['barco']->value['id'];?>
+"> <?php echo $_smarty_tpl->tpl_vars['barco']->value['nombre'];?>
+ </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Pasajero particular</label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="particular" name="particular" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">En auto a bordo</label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="en_auto" name="en_auto" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">En autobus a bordo</label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="en_autobus" name="en_autobus" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Ayudante de gandola</label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="ayudante_gandola" name="ayudante_gandola" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Conductor de gandola</label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="conductor_gandola" name="conductor_gandola" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alto" class="col-sm-3 control-label">Conductor de autobus </label>
+                        <div class="col-sm-7">
+                            <input type="number" step="any" class="form-control" id="conductor_autobus" name="conductor_autobus" placeholder="" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label"> $ </label>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" id="guardar_datos">Guardar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div><?php }} ?>

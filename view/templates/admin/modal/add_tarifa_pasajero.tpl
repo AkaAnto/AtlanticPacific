@@ -20,72 +20,54 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">0 - 3 mts </label>
+                        <label for="alto" class="col-sm-3 control-label">Pasajero particular</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="tres_metros" name="tres_metros" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="particular" name="particular" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">3 - 6 mts </label>
+                        <label for="alto" class="col-sm-3 control-label">En auto a bordo</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="seis_metros" name="seis_metros" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="en_auto" name="en_auto" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">6 - 9 mts </label>
+                        <label for="alto" class="col-sm-3 control-label">En autobus a bordo</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="nueve_metros" name="nueve_metros" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="en_autobus" name="en_autobus" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">9 - 15 mts </label>
+                        <label for="alto" class="col-sm-3 control-label">Ayudante de gandola</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="quince_metros" name="quince_metros" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="ayudante_gandola" name="ayudante_gandola" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">15 - 18 mts </label>
+                        <label for="alto" class="col-sm-3 control-label">Conductor de gandola</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="dieciocho_metros" name="dieciocho_metros" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="conductor_gandola" name="conductor_gandola" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">Moto Grande </label>
+                        <label for="alto" class="col-sm-3 control-label">Conductor de autobus </label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="moto_grande" name="moto_grande" placeholder="" required>
-                        </div>
-                        <div class="col-sm-1">
-                            <label class="control-label"> $ </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">Moto Chica </label>
-                        <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="moto_chica" name="moto_chica" placeholder="" required>
-                        </div>
-                        <div class="col-sm-1">
-                            <label class="control-label"> $ </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="alto" class="col-sm-3 control-label">Bicicleta </label>
-                        <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="bicicleta" name="bicicleta" placeholder="" required>
+                            <input type="number" step="any" class="form-control" id="conductor_autobus" name="conductor_autobus" placeholder="" required>
                         </div>
                         <div class="col-sm-1">
                             <label class="control-label"> $ </label>

@@ -86,9 +86,9 @@
             <hr>
         </div>
     </div>
-   
+    {include file="admin/modal/add_tarifa_pasajero.tpl"}
 {/block}
 
 {block name="js"}
-    <script type="text/javascript" src="{$js}tarifa_carga.js"></script>
+    <script type="text/javascript" src="{$js}tarifa_pasajero.js"></script>
 {/block}

@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 include_once 'conf/constant.php';
 include_once TarifaPasajero;
 
-define('new_TarifaCarga_row', '
+define('new_TarifaPasajero_row', '
     <tr class="ajax_new" id="tarifa_%">  
         <td>%</td>  
         <td>%$</td> 
@@ -12,9 +12,7 @@ define('new_TarifaCarga_row', '
         <td>%$</td> 
         <td>%$</td> 
         <td>%$</td> 
-        <td>%$</td> 
-        <td>%$</td> 
-        <td>%$</td> 
+        <td>%$</td>  
         <td>
             <span class="">
                 <a href="#" data-id="TarifaCarga_%" class="btn btn-default" title="editar Tarifa Carga" onclick="" data-toggle="modal" data-target="#TarifaCargaEdit"><i class="glyphicon glyphicon-edit"></i></a>
@@ -32,7 +30,7 @@ if ($show_list){
     $is_authenticated = TarifaPasajero::verify();
     if ($is_authenticated){
         $smarty->assign('tarifa_pasajeros', TarifaPasajero::get_list());
-        // $smarty->assign('available_barcos', TarifaPasajero::get_barcos());
+        $smarty->assign('available_barcos', TarifaPasajero::get_barcos());
         $smarty->display(Template_Dir.'/admin/tarifa_pasajero.tpl');
         
     }
@@ -41,41 +39,38 @@ if ($show_list){
     }
 }
 
-// Add new TarifaCarga
+// Add new TarifaPasajero
 if ($create){
-    $is_authenticated = TarifaCarga::verify();
+    $is_authenticated = TarifaPasajero::verify();
     if ($is_authenticated){
 
         $id_barco = $_POST['barco_tarifa'];
-        $tres_metros = $_POST['tres_metros'];
-        $seis_metros = $_POST['seis_metros'];
-        $nueve_metros = $_POST['nueve_metros'];
-        $quince_metros = $_POST['quince_metros'];
-        $dieciocho_metros = $_POST['dieciocho_metros'];
-        $moto_grande  = $_POST['moto_grande'];
-        $moto_chica = $_POST['moto_chica'];
-        $bicicleta = $_POST['bicicleta'];
+        $particular = $_POST['particular'];
+        $en_auto = $_POST['en_auto'];
+        $en_autobus = $_POST['en_autobus'];
+        $ayudante_gandola = $_POST['ayudante_gandola'];
+        $conductor_gandola = $_POST['conductor_gandola'];
+        $conductor_autobus  = $_POST['conductor_autobus'];
 
-        $insert_result = TarifaCarga::create($id_barco, $tres_metros, $seis_metros, $nueve_metros, $quince_metros, $dieciocho_metros, $moto_grande, $moto_chica, $bicicleta);
+        $insert_result = TarifaPasajero::create($id_barco, $particular , $en_auto, $en_autobus, $ayudante_gandola , $conductor_gandola, $conductor_autobus);
         if ($insert_result == 1 ){
-            $new_tarifa_carga = TarifaCarga::get_tarifa_carga_as_row_by_barco_id($id_barco)[0];
+            $new_tarifa_pasajero = TarifaPasajero::get_tarifa_pasajero_as_row_by_barco_id($id_barco)[0];
             $values = array();
-            $values[0] = $new_tarifa_carga['id_barco'];
-            $values[1] = $new_tarifa_carga['nombre'];
-            $values[2] = $tres_metros;
-            $values[3] = $seis_metros;
-            $values[4] = $nueve_metros;
-            $values[5] = $quince_metros;
-            $values[6] = $dieciocho_metros ;
-            $values[7] = $moto_grande;
-            $values[8] = $moto_chica;
-            $values[9] = $bicicleta;
-            $values[10] = $new_tarifa_carga['id_barco'];
-            $response = CustomString::concatenate(new_TarifaCarga_row, $values);
+            $values[0] = $new_tarifa_pasajero['id_barco'];
+            $values[1] = $new_tarifa_pasajero['nombre'];
+            $values[2] = $particular; 
+            $values[3] = $en_auto ;
+            $values[4] = $en_autobus;
+            $values[5] = $ayudante_gandola;
+            $values[6] = $conductor_gandola;
+            $values[7] = $conductor_autobus;
+            $values[8] = $new_tarifa_pasajero['id_barco'];
+            $response = CustomString::concatenate(new_TarifaPasajero_row, $values);
             echo $response;
+            
         }
         else{
-           echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al crear el nuevo TarifaCarga</div> ';
+           echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al crear el nuevo TarifaPasajero</div> ';
         }
 
     }
@@ -113,7 +108,7 @@ if ($edit){
             echo $response;
         }
         else{
-            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al editar el TarifaCarga</div> ';
+            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al editar el TarifaPasajero</div> ';
         }
 
     }
