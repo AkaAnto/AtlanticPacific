@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-09-2018 a las 01:11:34
+-- Tiempo de generación: 19-09-2018 a las 05:54:30
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.1.21
 
@@ -333,7 +333,8 @@ INSERT INTO `tarifa_carga` (`id`, `id_barco`, `tres_metros`, `seis_metros`, `nue
 (20, 45, '100.00', '200', '300', '400', '500', '600', '700', '800'),
 (21, 43, '100.00', '100', '100', '100', '100', '100', '100', '100'),
 (22, 44, '100.00', '100', '100', '100', '100', '100', '100', '100'),
-(23, 46, '500.00', '500', '500', '500', '500', '500', '500', '500');
+(23, 46, '500.00', '500', '500', '500', '500', '500', '500', '500'),
+(24, 47, '9.00', '9', '9', '9', '9', '9', '9', '9');
 
 -- --------------------------------------------------------
 
@@ -362,7 +363,8 @@ INSERT INTO `tarifa_pasajero` (`id_barco`, `particular`, `en_auto`, `en_autobus`
 (34, '1', '1', '1', '11', '11', '1', 42),
 (44, '1', '77', '78', '888', '8', '8', 43),
 (45, '1', '2', '3', '4', '5', '6', 44),
-(46, '1', '2', '4', '5', '7', '6', 45);
+(46, '1', '2', '4', '5', '7', '6', 45),
+(43, '9', '9', '9', '9', '9', '9', 46);
 
 -- --------------------------------------------------------
 
@@ -445,17 +447,8 @@ CREATE TABLE `viaje` (
 --
 
 INSERT INTO `viaje` (`fecha`, `puerto_origen`, `puerto_destino`, `id_barco`, `id`) VALUES
-('2018-09-19', 'puerto-costarica', 'puerto-costarica', 8, 2),
-('2018-09-30', 'puerto-elsalvador', 'puerto-costarica', 8, 7),
-('2018-09-30', 'puerto-costarica', 'puerto-elsalvador', 19, 8),
-('2018-12-01', 'puerto-costarica', 'puerto-costarica', 19, 9),
-('2019-08-06', 'puerto-costarica', 'puerto-elsalvador', 19, 10),
-('2018-09-02', 'puerto-elsalvador', 'puerto-costarica', 20, 11),
-('2018-09-06', 'puerto-costarica', 'puerto-costarica', 18, 12),
-('2018-09-06', 'puerto-costarica', 'puerto-costarica', 18, 13),
-('2018-09-19', 'puerto-costarica', 'puerto-elsalvador', 20, 14),
-('2018-09-24', 'puerto-costarica', 'puerto-elsalvador', 26, 15),
-('2018-09-12', 'puerto-costarica', 'puerto-costarica', 26, 16);
+('0000-00-00', '2', '1', 34, 24),
+('0000-00-00', '2', '1', 33, 25);
 
 --
 -- Índices para tablas volcadas
@@ -631,13 +624,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `tarifa_carga`
 --
 ALTER TABLE `tarifa_carga`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `tarifa_pasajero`
 --
 ALTER TABLE `tarifa_pasajero`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `tmp`
@@ -655,7 +648,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
