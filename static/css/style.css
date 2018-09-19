@@ -1285,3 +1285,11 @@ div.thumbnail{
 .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
 
 
+.list-group-item{
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+.list-group-item:hover{
+    border-color: blue;
+}

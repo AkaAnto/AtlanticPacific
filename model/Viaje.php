@@ -5,10 +5,10 @@ include_once Lib_String;
 
 
 define ("get_all_viajes", 'SELECT b.nombre, v.*  FROM  barco b, viaje v where b.id=v.id_barco order by v.id_barco ASC');
-define ("get_barcos_without_viajes", 'SELECT b.nombre, b.id from barco b where b.id not in (select id_barco from viaje)');
+define ("get_all_barcos", 'SELECT b.nombre, b.id from barco b');
 define ("get_viaje_by_barco_id", 'SELECT b.nombre as nombre , v.*  FROM barco b, viaje v where v.id_barco=% and b.id=v.id_barco');
 define ("create_viaje", "INSERT INTO viaje (fecha, puerto_origen, puerto_destino, id_barco)
-        VALUES(%, %, %, %)");
+        VALUES('%', '%', '%', %)");
 define ("update_tarifa_pasajero", "update tarifa_pasajero set id_barco=%, particular=%, en_auto=%, en_autobus=%, 
 ayudante_gandola=%, conductor_gandola=% ,conductor_autobus=% where id_barco=%");
 
@@ -26,7 +26,7 @@ class Viaje extends Login {
     }
 
     public static function get_barcos() {
-        $barcos = Viaje::run_select(get_barcos_without_viajes);
+        $barcos = Viaje::run_select(get_all_barcos);
         if (sizeof($barcos) >= 1){
             return $barcos;
         }
@@ -42,6 +42,7 @@ class Viaje extends Login {
         $values[2] = $puerto_destino;
         $values[3] = $id_barco;
         $query = CustomString::concatenate(create_viaje, $values);
+        echo $query;
         return Viaje::run_query($query);
     }
 
@@ -56,7 +57,6 @@ class Viaje extends Login {
         $values[6] = $conductor_autobus;
         $values[7] = $id;
         $query = CustomString::concatenate(update_tarifa_pasajero, $values);
-        echo $query;
         return Viaje::run_query($query);
        
     }

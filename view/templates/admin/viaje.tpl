@@ -50,17 +50,17 @@
                             <th>Barco</th>
                             <th>Fecha</th>
                             <th>Puerto Origen</th>
-                            <th>Puerto destino</th>
+                            <th>Puerto Destino</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="add_viaje_success_table">
-                    {foreach  from=$viaje item=tarifa}
+                    {foreach  from=$viajes item=viaje}
                         <tr id="viaje_{$viaje.id_barco}" class="{$viaje.nombre}">
                             <td id="nombre_viaje_{$viaje.id_barco}" >{$viaje.nombre}</td>
-                            <td id="viaje_fecha_{$viaje.id_barco}"> <b> {intval($viaje.fecha)}$</b></td>
-                            <td id="viaje_puerto_origen_{$viaje.id_barco}"> <b> {intval($viaje.puerto_origen)}$</b></td>
-                            <td id="viaje_puerto_destino_{$viaje.id_barco}"> <b> {intval($viaje.puerto_destino)}$</b></td>
+                            <td id="viaje_fecha_{$viaje.id_barco}"> <b> {$viaje.fecha}</b></td>
+                            <td id="viaje_puerto_origen_{$viaje.id_barco}"> <b> {$viaje.puerto_origen}</b></td>
+                            <td id="viaje_puerto_destino_{$viaje.id_barco}"> <b> {$viaje.puerto_destino}</b></td>
                             <td>
                             <span class="">
                                 {*<a href="#" class="btn btn-default" title="ver tarifa"  data-toggle="modal" data-target="#tarifaDetail">*}

@@ -48,8 +48,18 @@
                                         <option value="costarica_elsalvador">Costa Rica - El Savador</option>
                                     </select>
                                 </div>
-                                <div class="input-group date" style="margin-top: -10px">
-                                    <input id="outbounddate" placeholder="FECHA DE SALIDA" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                {*<div class="input-group date" style="margin-top: -10px">*}
+                                    {*<input id="outbounddate" placeholder="FECHA DE SALIDA" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>*}
+                                {*</div>*}
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="list-group" style="display: contents">
+                                            <button type="button" class="list-group-item col-md-3">2018-09-20</button>
+                                            <button type="button" class="list-group-item col-md-3 ">2018-09-20</button>
+                                            <button type="button" class="list-group-item col-md-3 ">2018-09-20</button>
+
+                                        </div>
+                                    </div>
                                 </div>
                                 <a class="btn btn-default btn-square" onclick="goToSecondStep()" style="margin-top: 10px">
                                     <i class="fas fa-arrow-circle-right"> </i> Siguiente

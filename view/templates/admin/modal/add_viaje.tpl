@@ -22,24 +22,26 @@
                     <div class="form-group">
                         <label for="alto" class="col-sm-3 control-label">Fecha </label>
                         <div class="col-sm-7">
-                            <input type="text" step="any" class="form-control" id="fecha" name="fecha" placeholder="" title="alto" required>
+                            <input type="date"  class="form-control" id="fecha" name="fecha" placeholder="" title="fecha" required>
                         </div>
-    
                     </div>
                     <div class="form-group">
                         <label for="ancho" class="col-sm-3 control-label">Puerto de Origen</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="puerto_origen" name="puerto_origen" placeholder="" title="ancho" required>
+                            <select class="form-control" id="puerto_origen" name="puerto_origen">
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="El Salvador">El Salvador</option>
+                            </select>
                         </div>
-                        
                     </div>
-
                     <div class="form-group">
                         <label for="ancho" class="col-sm-3 control-label">Puerto destino</label>
                         <div class="col-sm-7">
-                            <input type="number" step="any" class="form-control" id="puerto_destino" name="puerto_destino" placeholder="" title="ancho" required>
+                            <select class="form-control" id="puerto_destino" name="puerto_destino">
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="El Salvador">El Salvador</option>
+                            </select>
                         </div>
-                        
                     </div>
                    
             </div>

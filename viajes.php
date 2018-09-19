@@ -28,7 +28,7 @@ $edit= $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
 if ($show_list){
     $is_authenticated = Viaje::verify();
     if ($is_authenticated){
-        $smarty->assign('viaje', Viaje::get_list());
+        $smarty->assign('viajes', Viaje::get_list());
         $smarty->assign('available_barcos', Viaje::get_barcos());
         $smarty->display(Template_Dir.'/admin/viaje.tpl');
         
@@ -55,9 +55,9 @@ if ($create){
             $values = array();
             $values[0] = $new_viaje['id_barco'];
             $values[1] = $new_viaje['nombre'];
-            $fecha[2] = $fecha; 
-            $puerto_origen[3] = $puerto_origen ;
-            $puerto_destino[4] = $puerto_destino;
+            $values[2] = $fecha;
+            $values[3] = $puerto_origen ;
+            $values[4] = $puerto_destino;
             $values[5] = $new_viaje['id_barco'];
             $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;
