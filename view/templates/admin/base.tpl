@@ -11,7 +11,9 @@
     {block name="header"}{/block}
 </head>
 <body style="overflow-x: hidden">
-    {include file="admin/navbar.tpl"}
+    {block name="navbar"}
+        {include file="admin/navbar.tpl"}
+    {/block}
     <div class="container">
         {block name="content"}{/block}
     </div><!-- /container -->
