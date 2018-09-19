@@ -11,7 +11,7 @@
                 <div class="panel-heading">
                     <div class="col-md-4">
                         {*Title*}
-                        <h4> Tarifas de Pasajero</h4>
+                        <h4> Viajes</h4>
                     </div>
                     <div class="col-md-8">
                         <div class="col-md-12">
@@ -19,8 +19,8 @@
                                 <div class="form-group row" style="margin-bottom: 50px; position: relative;">
                                     <div class="col-md-4">
                                         {*Create Button*}
-                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#tarifaAdd">
-                                            <span class="glyphicon glyphicon-plus"></span> Nueva Tarifa de Pasajero
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#viajeAdd">
+                                            <span class="glyphicon glyphicon-plus"></span> Nuevo viaje
                                         </button>
                                     </div>
                                     <div class="col-md-8">
@@ -48,25 +48,19 @@
                     <thead>
                         <tr>
                             <th>Barco</th>
-                            <th>Particular</th>
-                            <th>En auto a bordo</th>
-                            <th>En autobus a bordo</th>
-                            <th>Ayudante de gandola</th>
-                            <th>Conductor de gandola</th>
-                            <th>Conductor de autobus</th>
+                            <th>Fecha</th>
+                            <th>Puerto Origen</th>
+                            <th>Puerto destino</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="add_tarifa_success_table">
-                    {foreach  from=$tarifa_pasajeros item=tarifa}
-                        <tr id="tarifa_{$tarifa.id_barco}" class="{$tarifa.nombre}">
-                            <td id="nombre_tarifa_{$tarifa.id_barco}" >{$tarifa.nombre}</td>
-                            <td id="tarifa_particular_{$tarifa.id_barco}"> <b> {intval($tarifa.particular)}$</b></td>
-                            <td id="tarifa_en_auto_{$tarifa.id_barco}"> <b> {intval($tarifa.en_auto)}$</b></td>
-                            <td id="tarifa_en_autobus_{$tarifa.id_barco}"> <b> {intval($tarifa.en_autobus)}$</b></td>
-                            <td id="tarifa_ayudante_gandola_{$tarifa.id_barco}"> <b> {intval($tarifa.ayudante_gandola)}$</b></td>
-                            <td id="tarifa_conductor_gandola_{$tarifa.id_barco}"> <b> {intval($tarifa.conductor_gandola)}$</b></td>
-                            <td id="tarifa_conductor_autobus_{$tarifa.id_barco}"> <b> {intval($tarifa.conductor_autobus)}$</b></td>
+                    <tbody id="add_viaje_success_table">
+                    {foreach  from=$viaje item=tarifa}
+                        <tr id="viaje_{$viaje.id_barco}" class="{$viaje.nombre}">
+                            <td id="nombre_viaje_{$viaje.id_barco}" >{$viaje.nombre}</td>
+                            <td id="viaje_fecha_{$viaje.id_barco}"> <b> {intval($viaje.fecha)}$</b></td>
+                            <td id="viaje_puerto_origen_{$viaje.id_barco}"> <b> {intval($viaje.puerto_origen)}$</b></td>
+                            <td id="viaje_puerto_destino_{$viaje.id_barco}"> <b> {intval($viaje.puerto_destino)}$</b></td>
                             <td>
                             <span class="">
                                 {*<a href="#" class="btn btn-default" title="ver tarifa"  data-toggle="modal" data-target="#tarifaDetail">*}
@@ -86,10 +80,9 @@
             <hr>
         </div>
     </div>
-    {include file="admin/modal/add_tarifa_pasajero.tpl"}
-    {include file="admin/modal/edit_tarifa_pasajero.tpl"}
+    {include file="admin/modal/add_viaje.tpl"}
 {/block}
 
 {block name="js"}
-    <script type="text/javascript" src="{$js}tarifa_pasajero.js"></script>
+     <script type="text/javascript" src="{$js}viaje.js"></script>
 {/block}
