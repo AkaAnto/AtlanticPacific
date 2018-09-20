@@ -4,7 +4,10 @@ jQuery(document).ready(function ($) {
     $('#myTabs a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
-    })
+    });
+
+    //Init dropdown
+    $('.dropdown-toggle').dropdown();
 
     $('#vehicle_type').change(function (event) {
         $('#cargo_high').removeClass('hide');
@@ -36,7 +39,11 @@ jQuery(document).ready(function ($) {
 var booking;
 
 
-
+function selectDate(event) {
+    var dateValue = event.target.innerText;
+    $('div.booking_date').text(dateValue);
+    console.log(dateValue);
+}
 
 function goToSecondStep(){
     $('#myTabs li:eq(1) a').tab('show');

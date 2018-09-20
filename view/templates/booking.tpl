@@ -48,16 +48,42 @@
                                         <option value="costarica_elsalvador">Costa Rica - El Savador</option>
                                     </select>
                                 </div>
-                                {*<div class="input-group date" style="margin-top: -10px">*}
-                                    {*<input id="outbounddate" placeholder="FECHA DE SALIDA" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>*}
-                                {*</div>*}
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="list-group" style="display: contents">
-                                            <button type="button" class="list-group-item col-md-3">2018-09-20</button>
-                                            <button type="button" class="list-group-item col-md-3 ">2018-09-20</button>
-                                            <button type="button" class="list-group-item col-md-3 ">2018-09-20</button>
 
+                                <div class="form-group">
+                                    <button class=" col-md-12 dropdown-toggle btn btn-square" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" style="border: solid 1px lightgrey;">
+                                        <div class="col-md-11 booking_date">
+                                            SELECCIONE UNA FECHA
+                                        </div>
+                                        <div class="col-md-1" style="display: inline">
+                                            <span class="caret" style="margin-left: 15px"></span>
+                                        </div>
+                                    </button>
+                                    <div class="dropdown-menu col-md-11" id="menu3" >
+                                        <div style="display: inline-flex">
+                                            <div class="list-group col-md-4" style="margin-left: 27px">
+                                                <a onclick="selectDate(event);" class="btn date-btn list-group-item active" data-value="01/10/2018">
+                                                    <h6 class="list-group-item-heading" data-value="01/10/2018">01/10/2018</h6>
+                                                </a>
+                                                <a onclick="selectDate(event);" class="btn date-btn list-group-item active" data-value="01/10/2018">
+                                                    <h6 class="list-group-item-heading" data-value="01/10/2018">03/10/2018</h6>
+                                                </a>
+                                            </div>
+                                            <div class="list-group col-md-4">
+                                                <a onclick="selectDate(event);" class="btn date-btn list-group-item active" data-value="01/10/2018">
+                                                    <h6 class="list-group-item-heading" data-value="01/10/2018">05/10/2018</h6>
+                                                </a>
+                                                <a onclick="selectDate(event);" class="btn date-btn list-group-item active" data-value="01/10/2018">
+                                                    <h6 class="list-group-item-heading" data-value="01/10/2018">09/10/2018</h6>
+                                                </a>
+                                            </div>
+                                            <div class="list-group col-md-4">
+                                                <a onclick="selectDate(event);" class="btn date-btn list-group-item active" data-value="01/10/2018">
+                                                    <h6 class="list-group-item-heading" data-value="01/10/2018">11/10/2018</h6>
+                                                </a>
+                                                <a onclick="selectDate(event);" class="btn date-btn list-group-item active" data-value="01/10/2018">
+                                                    <h6 class="list-group-item-heading" data-value="01/10/2018">13/10/2018</h6>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
