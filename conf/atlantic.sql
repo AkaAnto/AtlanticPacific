@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 20, 2018 at 09:22 PM
+-- Generation Time: Sep 21, 2018 at 07:50 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -164,133 +164,6 @@ INSERT INTO `contactenos` (`id`, `nombre`, `apellido`, `correo`, `ciudad`, `mens
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cotizaciones`
---
-
-CREATE TABLE `cotizaciones` (
-  `doc_ID` int(11) UNSIGNED NOT NULL,
-  `ct_Tipo` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT 'C',
-  `ct_Nombre` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `ct_Telefono` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `ct_Correo` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `ct_Pais` varchar(2) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `ct_Ciudad` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `en_PaisOrigen` varchar(2) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `en_Origen` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `en_PaisDestino` varchar(2) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `en_Destino` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `en_FechaEmbarque` varchar(10) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `en_Frecuencia` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT 'S',
-  `en_Peligrosa` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `en_Refrigerada` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `en_Mercancia` varchar(128) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tr_Maritimo` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tr_LCL_Full` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tr_Aereo` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tr_Terrestre` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tq_Contenedor` varchar(3) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tq_TipoPesp` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tq_Peso` decimal(8,2) NOT NULL,
-  `tq_TipoMedida` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tq_Medida` decimal(8,2) NOT NULL,
-  `tq_Embalaje` varchar(128) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `tq_Descripcion` varchar(128) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `doc_Numero` varchar(15) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT 'Numero de Cotizacion',
-  `doc_Estatus` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT 'Aprobado, Rechazado, etc.',
-  `doc_002` int(11) NOT NULL,
-  `doc_003` int(11) NOT NULL,
-  `doc_004` int(11) NOT NULL,
-  `doc_005` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `currencies`
---
-
-CREATE TABLE `currencies` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `symbol` varchar(255) NOT NULL,
-  `precision` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `thousand_separator` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `decimal_separator` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `currencies`
---
-
-INSERT INTO `currencies` (`id`, `name`, `symbol`, `precision`, `thousand_separator`, `decimal_separator`, `code`) VALUES
-(1, 'US Dollar', '$', '2', ',', '.', 'USD'),
-(2, 'Libra Esterlina', '&pound;', '2', ',', '.', 'GBP'),
-(3, 'Euro', 'â‚¬', '2', '.', ',', 'EUR'),
-(4, 'South African Rand', 'R', '2', '.', ',', 'ZAR'),
-(5, 'Danish Krone', 'kr ', '2', '.', ',', 'DKK'),
-(6, 'Israeli Shekel', 'NIS ', '2', ',', '.', 'ILS'),
-(7, 'Swedish Krona', 'kr ', '2', '.', ',', 'SEK'),
-(8, 'Kenyan Shilling', 'KSh ', '2', ',', '.', 'KES'),
-(9, 'Canadian Dollar', 'C$', '2', ',', '.', 'CAD'),
-(10, 'Philippine Peso', 'P ', '2', ',', '.', 'PHP'),
-(11, 'Indian Rupee', 'Rs. ', '2', ',', '.', 'INR'),
-(12, 'Australian Dollar', '$', '2', ',', '.', 'AUD'),
-(13, 'Singapore Dollar', 'SGD ', '2', ',', '.', 'SGD'),
-(14, 'Norske Kroner', 'kr ', '2', '.', ',', 'NOK'),
-(15, 'New Zealand Dollar', '$', '2', ',', '.', 'NZD'),
-(16, 'Vietnamese Dong', 'VND ', '0', '.', ',', 'VND'),
-(17, 'Swiss Franc', 'CHF ', '2', '\'', '.', 'CHF'),
-(18, 'Quetzal Guatemalteco', 'Q', '2', ',', '.', 'GTQ'),
-(19, 'Malaysian Ringgit', 'RM', '2', ',', '.', 'MYR'),
-(20, 'Real Brasile&ntilde;o', 'R$', '2', '.', ',', 'BRL'),
-(21, 'Thai Baht', 'THB ', '2', ',', '.', 'THB'),
-(22, 'Nigerian Naira', 'NGN ', '2', ',', '.', 'NGN'),
-(23, 'Peso Argentino', '$', '2', '.', ',', 'ARS'),
-(24, 'Bangladeshi Taka', 'Tk', '2', ',', '.', 'BDT'),
-(25, 'United Arab Emirates Dirham', 'DH ', '2', ',', '.', 'AED'),
-(26, 'Hong Kong Dollar', '$', '2', ',', '.', 'HKD'),
-(27, 'Indonesian Rupiah', 'Rp', '2', ',', '.', 'IDR'),
-(28, 'Peso Mexicano', '$', '2', ',', '.', 'MXN'),
-(29, 'Egyptian Pound', '&pound;', '2', ',', '.', 'EGP'),
-(30, 'Peso Colombiano', '$', '2', '.', ',', 'COP'),
-(31, 'West African Franc', 'CFA ', '2', ',', '.', 'XOF'),
-(32, 'Chinese Renminbi', 'RMB ', '2', ',', '.', 'CNY');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `detalle_factura`
---
-
-CREATE TABLE `detalle_factura` (
-  `id_detalle` int(11) NOT NULL,
-  `numero_factura` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `precio_venta` double NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `facturas`
---
-
-CREATE TABLE `facturas` (
-  `id_factura` int(11) NOT NULL,
-  `numero_factura` int(11) NOT NULL,
-  `fecha_factura` datetime NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `id_vendedor` int(11) NOT NULL,
-  `condiciones` varchar(30) NOT NULL,
-  `total_venta` varchar(20) NOT NULL,
-  `estado_factura` tinyint(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `perfil`
 --
 
@@ -436,20 +309,6 @@ INSERT INTO `tarifa_pasajero` (`id_barco`, `particular`, `en_auto`, `en_autobus`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmp`
---
-
-CREATE TABLE `tmp` (
-  `id_tmp` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad_tmp` int(11) NOT NULL,
-  `precio_tmp` double(8,2) DEFAULT NULL,
-  `session_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -514,11 +373,11 @@ CREATE TABLE `viaje` (
 --
 
 INSERT INTO `viaje` (`fecha`, `puerto_origen`, `puerto_destino`, `id_barco`, `id`) VALUES
-('2018-09-20', 'Costa Rica', 'El Salvador', 33, 26),
+('2018-09-28', 'Costa Rica', 'El Salvador', 33, 26),
 ('2018-09-12', 'El Salvador', 'Costa Rica', 34, 27),
 ('2018-09-20', 'El Salvador', 'El Salvador', 45, 28),
 ('2018-09-20', 'El Salvador', 'Costa Rica', 47, 29),
-('2018-09-20', 'Costa Rica', 'El Salvador', 46, 30),
+('2018-09-23', 'Costa Rica', 'El Salvador', 46, 30),
 ('2018-09-27', 'Costa Rica', 'El Salvador', 34, 31),
 ('2018-09-13', 'El Salvador', 'Costa Rica', 33, 32);
 
@@ -564,32 +423,6 @@ ALTER TABLE `contactenos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  ADD PRIMARY KEY (`doc_ID`);
-
---
--- Indexes for table `currencies`
---
-ALTER TABLE `currencies`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `detalle_factura`
---
-ALTER TABLE `detalle_factura`
-  ADD PRIMARY KEY (`id_detalle`),
-  ADD KEY `numero_cotizacion` (`numero_factura`,`id_producto`);
-
---
--- Indexes for table `facturas`
---
-ALTER TABLE `facturas`
-  ADD PRIMARY KEY (`id_factura`),
-  ADD UNIQUE KEY `numero_cotizacion` (`numero_factura`);
-
---
 -- Indexes for table `perfil`
 --
 ALTER TABLE `perfil`
@@ -625,12 +458,6 @@ ALTER TABLE `tarifa_carga`
 --
 ALTER TABLE `tarifa_pasajero`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tmp`
---
-ALTER TABLE `tmp`
-  ADD PRIMARY KEY (`id_tmp`);
 
 --
 -- Indexes for table `users`
@@ -693,30 +520,6 @@ ALTER TABLE `contactenos`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  MODIFY `doc_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `currencies`
---
-ALTER TABLE `currencies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `detalle_factura`
---
-ALTER TABLE `detalle_factura`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `facturas`
---
-ALTER TABLE `facturas`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `perfil`
 --
 ALTER TABLE `perfil`
@@ -739,12 +542,6 @@ ALTER TABLE `tarifa_carga`
 --
 ALTER TABLE `tarifa_pasajero`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `tmp`
---
-ALTER TABLE `tmp`
-  MODIFY `id_tmp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

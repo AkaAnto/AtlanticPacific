@@ -1,13 +1,16 @@
 <?php
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'atlantic');
 
-$production = false;
+
+$production = true;
 
 if ($production){  // Site is on production server
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'new_ats_sa');
+    define('DB_PASS', 'Pacific*1987');
+    define('DB_NAME', 'apspty');
+}
+else {
     define('DB_HOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASS', '');

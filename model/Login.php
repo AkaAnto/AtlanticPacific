@@ -8,15 +8,6 @@ define ("login", "SELECT user_id, user_name, user_email, user_password_hash  FRO
 
 class Login extends DataBase {
 
-    private $username;
-    private $password;
-
-    public function Login( $username, $password){
-        $this->username = $username;
-        $this->password = $password;
-       
-    }
-   
     public static function perform($username, $password){
         $values = array();
         $values[0] = "'".$username."'";
