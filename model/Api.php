@@ -4,7 +4,7 @@ include_once Login;
 include_once Lib_String;
 
 
-define ("get_travel_dates", 'SELECT *  FROM viaje where puerto_origen="%"');
+define ("get_travel_dates", 'SELECT fecha FROM viaje where puerto_origen="%"');
 
 class Api extends Login {
 
@@ -23,10 +23,11 @@ class Api extends Login {
                 }
                 else {
                     $newformat = date('d-m-Y',$time);
-                    $travel['fecha'] = $newformat;
-                    $current_travels[] = $travel;
+                    array_push($current_travels, $newformat);
                 }
+
             }
+
             return $current_travels;
         }
         else {

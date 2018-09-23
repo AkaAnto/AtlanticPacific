@@ -35,14 +35,62 @@ jQuery(document).ready(function ($) {
         }
     });
 
+
+
+    $('#route').change(function (event) {
+        event.preventDefault();
+        $("#travel_date").addClass('hide');
+        $("#travel_date").datepicker("destroy");
+        var origin_port = $(this).find(":selected").text().split('-')[0];
+        $.ajax({
+            type: "GET",
+            url: "api.php",
+            data: {get_route_dates: origin_port},
+            success: function(datos){
+                var availableDates = formatAvailableDates(datos);
+                $("#travel_date").datepicker({
+                    todayHighlight: true,
+                    minDate: 0,
+                    beforeShowDay: function(date) {
+                        var formatedDate = formatDate(date);
+                        if (availableDates.includes(formatedDate)) {
+                            return {classes: 'available_date', tooltip: 'Title'};
+                        }
+                        else{
+                            return {classes: 'unavailable_date', tooltip: 'No disponible'};
+                        }
+                    }
+                });
+                $("#travel_date").datepicker("refresh");
+                $("#travel_date").removeClass('hide');
+            },
+            fail: function(datos){
+                var port_dates = JSON.parse(datos);
+                console.log('fail  ', port_dates);
+            }
+        });
+    });
+
+
 });
 var booking;
 
 
-function selectDate(event) {
-    var dateValue = event.target.innerText;
-    $('div.booking_date').text(dateValue);
-    console.log(dateValue);
+function formatAvailableDates(availableDates) {
+    var responseArray = [];
+    if (availableDates.length > 0 && $.isArray(availableDates)) {
+        availableDates.forEach(function (availableDate) {
+            var travelDateDay = parseInt(availableDate.split('-')[0]);
+            var travelDateMonth = parseInt(availableDate.split('-')[1]);
+            var travelDateYear = parseInt(availableDate.split('-')[2]);
+            responseArray.push(travelDateDay + '/' + travelDateMonth + '/' + travelDateYear);
+        });
+    }
+    return responseArray;
+}
+
+function formatDate(date) {
+    return  parseInt(date.getDate()) + '/' + (parseInt(date.getMonth()) + 1) + '/' + parseInt(date.getFullYear());
 }
 
 function goToSecondStep(){

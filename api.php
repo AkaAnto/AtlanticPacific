@@ -11,14 +11,15 @@ include_once 'conf/constant.php';
 include_once Api;
 
 
-$show_list = $_SERVER['REQUEST_METHOD'] === 'GET';
+$get_route_dates = $_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['get_route_dates']);
 $create = $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['id']);
-$edit= $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
+$edit = $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
 
 
-// Show list
-if ($show_list){
-    $result = Api::get_routes_viaje_dates('Costa Rica');
+
+
+if ($get_route_dates){
+    $result = Api::get_routes_viaje_dates($_GET['get_route_dates']);
     echo json_encode($result);
 }
 

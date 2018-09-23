@@ -18,10 +18,8 @@ if ($show_login){
 }
 else {
     if ($perform_login){
-        Login::perform('efriedman', '4859ef');
+        if (Login::perform('efriedman', '4859ef')) {
+            Login::navigate('admin');
+        }
     }
 }
-
-
-
-

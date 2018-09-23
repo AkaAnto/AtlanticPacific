@@ -2,7 +2,7 @@
 
 
 
-$production = true;
+$production = false;
 
 if ($production){  // Site is on production server
     define('DB_HOST', 'localhost');

@@ -1331,15 +1331,23 @@ div.thumbnail{
 
 ::-webkit-input-placeholder {
     text-align: left;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 :-moz-placeholder {
     text-align: left;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 select {
     font-size: 13px;
+}
 
+.available_date{
+    background-color: green;
+}
+
+.unavailable_date{
+    background-color: lightgray;
+    cursor: default !important;
 }
