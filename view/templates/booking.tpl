@@ -44,12 +44,15 @@
                                 <div class="form-group">
                                     <select class="form-control" id="route">
                                         <option selected value="0">SELECCIONE UNA RUTA</option>
-                                        <option value="El Savador - Costa Rica">El Savador - Costa Rica</option>
-                                        <option value="Costa Rica - El Savador">Costa Rica - El Savador</option>
+                                        <option value="El Salvador - Costa Rica">El Salvador - Costa Rica</option>
+                                        <option value="Costa Rica - El Salvador">Costa Rica - El Salvador</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
+                                    <div class="hide" id="showLoading" align="center">
+                                        <img src="{$img}loading.gif" style="width: 35px; height: auto;"/>
+                                    </div>
                                     <input id="travel_date" type="text" class="form-control hide" placeholder="SELECCIONE LA FECHA">
                                 </div>
                                 <a class="btn btn-default btn-square" onclick="goToSecondStep()" style="margin-top: 10px">

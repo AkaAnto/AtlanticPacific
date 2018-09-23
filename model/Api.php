@@ -12,6 +12,7 @@ class Api extends Login {
         $values = array();
         $values[0] = $puerto_origen;
         $query = CustomString::concatenate(get_travel_dates, $values);
+        //echo $query;
         $travels = Api::run_select($query);
         if (sizeof($travels) >= 1){
             $current_travels = array();
@@ -31,7 +32,8 @@ class Api extends Login {
             return $current_travels;
         }
         else {
-            return "No se encontraron viajes.";
+            return $query;
+//            return "No se encontraron viajes.";
         }
     }
 

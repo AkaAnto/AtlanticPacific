@@ -40,6 +40,7 @@ jQuery(document).ready(function ($) {
     $('#route').change(function (event) {
         event.preventDefault();
         $("#travel_date").addClass('hide');
+        $("#showLoading").removeClass('hide');
         $("#travel_date").datepicker("destroy");
         var origin_port = $(this).find(":selected").text().split('-')[0];
         $.ajax({
@@ -48,6 +49,7 @@ jQuery(document).ready(function ($) {
             data: {get_route_dates: origin_port},
             success: function(datos){
                 var availableDates = formatAvailableDates(datos);
+                console.log(datos);
                 $("#travel_date").datepicker({
                     todayHighlight: true,
                     minDate: 0,
@@ -62,6 +64,7 @@ jQuery(document).ready(function ($) {
                     }
                 });
                 $("#travel_date").datepicker("refresh");
+                $("#showLoading").addClass('hide');
                 $("#travel_date").removeClass('hide');
             },
             fail: function(datos){
