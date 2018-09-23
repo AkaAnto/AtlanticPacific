@@ -23,13 +23,13 @@ class Login extends DataBase {
                 $_SESSION['user_login_status'] = 1;
                 $_SESSION['is_staff'] = false;
                 $_SESSION['is_admin'] =false;
-                return 'true';
+                return true;
 
             } else {
-                return "Usuario y/o contraseña no coinciden.";
+                return false;
             }
         }
-        return 'false';
+        return false;
     }
 
     public static function verify(){
