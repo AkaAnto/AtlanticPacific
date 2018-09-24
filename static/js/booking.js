@@ -148,11 +148,25 @@ function goToSecondStep(){
 
 function goToThirdStep(){
 
-    $('#myTabs li:eq(2) a').tab('show');
-    $('.booking-preview').removeClass('hide');
-    $('#passenger-tab').removeClass('btn-inactive');
-    var route_html = $('#booking-preview').html();
-    $('#booking-preview2').html(route_html);
+    $.ajax({
+        type: "GET",
+        url: "api.php",
+        data: {route: booking.route, travel_date:  booking.travel_date, passenger: 1},
+        success: function(datos){
+            booking.tarifasPasajero = datos[0];
+            booking.passengerList = [];
+            console.log(booking);
+            $('#myTabs li:eq(2) a').tab('show');
+            $('.booking-preview').removeClass('hide');
+            $('#passenger-tab').removeClass('btn-inactive');
+            var route_html = $('#booking-preview').html();
+            $('#booking-preview2').html(route_html);
+        },
+        fail: function(datos){
+            console.log('fail  ', datos);
+        }
+    });
+
 }
 
 function goToFourthStep(){
@@ -216,7 +230,6 @@ function  calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicl
     }
     return priceAmount;
 }
-
 
 function addCargo(){
     var vehicleType = $('#vehicle_type').find(":selected").text();
