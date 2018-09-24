@@ -107,9 +107,32 @@ function goToSecondStep(){
             url: "api.php",
             data: {route: route, travel_date: out_bound_date},
             success: function(datos){
-                console.log('tarifas ', datos);
-                booking.tarifas = datos;
+                booking.tarifas = datos[0];
                 booking.cargoList = [];
+
+                $("#showLoading").removeClass('hide');
+                $("#showLoading").addClass('hide');
+                $('#myTabs li:eq(1) a').tab('show');
+                $('.booking-preview').removeClass('hide');
+                $('#cargo-tab').removeClass('btn-inactive');
+                $('#dut-number').html('<b>NÚMERO DUT: </b>' + $('#dut').val());
+                if (route.includes('El Savador - Costa Rica')){
+                    route_html =
+                        '<p>\n' +
+                        '<b>EL SALVADOR - COSTA RICA</b>\n' +
+                        '<i class="fas fa-arrow-circle-right"> </i>\n'  +
+                        out_bound_date +' - 7:00 AM\n' +
+                        '</p>';
+                }
+                if (route.includes('Costa Rica - El Savador')){
+                    route_html =
+                        '<p>\n' +
+                        '<b>COSTA RICA - EL SALVADOR</b>\n' +
+                        '<i class="fas fa-arrow-circle-right"> </i>\n'  +
+                        out_bound_date +' - 7:00 AM\n' +
+                        '</p>';
+                }
+                $('#route-detail').html(route_html);
 
             },
             fail: function(datos){
@@ -117,31 +140,6 @@ function goToSecondStep(){
             }
         });
 
-
-
-        $("#showLoading").removeClass('hide');
-        $("#showLoading").addClass('hide');
-        $('#myTabs li:eq(1) a').tab('show');
-        $('.booking-preview').removeClass('hide');
-        $('#cargo-tab').removeClass('btn-inactive');
-        $('#dut-number').html('<b>NÚMERO DUT: </b>' + $('#dut').val());
-        if (route.includes('El Savador - Costa Rica')){
-            route_html =
-                '<p>\n' +
-                '<b>EL SALVADOR - COSTA RICA</b>\n' +
-                '<i class="fas fa-arrow-circle-right"> </i>\n'  +
-                out_bound_date +' - 7:00 AM\n' +
-                '</p>';
-        }
-        if (route.includes('Costa Rica - El Savador')){
-            route_html =
-                '<p>\n' +
-                '<b>COSTA RICA - EL SALVADOR</b>\n' +
-                '<i class="fas fa-arrow-circle-right"> </i>\n'  +
-                out_bound_date +' - 7:00 AM\n' +
-                '</p>';
-        }
-        $('#route-detail').html(route_html);
     }
     else{
         $('#firstStepValidationMessage').removeClass('hide');
@@ -216,10 +214,10 @@ function addCargo(){
     var cargo_owner_passport_number = '<span class="label label-license text-uppercase">' + cargo_owner_passport_number_val + '</span>';
 
 
-    var price_amount;
+    var price_amount = booking.tarifas['tres_metros'];
     var cargo_length_value = parseFloat($('#cargo_length').val());
     if (cargo_length_value > 3){
-        price_amount = booking.tarifas['tres_metros'];
+        price_amount = booking.tarifas['seis_metros'];
     }
     if (cargo_length_value > 6){
        price_amount = booking.tarifas['seis_metros'];
@@ -229,7 +227,8 @@ function addCargo(){
     }
     if (cargo_length_value > 15){
         price_amount = booking.tarifas['quince_metros'];
-    }if (cargo_length_value === 18){
+    }
+    if (cargo_length_value === 18){
         price_amount = booking.tarifas['dieciocho_metros'];
     }
     if (cargo_length_value > 18){
