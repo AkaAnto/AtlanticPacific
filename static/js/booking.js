@@ -231,6 +231,27 @@ function  calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicl
     return priceAmount;
 }
 
+function  calculatePassengerPrice(passengerType, tarifas){
+    
+    var priceAmount = tarifas['particular'];
+    if (passengerType.includes('Pasajero en Auto a bordo (Max 4)')){
+        priceAmount = tarifas['en_auto'];
+    }
+    if (passengerType.includes('Pasajero en Autobus a bordo (Max 50)')){
+        priceAmount = tarifas['en_autobus'];
+    }
+    if (passengerType.includes('Pasajero Ayudante de gandola (1 por gandola)')){
+        priceAmount = tarifas['ayudante_gandola'];
+    }
+    if (passengerType.includes('Pasajero Conductor de gandola (1 por gandola)')){
+        priceAmount = tarifas['conductor_gandola'];
+    }
+    if (passengerType.includes('Pasajero Conductor de autobus (1 por autobus)')){
+        priceAmount = tarifas['conductor_autobus'];
+    }
+    return priceAmount;
+}
+
 function addCargo(){
     var vehicleType = $('#vehicle_type').find(":selected").text();
     var vehicleLength = parseFloat($('#cargo_length').val());
@@ -302,24 +323,10 @@ function addCargo(){
 }
 
 function addPassenger(){
+    var passengerType = $('#passenger_type').find(":selected").text();
+    var passenger_type = '<td>' + passengerType + '</td>';
+    var passenger_price_amount = calculatePassengerPrice(passengerType, booking.tarifasPasajero);
 
-    var passenger_type = '<td>' + $('#passenger_type').find(":selected").text() + '</td>';
-    var passenger_price_amount = 60;
-    if (passenger_type.includes('Pasajero en Auto a bordo (Max 4)')){
-        passenger_price_amount = 25;
-    }
-    if (passenger_type.includes('Pasajero en Autobus a bordo (Max 50)')){
-        passenger_price_amount = 25;
-    }
-    if (passenger_type.includes('Pasajero Ayudante de gandola (1 por gandola)')){
-        passenger_price_amount = 25;
-    }
-    if (passenger_type.includes('Pasajero Conductor de gandola (1 por gandola)')){
-        passenger_price_amount = 0;
-    }
-    if (passenger_type.includes('Pasajero Conductor de autobus (1 por autobus)')){
-        passenger_price_amount = 0;
-    }
     var table_passenger_body = $('#booking-preview2 #passenger-list-table tbody');
     var passenger_info = '<td> ' + $('#passenger_full_name').val() + ' <br/> ' + $('#passenger_passport').val() + ' </td>';
     var passenger_price_total = '<td class="price"> <b>' + passenger_price_amount+ '$</b> </td>';
