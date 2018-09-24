@@ -35,8 +35,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-
-
     $('#route').change(function (event) {
         event.preventDefault();
         $("#travel_date").addClass('hide');
@@ -49,17 +47,16 @@ jQuery(document).ready(function ($) {
             data: {get_route_dates: origin_port},
             success: function(datos){
                 var availableDates = formatAvailableDates(datos);
-                console.log(datos);
                 $("#travel_date").datepicker({
                     todayHighlight: true,
-                    minDate: 0,
+                    dateFormat: 'dd-mm-yy',
                     beforeShowDay: function(date) {
                         var formatedDate = formatDate(date);
                         if (availableDates.includes(formatedDate)) {
-                            return {classes: 'available_date', tooltip: 'Title'};
+                            return {classes: 'available_date', tooltip: 'Disponible para booking'};
                         }
                         else{
-                            return {classes: 'unavailable_date', tooltip: 'No disponible'};
+                            return false;
                         }
                     }
                 });
@@ -73,12 +70,8 @@ jQuery(document).ready(function ($) {
             }
         });
     });
-
-
 });
-var booking;
-
-
+var booking = {};
 function formatAvailableDates(availableDates) {
     var responseArray = [];
     if (availableDates.length > 0 && $.isArray(availableDates)) {
@@ -97,34 +90,66 @@ function formatDate(date) {
 }
 
 function goToSecondStep(){
-    $('#myTabs li:eq(1) a').tab('show');
-    $('.booking-preview').removeClass('hide');
-    $('#cargo-tab').removeClass('btn-inactive');
-    $('#dut-number').html('<b>NÚMERO DUT: </b>' + $('#dut').val());
-    var route = $('#route').find(":selected").text();
+    $('#firstStepValidationMessage').addClass('hide');
+    var dut = $('#dut').val();
+    var route = $('#route').find(":selected").text().split(' -')[0];
+    var dateSplit = $('#travel_date').val().split('/');
+    var out_bound_date = dateSplit[1] + '-' + dateSplit[0] + '-' + dateSplit[2];
+    var all_data_entered = (dut !='') && (route!='0') && (out_bound_date!='');
     var route_html = '';
-    var out_bound_date = $('#outbounddate').val();
-    if (route.includes('El Savador - Costa Rica')){
-        route_html =
-            '<p>\n' +
-            '<b>EL SALVADOR - COSTA RICA</b>\n' +
-            '<i class="fas fa-arrow-circle-right"> </i>\n'  +
-            out_bound_date +' - 7:00 AM\n' +
-            '</p>';
-    }
-    if (route.includes('Costa Rica - El Savador')){
-        route_html =
-            '<p>\n' +
-            '<b>COSTA RICA - EL SALVADOR</b>\n' +
-            '<i class="fas fa-arrow-circle-right"> </i>\n'  +
-            out_bound_date +' - 7:00 AM\n' +
-            '</p>';
-    }
+    if (all_data_entered){
 
-    $('#route-detail').html(route_html);
+        booking.dut_number = dut;
+        booking.route = route;
+        booking.travel_date = out_bound_date;
+        $.ajax({
+            type: "GET",
+            url: "api.php",
+            data: {route: route, travel_date: out_bound_date},
+            success: function(datos){
+                console.log('tarifas ', datos);
+                booking.tarifas = datos;
+                booking.cargoList = [];
+
+            },
+            fail: function(datos){
+                console.log('fail  ', datos);
+            }
+        });
+
+
+
+        $("#showLoading").removeClass('hide');
+        $("#showLoading").addClass('hide');
+        $('#myTabs li:eq(1) a').tab('show');
+        $('.booking-preview').removeClass('hide');
+        $('#cargo-tab').removeClass('btn-inactive');
+        $('#dut-number').html('<b>NÚMERO DUT: </b>' + $('#dut').val());
+        if (route.includes('El Savador - Costa Rica')){
+            route_html =
+                '<p>\n' +
+                '<b>EL SALVADOR - COSTA RICA</b>\n' +
+                '<i class="fas fa-arrow-circle-right"> </i>\n'  +
+                out_bound_date +' - 7:00 AM\n' +
+                '</p>';
+        }
+        if (route.includes('Costa Rica - El Savador')){
+            route_html =
+                '<p>\n' +
+                '<b>COSTA RICA - EL SALVADOR</b>\n' +
+                '<i class="fas fa-arrow-circle-right"> </i>\n'  +
+                out_bound_date +' - 7:00 AM\n' +
+                '</p>';
+        }
+        $('#route-detail').html(route_html);
+    }
+    else{
+        $('#firstStepValidationMessage').removeClass('hide');
+    }
 }
 
 function goToThirdStep(){
+
     $('#myTabs li:eq(2) a').tab('show');
     $('.booking-preview').removeClass('hide');
     $('#passenger-tab').removeClass('btn-inactive');
@@ -191,31 +216,33 @@ function addCargo(){
     var cargo_owner_passport_number = '<span class="label label-license text-uppercase">' + cargo_owner_passport_number_val + '</span>';
 
 
-    var price_amount = 550;
+    var price_amount;
     var cargo_length_value = parseFloat($('#cargo_length').val());
     if (cargo_length_value > 3){
-        price_amount = 750;
+        price_amount = booking.tarifas['tres_metros'];
     }
     if (cargo_length_value > 6){
-        price_amount = 950;
+       price_amount = booking.tarifas['seis_metros'];
     }
     if (cargo_length_value > 9){
-        price_amount = 1550;
+        price_amount = booking.tarifas['nueve_metros'];
     }
     if (cargo_length_value > 15){
-        price_amount = 1800;
+        price_amount = booking.tarifas['quince_metros'];
+    }if (cargo_length_value === 18){
+        price_amount = booking.tarifas['dieciocho_metros'];
     }
     if (cargo_length_value > 18){
         price_amount = 0;
     }
     if (vehicle_type.includes('Moto Grande')){
-        price_amount = 150;
+        price_amount = booking.tarifas['moto_grande'];
     }
     if (vehicle_type.includes('Moto Chica')){
-        price_amount = 100;
+        price_amount = booking.tarifas['moto_chica'];
     }
     if (vehicle_type.includes('Bicicleta')){
-        price_amount = 75;
+        price_amount = booking.tarifas['bicicleta'];
     }
     if (cargo_high.includes('Higher')){
         price_amount = 0;
@@ -228,17 +255,19 @@ function addCargo(){
         var cargo_price = '<td class="price"><b>'+price_amount+'$</b></td>';
     }
     else {
-        var cargo_price = '<td><b>Cotizar</b></td>';
+        var cargo_price = '<td><b>Por Cotizar</b></td>';
     }
 
     var delete_cargo = '<td><button type="button" onclick="' +"$(this).closest('tr')" + '.remove()"style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
-    console.log({
-        vehicle_type: vehicle_type,
-        cargo_high: cargo_high,
-        cargo_width: cargo_width,
-        cargo_length: cargo_length,
-        cargo_quantity: 1,
-    });
+    var new_cargo ={
+            vehicle_type: vehicle_type,
+            vehicle_high: cargo_high,
+            vehicle_width: cargo_width,
+            vehicle_length: cargo_length,
+            cargo_detail: []
+    };
+    booking.cargoList.push(new_cargo);
+    console.log('booking.cargoList ', booking.cargoList);
     var table_body = $('#cargo-list-table tbody');
     var vehicle_detail = '<td>' + vehicle_type + license_plate + cargo_high + cargo_width + cargo_length + vehicle_weight + '</td>';
     var cargo_owner_detail = '<td>' + cargo_owner_full_name + cargo_owner_passport_number + '</td>';

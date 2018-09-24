@@ -42,12 +42,12 @@ if ($show_list){
 if ($create){
     $is_authenticated = Viaje::verify();
     if ($is_authenticated){
-    
-        $fecha = $_POST['fecha'];
+        $split_fecha = explode("-", $_POST['fecha']);
+        $fecha = $split_fecha[2].'-'.$split_fecha[1].'-'.$split_fecha[0];
         $puerto_origen = $_POST['puerto_origen'];
         $puerto_destino = $_POST['puerto_destino'];
         $id_barco = $_POST['barco_tarifa'];
-       
+
 
         $insert_result = Viaje::create($fecha, $puerto_origen , $puerto_destino, $id_barco);
         if ($insert_result == 1 ){
@@ -61,12 +61,10 @@ if ($create){
             $values[5] = $new_viaje['id_barco'];
             $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;
-            
         }
         else{
            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al crear el nuevo Viaje</div> ';
         }
-
     }
     else{
         Login::navigate('index');

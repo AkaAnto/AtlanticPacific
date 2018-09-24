@@ -5,6 +5,7 @@ include_once Lib_String;
 
 
 define ("get_travel_dates", 'SELECT fecha FROM viaje where puerto_origen="%"');
+define ("get_travel_tarifas", "SELECT tc.* from tarifa_carga tc, viaje v where v.puerto_origen='%' and v.fecha='%' and v.id_barco = tc.id_barco");
 
 class Api extends Login {
 
@@ -26,14 +27,25 @@ class Api extends Login {
                     $newformat = date('d-m-Y',$time);
                     array_push($current_travels, $newformat);
                 }
-
             }
-
             return $current_travels;
         }
         else {
-            return $query;
-//            return "No se encontraron viajes.";
+            return "No se encontraron viajes.";
+        }
+    }
+
+    public static function get_travel_tarifas($route, $date) {
+        $values = array();
+        $values[0] = $route;
+        $values[1] = $date;
+        $query = CustomString::concatenate(get_travel_tarifas, $values);
+        $tarifas = Api::run_select($query);
+        if (sizeof($tarifas) >= 1){
+            return $tarifas;
+        }
+        else {
+            return ["error" =>"No se encontraron tarifas."];
         }
     }
 

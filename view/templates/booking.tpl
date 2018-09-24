@@ -50,11 +50,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="hide" id="showLoading" align="center">
-                                        <img src="{$img}loading.gif" style="width: 35px; height: auto;"/>
-                                    </div>
                                     <input id="travel_date" type="text" class="form-control hide" placeholder="SELECCIONE LA FECHA">
                                 </div>
+                                <div class="hide" id="showLoading" align="center">
+                                    <img src="{$img}loading.gif" style="width: 35px; height: auto;"/>
+                                </div>
+                                <div class="alert alert-dismissible alert-danger hide" id="firstStepValidationMessage">Debe sumistrar toda la información</div>
                                 <a class="btn btn-default btn-square" onclick="goToSecondStep()" style="margin-top: 10px">
                                     <i class="fas fa-arrow-circle-right"> </i> Siguiente
                                 </a>

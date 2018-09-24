@@ -42,7 +42,7 @@ class Viaje extends Login {
         $values[2] = $puerto_destino;
         $values[3] = $id_barco;
         $query = CustomString::concatenate(create_viaje, $values);
-        echo $query;
+//        echo $query;
         return Viaje::run_query($query);
     }
 
