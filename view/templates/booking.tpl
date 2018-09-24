@@ -87,7 +87,7 @@
                                         <option  value="+ 4 mts">Más Alto que 4 mts</option>
                                     </select>
                                     <select class="form-control" id="cargo_width">
-                                        <optio selected value ="0">Seleccione Ancho</option>
+                                        <option selected value ="0">Seleccione Ancho</option>
                                             <option value="0 - 2,6 mts">0 - 2,6 mts de Ancho</option>
                                             <option value="+ 2,6 mts">Más Ancho que 2,6 mts</option>
                                     </select>

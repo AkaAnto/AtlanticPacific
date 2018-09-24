@@ -179,14 +179,60 @@ function goToFourthStep(){
 
 }
 
-function addCargo(){
+function  calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, tarifas){
+    var priceAmount = tarifas['tres_metros'];
+    if (vehicleLength > 3){
+        priceAmount = tarifas['seis_metros'];
+    }
+    if (vehicleLength > 6){
+        priceAmount = tarifas['nueve_metros'];
+    }
+    if (vehicleLength > 9){
+        priceAmount = tarifas['quince_metros'];
+    }
+    if (vehicleLength > 15){
+        priceAmount = tarifas['dieciocho_metros'];
+    }
+    if (vehicleLength === 18){
+        priceAmount = tarifas['dieciocho_metros'];
+    }
+    if (vehicleLength > 18){
+        priceAmount = 0;
+    }
+    if (vehicleType.includes('Moto Grande')){
+        priceAmount = tarifas['moto_grande'];
+    }
+    if (vehicleType.includes('Moto Chica')){
+        priceAmount = tarifas['moto_chica'];
+    }
+    if (vehicleType.includes('Bicicleta')){
+        priceAmount = tarifas['bicicleta'];
+    }
+    if (vehicleHeight.includes('Higher')){
+        priceAmount = 0;
+    }
+    if (vehicleWidth.includes('Wider')){
+        priceAmount = 0;
+    }
+    return priceAmount;
+}
 
-    var vehicle_type = '<span class="label label-success text-uppercase">' + $('#vehicle_type').find(":selected").text()+ '</span> ';
-    var license_plate = '<span class="label label-license text-uppercase">' + $('#license_plate').val()+ '</span>';
-    var cargo_high = '<span class="label label-default text-uppercase">' + $('#cargo_high').find(":selected").text() + ' </span> ';
-    var cargo_width ='<span class="label label-default text-uppercase">' + $('#cargo_width').find(":selected").text() + '</span> ';
-    var cargo_length = '<span class="label label-default text-uppercase">' + $('#cargo_length').val() + ' mts LARGO </span> ';
-    var vehicle_weight = '<span class="label label-default text-uppercase">' + $('#vehicle_weight').val() + ' KG </span> ';
+
+function addCargo(){
+    var vehicleType = $('#vehicle_type').find(":selected").text();
+    var vehicleLength = parseFloat($('#cargo_length').val());
+    var vehicleWidth = $('#cargo_width').find(":selected").text();
+    var vehicleHeight = $('#cargo_high').find(":selected").text();
+    var vehicleWeight = parseFloat($('#vehicle_weight').val());
+    var licensePlate = $('#license_plate').val();
+
+
+    var vehicle_type = '<span class="label label-success text-uppercase">' + vehicleType + '</span> ';
+    var license_plate = '<span class="label label-license text-uppercase">' + licensePlate + '</span>';
+    var cargo_high = '<span class="label label-default text-uppercase">' + vehicleHeight + ' </span> ';
+    var cargo_width ='<span class="label label-default text-uppercase">' + vehicleWidth + '</span> ';
+    var cargo_length = '<span class="label label-default text-uppercase">' + vehicleLength + ' mts LARGO </span> ';
+    var vehicle_weight = '<span class="label label-default text-uppercase">' + vehicleWeight + ' KG </span> ';
 
 
     var cargo_owner_full_val =  $('#cargo_owner_full_name').val();
@@ -214,44 +260,10 @@ function addCargo(){
     var cargo_owner_passport_number = '<span class="label label-license text-uppercase">' + cargo_owner_passport_number_val + '</span>';
 
 
-    var price_amount = booking.tarifas['tres_metros'];
-    var cargo_length_value = parseFloat($('#cargo_length').val());
-    if (cargo_length_value > 3){
-        price_amount = booking.tarifas['seis_metros'];
-    }
-    if (cargo_length_value > 6){
-       price_amount = booking.tarifas['seis_metros'];
-    }
-    if (cargo_length_value > 9){
-        price_amount = booking.tarifas['nueve_metros'];
-    }
-    if (cargo_length_value > 15){
-        price_amount = booking.tarifas['quince_metros'];
-    }
-    if (cargo_length_value === 18){
-        price_amount = booking.tarifas['dieciocho_metros'];
-    }
-    if (cargo_length_value > 18){
-        price_amount = 0;
-    }
-    if (vehicle_type.includes('Moto Grande')){
-        price_amount = booking.tarifas['moto_grande'];
-    }
-    if (vehicle_type.includes('Moto Chica')){
-        price_amount = booking.tarifas['moto_chica'];
-    }
-    if (vehicle_type.includes('Bicicleta')){
-        price_amount = booking.tarifas['bicicleta'];
-    }
-    if (cargo_high.includes('Higher')){
-        price_amount = 0;
-    }
-    if (cargo_width.includes('Wider')){
-        price_amount = 0;
-    }
+    var price = calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, booking.tarifas);
 
-    if (price_amount > 0){
-        var cargo_price = '<td class="price"><b>'+price_amount+'$</b></td>';
+    if (price > 0){
+        var cargo_price = '<td class="price"><b>'+ price +'$</b></td>';
     }
     else {
         var cargo_price = '<td><b>Por Cotizar</b></td>';
