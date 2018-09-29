@@ -25,14 +25,13 @@
         .label-success {
             font-size: 14px;
             background-color: transparent;
-            border: solid blue 1px;
+            border: solid darkslategrey 1px;
         }
-        .label-cargo {
-            background-color: transparent;
-            border: solid green 1px;
-        }
+       .table tbody td{
+           border: solid 1px blue;
+       }
 
-         .label-value{
+        .label-value{
             font-size: 14px;
             background-color: transparent;
             border: solid blue 0px;
@@ -48,20 +47,25 @@
     </style>
 </head>
 <body id="body">
-        <h2 class="title-contact" align="center" style="color:#005292; ">Detalle del Booking</h2>
+        <h1 class="title-contact" align="center" style="color:#005292; ">Booking 0023933821</h1>
 
         <div class="col-md-12">
+            <h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Viaje</h2>
             <table class="table">
                 <thead>
                 <tr>
-                    <th> <span class="label label-success text-uppercase">  Número Dut </span> </th>
-                    <th> <span class="label label-success text-uppercase">Puerto Salida </span> </th>
-                    <th> <span class="label label-success text-uppercase">Puerto Llegada </span> </th>
-                    <th> <span class="label label-success text-uppercase">Fecha/Hora </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Número Booking </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Número Dut </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Puerto Salida </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Puerto Llegada </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Fecha/Hora </span> </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
+                    <td>
+                        <span class="label label-value text-uppercase">0023933821 </span>
+                    </td>
                     <td>
                         <span class="label label-value text-uppercase">7392329 </span>
                     </td>
@@ -78,13 +82,14 @@
                 </tbody>
             </table>
             <br>
+            <h2 class="title-contact" align="left" style="color:#005292; ">Detalles de la Carga</h2>
             <table class="table">
                 <thead>
                 <tr>
-                    <th> <span class="label label-cargo text-uppercase"> Detalles Vehículo </span></th>
-                    <th> <span class="label label-cargo text-uppercase"> Dueño de Carga </span> </th>
-                    <th> <span class="label label-cargo text-uppercase"> Detalles Carga </span> </th>
-                    <th> <span class="label label-cargo text-uppercase"> Precio </span></th>
+                    <th> <span class="label label-success text-uppercase"> Detalles Vehículo </span></th>
+                    <th> <span class="label label-success text-uppercase"> Dueño de Carga </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Detalles Carga </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Precio </span></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -106,37 +111,51 @@
                             <span class="label label-value text-uppercase">NO TRANSPORTA CARGA</span>
                             <span class="label label-value text-uppercase"> TON </span>
                         </td>
-                        <td class="price">
-                            <b>400$</b>
+                        <td>
+                            <span class="label label-value text-uppercase"> <b>400$</b> </span>
                         </td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
             <br>
+            <h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Pasajeros</h2>
             <table class="table">
                 <thead>
                 <tr>
-                    <th> <span class="label label-cargo text-uppercase"> Tipo Pasajero </span> </th>
-                    <th> <span class="label label-cargo text-uppercase"> Información Pasajero </span> </th>
-                    <th><span class="label label-cargo text-uppercase"> Precio </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Tipo Pasajero </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Información Pasajero </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Precio </span> </th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Pasajero Particular</td>
-                        <td> Elon Musk <br> 343344 </td>
-                        <td class="price"> <b>1$</b> </td>
-                        <td> </td>
+                        <td> <span class="label label-value text-uppercase"> Pasajero Particular </span> </td>
+                        <td> <span class="label label-value text-uppercase"> Elon Musk  <br> 343344 </span> </td>
+                        <td> <span class="label label-value text-uppercase"> <b>1$</b> </span> </td>
                     </tr>
-                    <tr><td>Pasajero en Auto a bordo (Max 4)</td>
-                        <td> Joe Rogan <br> 3433441 </td>
-                        <td class="price"> <b>2$</b> </td>
-                        <td> </td>
+                    <tr>
+                        <td> <span class="label label-value text-uppercase"> Pasajero en Auto a bordo (Max 4) </span></td>
+                        <td> <span class="label label-value text-uppercase"> Joe Rogan <br> 3433441 </span></td>
+                        <td> <span class="label label-value text-uppercase"> <b>2$</b> </span></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <br/>
+        <div class="col-md-12">
+            <div class="col-md-4" align="right">
+                <hr style="border-top:solid 1px black;">
+                <div class="col-md-12" style="display: block">
+                    <h3>Sub Total:  <b>403$</b> </h3>
+                </div>
+                <div class="col-md-12" style="display: block">
+                    <h3>Impuestos:  <b> 25$</b> </h3>
+                </div>
+            </div>
+            <div class="col-md-12" align="right">
+                <h2>Total:  <b> 428$</b> </h2>
+            </div>
         </div>
 
 
