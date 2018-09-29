@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title>Prueba envio mail de booking</title>
+    <style>
+        .label {
+            display: block;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-align: center;
+            white-space: pre-line;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-top: 10px;
+        }
+
+        .label-success {
+            font-size: 14px;
+            background-color: transparent;
+            border: solid blue 1px;
+        }
+        .label-cargo {
+            background-color: transparent;
+            border: solid green 1px;
+        }
+
+         .label-value{
+            font-size: 14px;
+            background-color: transparent;
+            border: solid blue 0px;
+        }
+
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body id="body">
+        <h2 class="title-contact" align="center" style="color:#005292; ">Detalle del Booking</h2>
+
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> <span class="label label-success text-uppercase">  Número Dut </span> </th>
+                    <th> <span class="label label-success text-uppercase">Puerto Salida </span> </th>
+                    <th> <span class="label label-success text-uppercase">Puerto Llegada </span> </th>
+                    <th> <span class="label label-success text-uppercase">Fecha/Hora </span> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <span class="label label-value text-uppercase">7392329 </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">El Salvador </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">Costa Rica </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">03-10-2018 - 7:00 AM</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> <span class="label label-cargo text-uppercase"> Detalles Vehículo </span></th>
+                    <th> <span class="label label-cargo text-uppercase"> Dueño de Carga </span> </th>
+                    <th> <span class="label label-cargo text-uppercase"> Detalles Carga </span> </th>
+                    <th> <span class="label label-cargo text-uppercase"> Precio </span></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="label label-value text-uppercase">Furgon sin cabezal </span>
+                            <span class="label label-value text-uppercase">993JKKD</span>
+                            <span class="label label-value text-uppercase">0 - 4 mts de Altura </span>
+                            <span class="label label-value text-uppercase">0 - 2,6 mts de Ancho</span>
+                            <span class="label label-value text-uppercase">12 mts LARGO </span>
+                            <span class="label label-value text-uppercase">12 TON </span>
+                        </td>
+                        <td>
+                            <span class="label label-value text-uppercase">N/A</span>
+                            <span class="label label-value text-uppercase">N/A</span>
+                        </td>
+                        <td>
+                            <span class="label label-value text-uppercase">SIN CARGA </span>
+                            <span class="label label-value text-uppercase">NO TRANSPORTA CARGA</span>
+                            <span class="label label-value text-uppercase"> TON </span>
+                        </td>
+                        <td class="price">
+                            <b>400$</b>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> <span class="label label-cargo text-uppercase"> Tipo Pasajero </span> </th>
+                    <th> <span class="label label-cargo text-uppercase"> Información Pasajero </span> </th>
+                    <th><span class="label label-cargo text-uppercase"> Precio </span> </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pasajero Particular</td>
+                        <td> Elon Musk <br> 343344 </td>
+                        <td class="price"> <b>1$</b> </td>
+                        <td> </td>
+                    </tr>
+                    <tr><td>Pasajero en Auto a bordo (Max 4)</td>
+                        <td> Joe Rogan <br> 3433441 </td>
+                        <td class="price"> <b>2$</b> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

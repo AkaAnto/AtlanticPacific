@@ -172,27 +172,31 @@ function goToThirdStep(){
 }
 
 function goToFourthStep(){
+
+    booking.appliedPassengerTarifaId = booking.tarifasPasajero.id;
     $('#myTabs li:eq(3) a').tab('show');
     $('#payment-tab').removeClass('btn-inactive');
     $('#booking-preview2 tbody td button.btn-danger').each(function() {
         $(this).remove();
     });
-    var total_price = 0;
+    var totalPrice = 0;
     $('#booking-preview2 tbody td.price').each(function() {
         var price = parseInt($(this).text().replace('$',''));
-        total_price = total_price + price;
+        totalPrice = totalPrice + price;
     });
-    var sub_total = '<div class="col-md-12"> <div class="col-md-4" style="float: right"> ' +
+    var subTotal = '<div class="col-md-12"> <div class="col-md-4" style="float: right"> ' +
         '<hr style="border-top:solid 1px black"/>' +
-        '<div class="col-md-12" style="float: right"> <h5 >Sub Total:  <b>' + total_price + '$</b> </h5> </div>' +
-        '<div class="col-md-12" style="float: right"> <h5>Taxes:  <b> 25$</b> </h5> </div> </div>' +
-        '<div class="col-md-12" style="float: right"> <h4  style=" float: right; margin-right: 90px; margin-top: 20px;">Total:  <b> ' + (total_price + 25)  + '$</b> </h4> </div> </div>' +
+        '<div class="col-md-12" style="float: right"> <h5 >Sub Total:  <b>' + totalPrice + '$</b> </h5> </div>' +
+        '<div class="col-md-12" style="float: right"> <h5>Impuestos:  <b> 25$</b> </h5> </div> </div>' +
+        '<div class="col-md-12" style="float: right"> <h4  style=" float: right; margin-right: 90px; margin-top: 20px;">Total:  <b> ' + (totalPrice + 25)  + '$</b> </h4> </div> </div>' +
         '</div>';
-    var route_html = $('#booking-preview2').html().replace('btn-danger', 'hide');
-    $('#booking-preview3').html(route_html);
-    $('#booking-preview3').append(sub_total);
+    var routeHtml = $('#booking-preview2').html().replace('btn-danger', 'hide');
+    $('#booking-preview3').html(routeHtml);
+    $('#booking-preview3').append(subTotal);
     $('#booking-preview3').removeClass('hide');
-
+    booking.price = totalPrice;
+    booking.taxes = 25;
+    booking.totalPrice = booking.price + booking.taxes;
 }
 
 function calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, tarifas){
@@ -380,6 +384,23 @@ function addPassenger(){
     var passengerDetail = '<tr>' + passengerTypeHtml  + passengerInfoHtml + passengerPriceHtml + deletePassengerHtml + '</tr>';
     passengerTableBody.append(passengerDetail);
     $('#booking-preview2 #passenger-list-table').removeClass('hide');
+
+}
+
+function finish(){
+    //console.log(booking);
+
+    $.ajax({
+        type: "POST",
+        url: "api.php",
+        data: booking,
+        success: function(datos){
+            console.log('datos ', datos);
+        },
+        fail: function(datos){
+            console.log('fail  ', datos);
+        }
+    });
 
 }
 
