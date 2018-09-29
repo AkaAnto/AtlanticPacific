@@ -97,15 +97,15 @@
                                     </div>
                                     <div class="form-group">
                                         <input id="vehicle_weight" type="number" min="1" max="20" class="form-control col-md-10" placeholder="PESO" style="display: inline-flex" />
-                                        <label class="col-md-2" style="display: inline">KG</label>
+                                        <label class="col-md-2" style="display: inline">TON</label>
                                     </div>
                                     <input id="license_plate" type="text" min="1" max="20" class="form-control" placeholder="PLACA VEHICULO" />
                                     <input id="cargo_owner_full_name" type="text" min="1" max="20" class="form-control" placeholder="NOMBRE COMPLETO DUEÑ0 DE CARGA" />
                                     <input id="cargo_owner_passport_number" type="text"  class="form-control" placeholder="PASAPORTE Ó NÚMERO DE COMPAÑIA" />
-                                    <input id="cargo_type" type="text"  class="form-control" placeholder="TIPO DE CARGA" />
+                                    <input id="cargo_type" type="text"  class="form-control" placeholder="TIPO DE CARGA (COMMODITY)" />
                                     <div class="form-group">
-                                        <input id="cargo_weight" type="number" min="1" max="20" class="form-control col-md-10" placeholder="PESO DE LA CARGA" style="display: inline-flex" />
-                                        <label class="col-md-2" style="display: inline">KG</label>
+                                        <input id="cargo_weight" type="number" min="1" max="20" class="form-control col-md-10" placeholder="PESO NETO" style="display: inline-flex" />
+                                        <label class="col-md-2" style="display: inline">TON</label>
                                     </div>
                                     <textarea id="cargo_description" type="text"  class="form-control" placeholder="DESCRIPCIÓN DE CARGA"></textarea>
                                     <div align="center" style="margin-top: 15px; margin-bottom: 5px">
@@ -127,9 +127,7 @@
                                     <br/>
                                     <div class="col-md-12">
                                         <p id="dut-number"><b> NÚMERO DUT: </b>WDSG46OLXV</p>
-                                        <div id="route-detail">
-
-                                        </div>
+                                        <div id="route-detail"> </div>
                                         <br/>
                                         <table class="table hide" id="cargo-list-table">
                                             <thead>
@@ -164,13 +162,13 @@
                     </div>
                     <!-- Third Tab -->
                     <div class="tab-pane fade" role="tabpanel" id="passengertab" aria-labelledby="profile-tab">
-                        <h5 class="title-contact" style="color:#005292; margin-top: 25px; margin-left: 15px ">Add the passenger information</h5>
+                        <h5 class="title-contact" style="color:#005292; margin-top: 25px; margin-left: 15px ">Información de los pasajeros</h5>
                         <div class="tab-content-holder col-md-5">
                             <br/>
                             <form class="form-horizontal booking-form" style="margin-left: 15px">
                                 <div class="form-group">
                                     <select class="form-control" id="passenger_type">
-                                        <option>Select Passenger Type</option>
+                                        <option>Seleccione Tipo de pasajero</option>
                                         <option value="Persona Particular">Pasajero Particular</option>
                                         <option value="Persona en Auto a bordo (Max 4)">Pasajero en Auto a bordo (Max 4)</option>
                                         <option value="Pasajero en Autobus a bordo (Max 50)">Pasajero en Autobus a bordo (Max 50)</option>
@@ -178,41 +176,40 @@
                                         <option value="Pasajero Conductor de gandola (1 por gandola)">Pasajero Conductor de gandola (1 por gandola)</option>
                                         <option value="Pasajero Conductor de autobus (1 por autobus)">Pasajero Conductor de autobus (1 por autobus)</option>
                                     </select>
-                                    <input id="passenger_full_name" type="text" class="form-control" placeholder="PASSENGER FULL NAME" />
-                                    <input id="passenger_passport" type="text" class="form-control" placeholder="PASSENGER PASSPORT NUMBER" />
+                                    <input id="passenger_full_name" type="text" class="form-control" placeholder="NOMBRE COMPLETO PASAJERO" />
+                                    <input id="passenger_passport" type="text" class="form-control" placeholder="NÚMERO DE PASAPORTE PASAJERO" />
                                     <div align="center" style="margin-top: 15px; margin-bottom: 5px">
                                         <a class="btn btn-primary btn-square" onclick="addPassenger()" style="background-color: #337ab7; color: #FFF;">
-                                            <i class="fas fa-plus-circle"> </i> Add Passenger
+                                            <i class="fas fa-plus-circle"> </i> Agregar Pasajero
                                         </a>
                                     </div>
                                 </div>
 
                                 <a class="btn btn-default btn-square" onclick="goToFourthStep();">
-                                    <i class="fas fa-arrow-circle-right" > </i> Next
+                                    <i class="fas fa-arrow-circle-right" > </i> Siguiente
                                 </a>
                             </form>
 
                         </div>
-                        <div id="booking-preview2" class="tab-content-holder col-md-7 hide booking-preview" style="border-left: 1px solid grey; overflow-y: scroll">
-                        </div>
+                        <div id="booking-preview2" class="tab-content-holder col-md-7 hide booking-preview" style="border-left: 1px solid grey; overflow-y: scroll"> </div>
                     </div>
                     <!-- Fourth Tab -->
                     <div class="tab-pane fade" role="tabpanel" id="paymenttab" aria-labelledby="payment-tab">
-                        <h5 class="title-contact" style="color:#005292; margin-top: 25px; margin-left: 15px ">Add your information</h5>
+                        <h5 class="title-contact" style="color:#005292; margin-top: 25px; margin-left: 15px ">Información de contacto</h5>
                         <div class="tab-content-holder col-md-5">
                             <br/>
                             <form class="form-horizontal booking-form" style="margin-left: 15px">
                                 <div class="form-group">
-                                    <input id="client_name" type="text"  class="form-control" placeholder="YOUR FULL NAME" />
-                                    <input id="client_passport" type="text"  class="form-control" placeholder="YOUR PASSPORT NUMBER" />
-                                    <input id="client_number" type="text"  class="form-control" placeholder="YOUR PHONE NUMBER" />
-                                    <input id="client_email" type="email"  class="form-control" placeholder="YOUR EMAIL" />
+                                    <input id="client_name" type="text"  class="form-control" placeholder="TU NOMBRE COMPLETO" />
+                                    <input id="client_passport" type="text"  class="form-control" placeholder="TU NUMERO DE PASAPORTE" />
+                                    <input id="client_number" type="text"  class="form-control" placeholder="TU NUMERO DE TELEFONO" />
+                                    <input id="client_email" type="email"  class="form-control" placeholder="TU  EMAIL" />
 
                                 </div>
-                                <p><b>By clicking Finish you agree with our <a href="#"> terms of services</a> and declare all information provided by you as legal and valid. </b></p>
+                                <p><b>Al hacer click en finalizar, usted acepta nuestros <a href="#"> términos y servicios</a> y declara toda la información suministrada como verdadera.</b></p>
                                 <br/>
                                 <a class="btn btn-default btn-square" onclick="finish();">
-                                    <i class="fas fa-arrow-circle-right" > </i> Finish
+                                    <i class="fas fa-arrow-circle-right" > </i> Finalizar
                                 </a>
                             </form>
 

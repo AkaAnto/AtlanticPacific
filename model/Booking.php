@@ -18,7 +18,7 @@ class Booking extends Login {
             return $barcos;
         }
         else {
-            return "No se encontraron barcos.";
+            return [];
         }
     }
 

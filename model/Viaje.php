@@ -21,7 +21,7 @@ class Viaje extends Login {
             return $viajes;
         }
         else {
-            return "No se encontraron viajes.";
+            return [];
         }
     }
 

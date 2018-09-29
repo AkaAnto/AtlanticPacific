@@ -21,7 +21,7 @@ class TarifaPasajero extends Login {
             return $tarifa_pasajeros;
         }
         else {
-            return "No se encontraron tarifa pasajeros.";
+            return [];
         }
     }
 
@@ -31,7 +31,7 @@ class TarifaPasajero extends Login {
             return $barcos;
         }
         else {
-            return "No se encontraron tarifa cargas.";
+            return [];
         }
     }
 

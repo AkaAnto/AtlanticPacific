@@ -89,14 +89,27 @@ function formatDate(date) {
     return  parseInt(date.getDate()) + '/' + (parseInt(date.getMonth()) + 1) + '/' + parseInt(date.getFullYear());
 }
 
+function updateSecondStepPreview(dut, route, travelDate){
+    var route_html;
+    $("#showLoading").addClass('hide');
+    $('#cargo-tab').removeClass('btn-inactive');
+    $('#dut-number').html('<b>NÚMERO DUT: </b>' + dut);
+    route_html = '<p>\n' + '<b>' + route + '</b>\n' + '<i class="fas fa-arrow-circle-right"> </i>\n'  + travelDate +' - 7:00 AM\n' + '</p>';
+    $('#route-detail').html(route_html);
+    $('#booking-preview').removeClass('hide');
+    $('#myTabs li:eq(1) a').tab('show');
+
+}
+
 function goToSecondStep(){
     $('#firstStepValidationMessage').addClass('hide');
+    $("#showLoading").removeClass('hide');
     var dut = $('#dut').val();
     var route = $('#route').find(":selected").text().split(' -')[0];
     var dateSplit = $('#travel_date').val().split('/');
     var out_bound_date = dateSplit[1] + '-' + dateSplit[0] + '-' + dateSplit[2];
     var all_data_entered = (dut !='') && (route!='0') && (out_bound_date!='');
-    var route_html = '';
+
     if (all_data_entered){
 
         booking.dut_number = dut;
@@ -109,31 +122,7 @@ function goToSecondStep(){
             success: function(datos){
                 booking.tarifas = datos[0];
                 booking.cargoList = [];
-
-                $("#showLoading").removeClass('hide');
-                $("#showLoading").addClass('hide');
-                $('#myTabs li:eq(1) a').tab('show');
-                $('.booking-preview').removeClass('hide');
-                $('#cargo-tab').removeClass('btn-inactive');
-                $('#dut-number').html('<b>NÚMERO DUT: </b>' + $('#dut').val());
-                if (route.includes('El Savador - Costa Rica')){
-                    route_html =
-                        '<p>\n' +
-                        '<b>EL SALVADOR - COSTA RICA</b>\n' +
-                        '<i class="fas fa-arrow-circle-right"> </i>\n'  +
-                        out_bound_date +' - 7:00 AM\n' +
-                        '</p>';
-                }
-                if (route.includes('Costa Rica - El Savador')){
-                    route_html =
-                        '<p>\n' +
-                        '<b>COSTA RICA - EL SALVADOR</b>\n' +
-                        '<i class="fas fa-arrow-circle-right"> </i>\n'  +
-                        out_bound_date +' - 7:00 AM\n' +
-                        '</p>';
-                }
-                $('#route-detail').html(route_html);
-
+                updateSecondStepPreview(booking.dut_number, $('#route').find(":selected").text(), booking.travel_date);
             },
             fail: function(datos){
                 console.log('fail  ', datos);
@@ -253,6 +242,7 @@ function  calculatePassengerPrice(passengerType, tarifas){
 }
 
 function addCargo(){
+
     var vehicleType = $('#vehicle_type').find(":selected").text();
     var vehicleLength = parseFloat($('#cargo_length').val());
     var vehicleWidth = $('#cargo_width').find(":selected").text();
@@ -260,64 +250,65 @@ function addCargo(){
     var vehicleWeight = parseFloat($('#vehicle_weight').val());
     var licensePlate = $('#license_plate').val();
 
-
-    var vehicle_type = '<span class="label label-success text-uppercase">' + vehicleType + '</span> ';
-    var license_plate = '<span class="label label-license text-uppercase">' + licensePlate + '</span>';
-    var cargo_high = '<span class="label label-default text-uppercase">' + vehicleHeight + ' </span> ';
-    var cargo_width ='<span class="label label-default text-uppercase">' + vehicleWidth + '</span> ';
-    var cargo_length = '<span class="label label-default text-uppercase">' + vehicleLength + ' mts LARGO </span> ';
-    var vehicle_weight = '<span class="label label-default text-uppercase">' + vehicleWeight + ' KG </span> ';
+    var cargoOwner = $('#cargo_owner_full_name').val();
+    var cargoOwnerPassport =  $('#cargo_owner_passport_number').val();
+    var cargoType =  $('#cargo_type').val();
+    var cargoWeight =  $('#cargo_weight').val();
+    var cargoDescription =  $('#cargo_description').val();
 
 
-    var cargo_owner_full_val =  $('#cargo_owner_full_name').val();
-    var cargo_owner_passport_number_val =  $('#cargo_owner_passport_number').val();
-    var cargo_weight = '<span class="label label-default text-uppercase">' + $('#cargo_weight').val() + ' KG </span> ';
-    var cargo_type_val =  $('#cargo_type').val();
-    var cargo_description_val =  $('#cargo_description').val();
-    if (cargo_type_val.length < 1){
-        cargo_type_val = 'SIN CARGA';
-        cargo_description_val = 'NO TRANSPORTA CARGA';
-        cargo_owner_full_val = 'N/A';
-        cargo_owner_passport_number_val = 'N/A';
+    var vehicleTypeHtml = '<span class="label label-success text-uppercase">' + vehicleType + '</span> ';
+    var licensePlateHtml = '<span class="label label-license text-uppercase">' + licensePlate + '</span>';
+    var vehicleHeightHtml = '<span class="label label-default text-uppercase">' + vehicleHeight + ' </span> ';
+    var vehicleWidthHtml ='<span class="label label-default text-uppercase">' + vehicleWidth + '</span> ';
+    var vehicleLengthHtml = '<span class="label label-default text-uppercase">' + vehicleLength + ' mts LARGO </span> ';
+    var vehicleWeightHtml = '<span class="label label-default text-uppercase">' + vehicleWeight + ' TON </span> ';
+
+
+    if (cargoType.length < 1){
+        cargoType = 'SIN CARGA';
+        cargoDescription = 'NO TRANSPORTA CARGA';
+        cargoOwner = 'N/A';
+        cargoOwnerPassport = 'N/A';
     }
     else{
-        if (cargo_description_val.length < 1){
-            cargo_description_val = 'SIN DESCRIPCIÓN DE CARGA';
+        if (cargoDescription.length < 1){
+            cargoDescription = 'SIN DESCRIPCIÓN DE CARGA';
         }
     }
 
 
+    var cargoOwnerHtml = '<span class="label label-success text-uppercase">' + cargoOwner + '</span>';
+    var cargoOwnerPassportHtml = '<span class="label label-license text-uppercase">' + cargoOwnerPassport + '</span>';
+    var cargoTypeHtml = '<span class="label label-success text-uppercase">' + cargoType + ' </span>';
+    var cargoWeightHtml = '<span class="label label-default text-uppercase">' + cargoWeight + ' TON </span> ';
+    var cargoDescriptionHtml = '<span class="label label-default text-uppercase">' + cargoDescription + '</span>';
+    var cargoPrice = calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, booking.tarifas);
+    var deleteCargoHtml = '<td><button type="button" onclick="' +"$(this).closest('tr')" + '.remove()"style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
 
-    var cargo_type = '<span class="label label-success text-uppercase">' + cargo_type_val + ' </span>';
-    var cargo_description ='<span class="label label-default text-uppercase">' + cargo_description_val + '</span>';
-    var cargo_owner_full_name = '<span class="label label-success text-uppercase">' + cargo_owner_full_val + '</span>';
-    var cargo_owner_passport_number = '<span class="label label-license text-uppercase">' + cargo_owner_passport_number_val + '</span>';
-
-
-    var price = calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, booking.tarifas);
-
-    if (price > 0){
-        var cargo_price = '<td class="price"><b>'+ price +'$</b></td>';
+    if (cargoPrice > 0){
+        var cargoPriceHtml = '<td class="price"><b>'+ cargoPrice +'$</b></td>';
     }
     else {
-        var cargo_price = '<td><b>Por Cotizar</b></td>';
+        var cargoPriceHtml = '<td><b>Por Cotizar</b></td>';
     }
 
-    var delete_cargo = '<td><button type="button" onclick="' +"$(this).closest('tr')" + '.remove()"style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
     var new_cargo ={
-            vehicle_type: vehicle_type,
-            vehicle_high: cargo_high,
-            vehicle_width: cargo_width,
-            vehicle_length: cargo_length,
-            cargo_detail: []
+            vehicleType: vehicleType,
+            vehicleHeight: vehicleHeight,
+            vehicleWidth: vehicleWidth,
+            vehicleLength: vehicleLength,
+            cargo: {}
     };
     booking.cargoList.push(new_cargo);
+
     console.log('booking.cargoList ', booking.cargoList);
+
     var table_body = $('#cargo-list-table tbody');
-    var vehicle_detail = '<td>' + vehicle_type + license_plate + cargo_high + cargo_width + cargo_length + vehicle_weight + '</td>';
-    var cargo_owner_detail = '<td>' + cargo_owner_full_name + cargo_owner_passport_number + '</td>';
-    var cargo_detail = '<td>' + cargo_type + cargo_description + cargo_weight + '</td>';
-    var cargo_row_detail = '<tr>' + vehicle_detail + cargo_owner_detail + cargo_detail + cargo_price + delete_cargo + '</tr>';
+    var vehicleDetail = '<td>' + vehicleTypeHtml + licensePlateHtml + vehicleHeightHtml + vehicleWidthHtml + vehicleLengthHtml + vehicleWeightHtml + '</td>';
+    var cargoOwnerDetail = '<td>' + cargoOwnerHtml + cargoOwnerPassportHtml + '</td>';
+    var cargoDetail = '<td>' + cargoTypeHtml + cargoDescriptionHtml + cargoWeightHtml + '</td>';
+    var cargo_row_detail = '<tr>' + vehicleDetail + cargoOwnerDetail + cargoDetail + cargoPriceHtml + deleteCargoHtml + '</tr>';
     table_body.append(cargo_row_detail);
     $('#cargo-list-table').removeClass('hide');
 }

@@ -21,7 +21,7 @@ class TarifaCarga extends Login {
             return $tarifa_cargas;
         }
         else {
-            return "No se encontraron tarifa cargas.";
+            return [];
         }
     }
 
@@ -31,7 +31,7 @@ class TarifaCarga extends Login {
             return $barcos;
         }
         else {
-            return "No se encontraron tarifa cargas.";
+            return [];
         }
     }
 
