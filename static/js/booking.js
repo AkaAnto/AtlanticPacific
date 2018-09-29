@@ -359,15 +359,26 @@ function addCargo(){
 
 function addPassenger(){
     var passengerType = $('#passenger_type').find(":selected").text();
-    var passenger_type = '<td>' + passengerType + '</td>';
-    var passenger_price_amount = calculatePassengerPrice(passengerType, booking.tarifasPasajero);
+    var passengerName = $('#passenger_full_name').val();
+    var passengerPassport = $('#passenger_passport').val();
+    var passengerPrice = calculatePassengerPrice(passengerType, booking.tarifasPasajero);
 
-    var table_passenger_body = $('#booking-preview2 #passenger-list-table tbody');
-    var passenger_info = '<td> ' + $('#passenger_full_name').val() + ' <br/> ' + $('#passenger_passport').val() + ' </td>';
-    var passenger_price_total = '<td class="price"> <b>' + passenger_price_amount+ '$</b> </td>';
-    var delete_passenger = '<td> <button type="button" onclick="' +"$(this).closest('tr')" + '.remove()"style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
-    var passenger_detail = '<tr>' + passenger_type  + passenger_info + passenger_price_total + delete_passenger + '</tr>';
-    table_passenger_body.append(passenger_detail);
+    var passenger = {
+        passengerType: passengerType,
+        passengerName: passengerName,
+        passengerPassport: passengerPassport,
+        passengerPrice: passengerPrice,
+    };
+
+    booking.passengerList.push(passenger);
+
+    var passengerTypeHtml = '<td>' + passengerType + '</td>';
+    var passengerInfoHtml = '<td> ' + passengerName + ' <br/> ' + passengerPassport + ' </td>';
+    var passengerPriceHtml = '<td class="price"> <b>' + passengerPrice+ '$</b> </td>';
+    var deletePassengerHtml = '<td> <button type="button" onclick="' +"$(this).closest('tr')" + '.remove()"style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
+    var passengerTableBody = $('#booking-preview2 #passenger-list-table tbody');
+    var passengerDetail = '<tr>' + passengerTypeHtml  + passengerInfoHtml + passengerPriceHtml + deletePassengerHtml + '</tr>';
+    passengerTableBody.append(passengerDetail);
     $('#booking-preview2 #passenger-list-table').removeClass('hide');
 
 }
