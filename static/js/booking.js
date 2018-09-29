@@ -71,7 +71,23 @@ jQuery(document).ready(function ($) {
         });
     });
 });
+
 var booking = {};
+booking.vehicleType = '';
+booking.vehicleHeight = '';
+booking.vehicleWidth = '';
+booking.vehicleLength = '';
+booking.vehicleWeight = '';
+booking.vehiclePlate = '';
+booking.cargoOwner = '';
+booking.cargoOwnerPassport = '';
+booking.cargoType = '';
+booking.cargoWeight = '';
+booking.cargoDescription = '';
+booking.cargoPrice  = '';
+booking.cargoCount = 0;
+
+
 function formatAvailableDates(availableDates) {
     var responseArray = [];
     if (availableDates.length > 0 && $.isArray(availableDates)) {
@@ -98,7 +114,6 @@ function updateSecondStepPreview(dut, route, travelDate){
     $('#route-detail').html(route_html);
     $('#booking-preview').removeClass('hide');
     $('#myTabs li:eq(1) a').tab('show');
-
 }
 
 function goToSecondStep(){
@@ -111,7 +126,6 @@ function goToSecondStep(){
     var all_data_entered = (dut !='') && (route!='0') && (out_bound_date!='');
 
     if (all_data_entered){
-
         booking.dut_number = dut;
         booking.route = route;
         booking.travel_date = out_bound_date;
@@ -121,7 +135,6 @@ function goToSecondStep(){
             data: {route: route, travel_date: out_bound_date},
             success: function(datos){
                 booking.tarifas = datos[0];
-                booking.cargoList = [];
                 updateSecondStepPreview(booking.dut_number, $('#route').find(":selected").text(), booking.travel_date);
             },
             fail: function(datos){
@@ -182,7 +195,7 @@ function goToFourthStep(){
 
 }
 
-function  calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, tarifas){
+function calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, tarifas){
     var priceAmount = tarifas['tres_metros'];
     if (vehicleLength > 3){
         priceAmount = tarifas['seis_metros'];
@@ -220,7 +233,7 @@ function  calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicl
     return priceAmount;
 }
 
-function  calculatePassengerPrice(passengerType, tarifas){
+function calculatePassengerPrice(passengerType, tarifas){
     
     var priceAmount = tarifas['particular'];
     if (passengerType.includes('Pasajero en Auto a bordo (Max 4)')){
@@ -241,76 +254,107 @@ function  calculatePassengerPrice(passengerType, tarifas){
     return priceAmount;
 }
 
+function deleteCargo(jqueryInstance){
+    jqueryInstance.closest('tr').remove();
+    booking.vehicleType = '';
+    booking.vehicleHeight = '';
+    booking.vehicleWidth = '';
+    booking.vehicleLength = '';
+    booking.vehicleWeight = '';
+    booking.vehiclePlate = '';
+    booking.cargoOwner = '';
+    booking.cargoOwnerPassport = '';
+    booking.cargoType = '';
+    booking.cargoWeight = '';
+    booking.cargoDescription = '';
+    booking.cargoPrice  = '';
+    booking.cargoCount = 0;
+}
+
 function addCargo(){
-
-    var vehicleType = $('#vehicle_type').find(":selected").text();
-    var vehicleLength = parseFloat($('#cargo_length').val());
-    var vehicleWidth = $('#cargo_width').find(":selected").text();
-    var vehicleHeight = $('#cargo_high').find(":selected").text();
-    var vehicleWeight = parseFloat($('#vehicle_weight').val());
-    var licensePlate = $('#license_plate').val();
-
-    var cargoOwner = $('#cargo_owner_full_name').val();
-    var cargoOwnerPassport =  $('#cargo_owner_passport_number').val();
-    var cargoType =  $('#cargo_type').val();
-    var cargoWeight =  $('#cargo_weight').val();
-    var cargoDescription =  $('#cargo_description').val();
-
-
-    var vehicleTypeHtml = '<span class="label label-success text-uppercase">' + vehicleType + '</span> ';
-    var licensePlateHtml = '<span class="label label-license text-uppercase">' + licensePlate + '</span>';
-    var vehicleHeightHtml = '<span class="label label-default text-uppercase">' + vehicleHeight + ' </span> ';
-    var vehicleWidthHtml ='<span class="label label-default text-uppercase">' + vehicleWidth + '</span> ';
-    var vehicleLengthHtml = '<span class="label label-default text-uppercase">' + vehicleLength + ' mts LARGO </span> ';
-    var vehicleWeightHtml = '<span class="label label-default text-uppercase">' + vehicleWeight + ' TON </span> ';
-
-
-    if (cargoType.length < 1){
-        cargoType = 'SIN CARGA';
-        cargoDescription = 'NO TRANSPORTA CARGA';
-        cargoOwner = 'N/A';
-        cargoOwnerPassport = 'N/A';
+    $('#cargo-list-table tbody div.alert-danger').remove();
+    if (booking.cargoCount > 0) {
+        var table_body = $('#cargo-list-table tbody');
+        var bookingNumberValidation = '<div class="alert alert-dismissible alert-danger">Solo se permite una carga por booking</div>';
+        table_body.append(bookingNumberValidation);
     }
-    else{
-        if (cargoDescription.length < 1){
-            cargoDescription = 'SIN DESCRIPCIÓN DE CARGA';
+    if (booking.cargoCount < 1) {
+
+        var vehicleType = $('#vehicle_type').find(":selected").text();
+        var vehicleLength = parseFloat($('#cargo_length').val());
+        var vehicleWidth = $('#cargo_width').find(":selected").text();
+        var vehicleHeight = $('#cargo_high').find(":selected").text();
+        var vehicleWeight = parseFloat($('#vehicle_weight').val());
+        var licensePlate = $('#license_plate').val();
+
+        var cargoOwner = $('#cargo_owner_full_name').val();
+        var cargoOwnerPassport = $('#cargo_owner_passport_number').val();
+        var cargoType = $('#cargo_type').val();
+        var cargoWeight = $('#cargo_weight').val();
+        var cargoDescription = $('#cargo_description').val();
+
+
+        var vehicleTypeHtml = '<span class="label label-success text-uppercase">' + vehicleType + '</span> ';
+        var licensePlateHtml = '<span class="label label-license text-uppercase">' + licensePlate + '</span>';
+        var vehicleHeightHtml = '<span class="label label-default text-uppercase">' + vehicleHeight + ' </span> ';
+        var vehicleWidthHtml = '<span class="label label-default text-uppercase">' + vehicleWidth + '</span> ';
+        var vehicleLengthHtml = '<span class="label label-default text-uppercase">' + vehicleLength + ' mts LARGO </span> ';
+        var vehicleWeightHtml = '<span class="label label-default text-uppercase">' + vehicleWeight + ' TON </span> ';
+
+
+        if (cargoType.length < 1) {
+            cargoType = 'SIN CARGA';
+            cargoDescription = 'NO TRANSPORTA CARGA';
+            cargoOwner = 'N/A';
+            cargoOwnerPassport = 'N/A';
         }
+        else {
+            if (cargoDescription.length < 1) {
+                cargoDescription = 'SIN DESCRIPCIÓN DE CARGA';
+            }
+        }
+
+
+        var cargoOwnerHtml = '<span class="label label-success text-uppercase">' + cargoOwner + '</span>';
+        var cargoOwnerPassportHtml = '<span class="label label-license text-uppercase">' + cargoOwnerPassport + '</span>';
+        var cargoTypeHtml = '<span class="label label-success text-uppercase">' + cargoType + ' </span>';
+        var cargoWeightHtml = '<span class="label label-default text-uppercase">' + cargoWeight + ' TON </span> ';
+        var cargoDescriptionHtml = '<span class="label label-default text-uppercase">' + cargoDescription + '</span>';
+        var cargoPrice = calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, booking.tarifas);
+        var deleteCargoHtml = '<td><button type="button" onclick="deleteCargo(' + "$(this)" + ')" style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
+
+        if (cargoPrice > 0) {
+            var cargoPriceHtml = '<td class="price"><b>' + cargoPrice + '$</b></td>';
+        }
+        else {
+            var cargoPriceHtml = '<td><b>Por Cotizar</b></td>';
+        }
+
+        booking.vehicleType = vehicleType;
+        booking.vehicleHeight = vehicleHeight;
+        booking.vehicleWidth = vehicleWidth;
+        booking.vehicleLength = vehicleLength;
+        booking.vehicleWeight = vehicleWeight;
+        booking.vehiclePlate = licensePlate;
+        booking.cargoOwner = cargoOwner;
+        booking.cargoOwnerPassport = cargoOwnerPassport;
+        booking.cargoType = cargoType;
+        booking.cargoWeight = cargoWeight;
+        booking.cargoDescription = cargoDescription;
+        booking.cargoPrice = parseInt(cargoPrice);
+        booking.cargoCount = 1;
+        booking.appliedTarifaId = booking.tarifas.id;
+
+        console.log('booking', booking);
+
+        var table_body = $('#cargo-list-table tbody');
+        var vehicleDetail = '<td>' + vehicleTypeHtml + licensePlateHtml + vehicleHeightHtml + vehicleWidthHtml + vehicleLengthHtml + vehicleWeightHtml + '</td>';
+        var cargoOwnerDetail = '<td>' + cargoOwnerHtml + cargoOwnerPassportHtml + '</td>';
+        var cargoDetail = '<td>' + cargoTypeHtml + cargoDescriptionHtml + cargoWeightHtml + '</td>';
+        var cargo_row_detail = '<tr>' + vehicleDetail + cargoOwnerDetail + cargoDetail + cargoPriceHtml + deleteCargoHtml + '</tr>';
+        table_body.append(cargo_row_detail);
+        $('#cargo-list-table').removeClass('hide');
     }
-
-
-    var cargoOwnerHtml = '<span class="label label-success text-uppercase">' + cargoOwner + '</span>';
-    var cargoOwnerPassportHtml = '<span class="label label-license text-uppercase">' + cargoOwnerPassport + '</span>';
-    var cargoTypeHtml = '<span class="label label-success text-uppercase">' + cargoType + ' </span>';
-    var cargoWeightHtml = '<span class="label label-default text-uppercase">' + cargoWeight + ' TON </span> ';
-    var cargoDescriptionHtml = '<span class="label label-default text-uppercase">' + cargoDescription + '</span>';
-    var cargoPrice = calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, booking.tarifas);
-    var deleteCargoHtml = '<td><button type="button" onclick="' +"$(this).closest('tr')" + '.remove()"style="font-size: 11px;padding: 2px 6px;" class="btn btn-danger">X</button></td>';
-
-    if (cargoPrice > 0){
-        var cargoPriceHtml = '<td class="price"><b>'+ cargoPrice +'$</b></td>';
-    }
-    else {
-        var cargoPriceHtml = '<td><b>Por Cotizar</b></td>';
-    }
-
-    var new_cargo ={
-            vehicleType: vehicleType,
-            vehicleHeight: vehicleHeight,
-            vehicleWidth: vehicleWidth,
-            vehicleLength: vehicleLength,
-            cargo: {}
-    };
-    booking.cargoList.push(new_cargo);
-
-    console.log('booking.cargoList ', booking.cargoList);
-
-    var table_body = $('#cargo-list-table tbody');
-    var vehicleDetail = '<td>' + vehicleTypeHtml + licensePlateHtml + vehicleHeightHtml + vehicleWidthHtml + vehicleLengthHtml + vehicleWeightHtml + '</td>';
-    var cargoOwnerDetail = '<td>' + cargoOwnerHtml + cargoOwnerPassportHtml + '</td>';
-    var cargoDetail = '<td>' + cargoTypeHtml + cargoDescriptionHtml + cargoWeightHtml + '</td>';
-    var cargo_row_detail = '<tr>' + vehicleDetail + cargoOwnerDetail + cargoDetail + cargoPriceHtml + deleteCargoHtml + '</tr>';
-    table_body.append(cargo_row_detail);
-    $('#cargo-list-table').removeClass('hide');
 }
 
 function addPassenger(){
@@ -328,21 +372,3 @@ function addPassenger(){
 
 }
 
-function finish(){
-    var doc = new jsPDF();
-    var elementHandler = {
-        '.ignorePDF': function (element, renderer) {
-            return true;
-        }
-    };
-    var source = window.document.getElementById("booking-preview3");
-    doc.fromHTML(
-        source,
-        1,
-        1,
-        {
-            'width': 1800,'elementHandlers': elementHandler
-        });
-
-    doc.output("dataurlnewwindow");
-}
