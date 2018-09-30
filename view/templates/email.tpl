@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <title>Prueba envio mail de booking</title>
+    <title>Cotización Realizada</title>
     <style>
         .label {
             display: block;
@@ -44,12 +44,66 @@
             margin-bottom: 20px;
         }
 
+        .alert-info {
+            color: #0c5460;
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+        }
+        .alert-dismissible {
+            padding-right: 4rem;
+        }
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            font-size: medium;
+        }
+
     </style>
 </head>
 <body id="body">
         <h1 class="title-contact" align="center" style="color:#005292; ">Booking 0023933821</h1>
 
+        <div class="alert alert-dismissible alert-info">
+            Hemos registrado su cotizacion y la estamos procesando, una vez sea aprobada recibirá un nuevo correo con la
+            información para realizar el pago y confirmar su cotización.
+        </div>
+
         <div class="col-md-12">
+            <h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Cotización</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> <span class="label label-success text-uppercase"> Nombre</span> </th>
+                    <th> <span class="label label-success text-uppercase"> Pasaporte </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Teléfono </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Email </span> </th>
+                    <th> <span class="label label-success text-uppercase"> Fecha</span> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <span class="label label-value text-uppercase">Cliente Perez </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">7392329 </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">02838392 </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">cliente@cargo.com </span>
+                    </td>
+                    <td>
+                        <span class="label label-value text-uppercase">{date("d-m-y")}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
             <h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Viaje</h2>
             <table class="table">
                 <thead>

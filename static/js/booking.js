@@ -398,17 +398,19 @@ function finish(){
     var all_data_entered = (clientName !='') && (clientPassport!='') && (clientPhone!='') && (clientEmail!='');
 
     if (all_data_entered){
-        $('#finish').addClass('disabled');
+
         $('#fourthStepSuccessMessage').removeClass('hide');
         booking.clientName = clientName;
         booking.clientPassport = clientPassport;
         booking.clientPhone = clientPhone;
         booking.clientEmail = clientEmail;
+        console.log(booking);
         $.ajax({
             type: "POST",
             url: "api.php",
             data: booking,
             success: function(datos){
+                $('#finish').addClass('disabled');
                 console.log('datos ', datos);
             },
             fail: function(datos){
