@@ -204,15 +204,18 @@
                                     <input id="client_passport" type="text"  class="form-control" placeholder="TU NUMERO DE PASAPORTE" />
                                     <input id="client_number" type="text"  class="form-control" placeholder="TU NUMERO DE TELEFONO" />
                                     <input id="client_email" type="email"  class="form-control" placeholder="TU  EMAIL" />
-
                                 </div>
                                 <p><b>Al hacer click en finalizar, usted acepta nuestros <a href="#"> términos y servicios</a> y declara toda la información suministrada como verdadera.</b></p>
                                 <br/>
-                                <a class="btn btn-default btn-square" onclick="finish();">
+                                <div class="alert alert-dismissible alert-danger hide" id="fourthStepValidationMessage">Debe sumistrar toda la información</div>
+                                <div class="alert alert-dismissible alert-info hide" id="fourthStepSuccessMessage">
+                                    Hemos registrado su cotizacion, recibirá un correo electrónico con la informaciòn necesaria para continuar con el proceso.
+                                    Recuerde verificar su  correo no deseado (Spam).
+                                </div>
+                                <a class="btn btn-default btn-square" onclick="finish();" id="finish">
                                     <i class="fas fa-arrow-circle-right" > </i> Finalizar
                                 </a>
                             </form>
-
                         </div>
                         <div id="booking-preview3" class="tab-content-holder col-md-7 hide booking-preview" style="border-left: 1px solid grey; overflow-y: scroll">
                         </div>

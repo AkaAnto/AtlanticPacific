@@ -388,19 +388,38 @@ function addPassenger(){
 }
 
 function finish(){
+    $('#fourthStepValidationMessage').addClass('hide');
+    $('#fourthStepSuccessMessage').addClass('hide');
     //console.log(booking);
+    var clientName = $('#client_name').val();
+    var clientPassport = $('#client_passport').val();
+    var clientPhone = $('#client_number').val();
+    var clientEmail = $('#client_email').val();
+    var all_data_entered = (clientName !='') && (clientPassport!='') && (clientPhone!='') && (clientEmail!='');
 
-    $.ajax({
-        type: "POST",
-        url: "api.php",
-        data: booking,
-        success: function(datos){
-            console.log('datos ', datos);
-        },
-        fail: function(datos){
-            console.log('fail  ', datos);
-        }
-    });
+    if (all_data_entered){
+        $('#finish').addClass('disabled');
+        $('#fourthStepSuccessMessage').removeClass('hide');
+        booking.clientName = clientName;
+        booking.clientPassport = clientPassport;
+        booking.clientPhone = clientPhone;
+        booking.clientEmail = clientEmail;
+        $.ajax({
+            type: "POST",
+            url: "api.php",
+            data: booking,
+            success: function(datos){
+                console.log('datos ', datos);
+            },
+            fail: function(datos){
+                console.log('fail  ', datos);
+            }
+        });
+    }
+    else{
+        $('#fourthStepValidationMessage').removeClass('hide');
+    }
+
 
 }
 
