@@ -86,16 +86,16 @@
                 <tbody>
                 <tr>
                     <td>
-                        <span class="label label-value text-uppercase">Cliente Perez </span>
+                        <span class="label label-value text-uppercase">{$booking.clientName}</span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">7392329 </span>
+                        <span class="label label-value text-uppercase">{$booking.clientPassport}</span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">02838392 </span>
+                        <span class="label label-value text-uppercase">{$booking.clientPhone} </span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">cliente@cargo.com </span>
+                        <span class="label label-value text-uppercase">{$booking.clientEmail} </span>
                     </td>
                     <td>
                         <span class="label label-value text-uppercase">{date("d-m-y")}</span>
@@ -121,16 +121,22 @@
                         <span class="label label-value text-uppercase">0023933821 </span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">7392329 </span>
+                        <span class="label label-value text-uppercase">{$booking.dut_number} </span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">El Salvador </span>
+                        <span class="label label-value text-uppercase">{$booking.route}</span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">Costa Rica </span>
+                        <span class="label label-value text-uppercase">
+                            {if $booking.route eq 'Costa Rica'}
+                                El Salvador
+                            {else}
+                                Costa Rica
+                            {/if}
+                        </span>
                     </td>
                     <td>
-                        <span class="label label-value text-uppercase">03-10-2018 - 7:00 AM</span>
+                        <span class="label label-value text-uppercase">{$booking.travel_date} - 7:00 AM</span>
                     </td>
                 </tr>
                 </tbody>
@@ -149,24 +155,24 @@
                 <tbody>
                     <tr>
                         <td>
-                            <span class="label label-value text-uppercase">Furgon sin cabezal </span>
-                            <span class="label label-value text-uppercase">993JKKD</span>
-                            <span class="label label-value text-uppercase">0 - 4 mts de Altura </span>
-                            <span class="label label-value text-uppercase">0 - 2,6 mts de Ancho</span>
-                            <span class="label label-value text-uppercase">12 mts LARGO </span>
-                            <span class="label label-value text-uppercase">12 TON </span>
+                            <span class="label label-value text-uppercase">{$booking.vehicleType} </span>
+                            <span class="label label-value text-uppercase">{$booking.vehiclePlate}</span>
+                            <span class="label label-value text-uppercase">{$booking.vehicleHeight} </span>
+                            <span class="label label-value text-uppercase">{$booking.vehicleWidth}</span>
+                            <span class="label label-value text-uppercase">{$booking.vehicleLength} mts Largo </span>
+                            <span class="label label-value text-uppercase">{$booking.vehicleWeight}TON </span>
                         </td>
                         <td>
-                            <span class="label label-value text-uppercase">N/A</span>
-                            <span class="label label-value text-uppercase">N/A</span>
+                            <span class="label label-value text-uppercase">{$booking.cargoOwner}</span>
+                            <span class="label label-value text-uppercase">{$booking.cargoOwnerPassport}</span>
                         </td>
                         <td>
-                            <span class="label label-value text-uppercase">SIN CARGA </span>
-                            <span class="label label-value text-uppercase">NO TRANSPORTA CARGA</span>
-                            <span class="label label-value text-uppercase"> TON </span>
+                            <span class="label label-value text-uppercase">{$booking.cargoType} </span>
+                            <span class="label label-value text-uppercase">{$booking.cargoDescription}</span>
+                            <span class="label label-value text-uppercase">{$booking.cargoWeight} TON </span>
                         </td>
                         <td>
-                            <span class="label label-value text-uppercase"> <b>400$</b> </span>
+                            <span class="label label-value text-uppercase"> <b>{$booking.cargoPrice}$</b> </span>
                         </td>
                     </tr>
                 </tbody>
@@ -183,16 +189,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td> <span class="label label-value text-uppercase"> Pasajero Particular </span> </td>
-                        <td> <span class="label label-value text-uppercase"> Elon Musk  <br> 343344 </span> </td>
-                        <td> <span class="label label-value text-uppercase"> <b>1$</b> </span> </td>
-                    </tr>
-                    <tr>
-                        <td> <span class="label label-value text-uppercase"> Pasajero en Auto a bordo (Max 4) </span></td>
-                        <td> <span class="label label-value text-uppercase"> Joe Rogan <br> 3433441 </span></td>
-                        <td> <span class="label label-value text-uppercase"> <b>2$</b> </span></td>
-                    </tr>
+                    {foreach from=$booking.passengerList item=passenger}
+                        <tr>
+                            <td> <span class="label label-value text-uppercase"> {$passenger.passengerType} </span> </td>
+                            <td> <span class="label label-value text-uppercase"> {$passenger.passengerName}  <br> {$passenger.passengerPassport} </span> </td>
+                            <td> <span class="label label-value text-uppercase"> <b>{$passenger.passengerPrice}$</b> </span> </td>
+                        </tr>
+                    {/foreach}
                 </tbody>
             </table>
         </div>
@@ -201,14 +204,14 @@
             <div class="col-md-4" align="right">
                 <hr style="border-top:solid 1px black;">
                 <div class="col-md-12" style="display: block">
-                    <h3>Sub Total:  <b>403$</b> </h3>
+                    <h3>Sub Total:  <b>{$booking.totalPrice}$</b> </h3>
                 </div>
                 <div class="col-md-12" style="display: block">
                     <h3>Impuestos:  <b> 25$</b> </h3>
                 </div>
             </div>
             <div class="col-md-12" align="right">
-                <h2>Total:  <b> 428$</b> </h2>
+                <h2>Total:  <b> {$booking.totalPrice + 25}$</b> </h2>
             </div>
         </div>
 

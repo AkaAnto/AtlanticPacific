@@ -39,8 +39,8 @@ if ($post_booking){
 //    echo json_encode($result);
 //    Email::send_html_mail('antojrd@gmail.com', 'prueba mail', 'hola', 'antojrd@gmail.com', $smarty);
 //
-    Email::send_booking_mail('antojrd@gmail.com', 'Email prueba booking', $_POST, $smarty);
+    Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking [En prueba]', $_POST, $smarty);
 
-    print_r ($_POST);
+//    print_r ($_POST);
 }
 
