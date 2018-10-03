@@ -41,6 +41,6 @@ if ($post_booking){
 //
     Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking [En prueba]', $_POST, $smarty);
 
-//    print_r ($_POST);
+    print_r ($_POST);
 }
 

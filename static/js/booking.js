@@ -47,6 +47,7 @@ jQuery(document).ready(function ($) {
             data: {get_route_dates: origin_port},
             success: function(datos){
                 var availableDates = formatAvailableDates(datos);
+                booking.availableTravels = datos;
                 $("#travel_date").datepicker({
                     todayHighlight: true,
                     dateFormat: 'dd-mm-yy',
@@ -92,9 +93,9 @@ function formatAvailableDates(availableDates) {
     var responseArray = [];
     if (availableDates.length > 0 && $.isArray(availableDates)) {
         availableDates.forEach(function (availableDate) {
-            var travelDateDay = parseInt(availableDate.split('-')[0]);
-            var travelDateMonth = parseInt(availableDate.split('-')[1]);
-            var travelDateYear = parseInt(availableDate.split('-')[2]);
+            var travelDateDay = parseInt(availableDate['date'].split('-')[0]);
+            var travelDateMonth = parseInt(availableDate['date'].split('-')[1]);
+            var travelDateYear = parseInt(availableDate['date'].split('-')[2]);
             responseArray.push(travelDateDay + '/' + travelDateMonth + '/' + travelDateYear);
         });
     }
@@ -129,6 +130,17 @@ function goToSecondStep(){
         booking.dut_number = dut;
         booking.route = route;
         booking.travel_date = out_bound_date;
+        booking.travel_id = booking.availableTravels.reduce(function (id, travel) {
+            var sum = 0;
+            if (travel['date'] == booking.travel_date){
+                sum = parseInt(travel['id']);
+            }
+            return id +sum;
+            
+        },0);
+        console.log(booking.availableTravels);
+        console.log(booking.travel_date);
+        console.log(booking.travel_id);
         $.ajax({
             type: "GET",
             url: "api.php",
@@ -398,23 +410,22 @@ function finish(){
     var all_data_entered = (clientName !='') && (clientPassport!='') && (clientPhone!='') && (clientEmail!='');
 
     if (all_data_entered){
-
+        $('#finish').addClass('disabled');
         $('#fourthStepSuccessMessage').removeClass('hide');
         booking.clientName = clientName;
         booking.clientPassport = clientPassport;
         booking.clientPhone = clientPhone;
         booking.clientEmail = clientEmail;
-        console.log(booking);
         $.ajax({
             type: "POST",
             url: "api.php",
             data: booking,
             success: function(datos){
-                $('#finish').addClass('disabled');
                 console.log('datos ', datos);
             },
             fail: function(datos){
                 console.log('fail  ', datos);
+                $('#finish').removeClass('disabled');
             }
         });
     }

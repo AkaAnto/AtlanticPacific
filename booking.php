@@ -30,17 +30,15 @@ if ($show_list){
     }
 }
 
-// Add new barco
+// Add new booking
 if ($create){
-    $is_authenticated = Barco::verify();
-    if ($is_authenticated){
-        $nombre = $_POST['nombre'];
-        $alto = $_POST['alto'];
-        $ancho = $_POST['ancho'];
-        $largo = $_POST['largo'];
-        $capacidad = $_POST['capacidad'];
+//    $is_authenticated = Barco::verify();
+//    if ($is_authenticated){
+        $travel_date = $_POST['travel_date'];
+        $id_viaje = $_POST['id_viaje'];
+        $codigo = '';
 
-        $insert_result = Barco::create($nombre, $alto, $ancho, $largo, $capacidad );
+        $insert_result = Booking::create($travel_date, $id_viaje, $codigo);
         if ($insert_result == 1 ){
             $new_barco = Barco::get_barco_as_row_by_name($nombre)[0];
             $values = array();
@@ -59,10 +57,10 @@ if ($create){
            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al crear el nuevo barco</div> ';
         }
 
-    }
-    else{
-        Barco::navigate('index');
-    }
+    //}
+//    else{
+//        Barco::navigate('index');
+//    }
 }
 
 
