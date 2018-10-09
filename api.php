@@ -38,9 +38,10 @@ if ($get_passenger_tarifas){
 if ($post_booking){
     $travel_date = $_POST['travel_date'];
     $id_viaje = $_POST['travel_id'];
+    $precio = $_POST['totalPrice'];
     $codigo = uniqid('APS');
 
-    $insert_result = Booking::create($travel_date, $codigo, $id_viaje);
+    $insert_result = Booking::create($travel_date, $codigo, $precio, $id_viaje);
     if ($insert_result){
         $new_booking_id = Booking::get_booking_id_by_codigo_and_id_viaje($codigo, $id_viaje)[0]['id'];
         $vehicle_type = $_POST['vehicleType'];
@@ -67,6 +68,12 @@ if ($post_booking){
             $dut_number = $_POST['dut_number'];
             $client_email = $_POST['clientEmail'];
             $create_booking_contact_result = Booking::addContact($client_name, $client_passport, $client_phone, $dut_number, $client_email, $new_booking_id);
+            if ($create_booking_contact_result){
+                $passengers = $_POST['passengerList'];
+                foreach ($passengers as $passenger){
+                    Booking::addPassenger($passenger['passengerType'], $passenger['passengerName'], $passenger['passengerPassport'], $passenger['passengerPrice'], $new_booking_id);
+                }
+            }
         }
 //        Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking [En prueba]', $_POST, $smarty);
     }

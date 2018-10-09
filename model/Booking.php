@@ -6,9 +6,10 @@ include_once Lib_String;
 
 define ("get_all_bookings", 'SELECT b.*, bc.*,bp.*, bca.* FROM booking b, booking_contacto bc, booking_pasajero bp, booking_carga bca  WHERE bc.Id_booking = b.id and bp.Id_booking = b.id and bca.Id_booking = b.id');
 define ("get_booking_id", 'SELECT id FROM booking   WHERE  codigo = "%" and id_viaje=%');
-define ("create_booking", "INSERT INTO booking (fecha, codigo, id_viaje) VALUES('%', '%', %)");
+define ("create_booking", "INSERT INTO booking (fecha, codigo, precio, id_viaje) VALUES('%', '%', %, %)");
 define ("create_booking_carga", "INSERT INTO `booking_carga` (tipo_vehiculo, alto, largo, ancho, peso, placa, nombre_responsable_carga, pasaporte_responsable_carga, tipo_carga, peso_carga, descripcion_carga, precio, Id_booking) VALUES ('%', '%', '%', '%', %, '%', '%', '%', '%', %, '%', %, %)");
 define ("create_booking_contacto", "INSERT INTO `booking_contacto` (nombre, pasaporte, telefono, numero_dut, email, Id_booking) VALUES ('%', '%', '%', '%', '%', %)");
+define ("create_booking_passenger", "INSERT INTO `booking_pasajero` (tipo, nombre, pasaporte, precio, id_booking) VALUES ('%', '%', '%', %, %)");
 
 
 
@@ -24,11 +25,12 @@ class Booking extends Login {
         }
     }
 
-    public static function create($fecha, $codigo, $id_viaje) {
+    public static function create($fecha, $codigo, $precio,$id_viaje) {
         $values = array();
         $values[0] = $fecha;
         $values[1] = $codigo;
-        $values[2] = $id_viaje;
+        $values[2] = $precio;
+        $values[3] = $id_viaje;
         $query = CustomString::concatenate(create_booking, $values);
         return Booking::run_query($query);
     }
@@ -61,6 +63,18 @@ class Booking extends Login {
         $values[4] = $email;
         $values[5] = $Id_booking;
         $query = CustomString::concatenate(create_booking_contacto, $values);
+        return Booking::run_query($query);
+    }
+
+    public static function addPassenger($tipo, $nombre, $pasaporte, $precio, $Id_booking){
+        $values = array();
+        $values[0] = $tipo;
+        $values[1] = $nombre;
+        $values[2] = $pasaporte;
+        $values[3] = $precio;
+        $values[4] = $Id_booking;
+        $query = CustomString::concatenate(create_booking_passenger, $values);
+        echo $query;
         return Booking::run_query($query);
     }
 
