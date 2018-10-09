@@ -10,6 +10,7 @@ define ("create_booking", "INSERT INTO booking (fecha, codigo, precio, id_viaje)
 define ("create_booking_carga", "INSERT INTO `booking_carga` (tipo_vehiculo, alto, largo, ancho, peso, placa, nombre_responsable_carga, pasaporte_responsable_carga, tipo_carga, peso_carga, descripcion_carga, precio, Id_booking) VALUES ('%', '%', '%', '%', %, '%', '%', '%', '%', %, '%', %, %)");
 define ("create_booking_contacto", "INSERT INTO `booking_contacto` (nombre, pasaporte, telefono, numero_dut, email, Id_booking) VALUES ('%', '%', '%', '%', '%', %)");
 define ("create_booking_passenger", "INSERT INTO `booking_pasajero` (tipo, nombre, pasaporte, precio, id_booking) VALUES ('%', '%', '%', %, %)");
+define ("create_booking_estatus", "INSERT INTO `booking_estatus` (estatus, fecha, id_booking) VALUES ('%', '%', %)");
 
 
 
@@ -74,7 +75,15 @@ class Booking extends Login {
         $values[3] = $precio;
         $values[4] = $Id_booking;
         $query = CustomString::concatenate(create_booking_passenger, $values);
-        echo $query;
+        return Booking::run_query($query);
+    }
+
+    public static function addEstatus($estatus, $fecha, $Id_booking){
+        $values = array();
+        $values[0] = $estatus;
+        $values[1] = $fecha;
+        $values[2] = $Id_booking;
+        $query = CustomString::concatenate(create_booking_estatus, $values);
         return Booking::run_query($query);
     }
 

@@ -40,6 +40,7 @@ if ($post_booking){
     $id_viaje = $_POST['travel_id'];
     $precio = $_POST['totalPrice'];
     $codigo = uniqid('APS');
+    $today = date('d-m-y H:i:s');
 
     $insert_result = Booking::create($travel_date, $codigo, $precio, $id_viaje);
     if ($insert_result){
@@ -62,6 +63,7 @@ if ($post_booking){
                                                         $cargo_type, $cargo_weight, $cargo_description, $cargo_price,
                                                         $new_booking_id);
         if ($create_booking_carga_result){
+            Booking::addEstatus('Creado', $today, $new_booking_id);
             $client_name = $_POST['clientName'];
             $client_passport = $_POST['clientPassport'];
             $client_phone = $_POST['clientPhone'];
@@ -74,10 +76,9 @@ if ($post_booking){
                     Booking::addPassenger($passenger['passengerType'], $passenger['passengerName'], $passenger['passengerPassport'], $passenger['passengerPrice'], $new_booking_id);
                 }
             }
+            Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking [En prueba]', $_POST, $smarty);
+            echo '{status:"success"}';
         }
-//        Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking [En prueba]', $_POST, $smarty);
     }
-
-    print_r ($_POST);
 }
 
