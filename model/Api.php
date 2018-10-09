@@ -50,7 +50,6 @@ class Api extends Login {
         }
     }
 
-
     public static function get_passenger_tarifas($route, $date) {
         $values = array();
         $values[0] = $route;

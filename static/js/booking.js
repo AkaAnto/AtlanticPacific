@@ -38,6 +38,8 @@ jQuery(document).ready(function ($) {
     $('#route').change(function (event) {
         event.preventDefault();
         $("#travel_date").addClass('hide');
+        $("#travel_date").val('');
+        $("#travel_date_label").addClass('hide');
         $("#showLoading").removeClass('hide');
         $("#travel_date").datepicker("destroy");
         var origin_port = $(this).find(":selected").text().split('-')[0];
@@ -64,6 +66,7 @@ jQuery(document).ready(function ($) {
                 $("#travel_date").datepicker("refresh");
                 $("#showLoading").addClass('hide');
                 $("#travel_date").removeClass('hide');
+                $("#travel_date_label").removeClass('hide');
             },
             fail: function(datos){
                 var port_dates = JSON.parse(datos);
@@ -170,11 +173,11 @@ function goToThirdStep(){
             booking.tarifasPasajero = datos[0];
             booking.passengerList = [];
             console.log(booking);
-            $('#myTabs li:eq(2) a').tab('show');
             $('.booking-preview').removeClass('hide');
             $('#passenger-tab').removeClass('btn-inactive');
             var route_html = $('#booking-preview').html();
             $('#booking-preview2').html(route_html);
+            $('#myTabs li:eq(2) a').tab('show');
         },
         fail: function(datos){
             console.log('fail  ', datos);
@@ -333,7 +336,7 @@ function addCargo(){
 
         var cargoOwnerHtml = '<span class="label label-success text-uppercase">' + cargoOwner + '</span>';
         var cargoOwnerPassportHtml = '<span class="label label-license text-uppercase">' + cargoOwnerPassport + '</span>';
-        var cargoTypeHtml = '<span class="label label-success text-uppercase">' + cargoType + ' </span>';
+        var cargoTypeHtml = '<span class="label label-success text-uppercase">' + cargoType + '</span>';
         var cargoWeightHtml = '<span class="label label-default text-uppercase">' + cargoWeight + ' TON </span> ';
         var cargoDescriptionHtml = '<span class="label label-default text-uppercase">' + cargoDescription + '</span>';
         var cargoPrice = calculateCargoPrice(vehicleLength, vehicleHeight, vehicleWidth, vehicleType, booking.tarifas);

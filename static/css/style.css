@@ -1193,8 +1193,7 @@ a.btn-inactive:hover {
 }
 
 .tab-content-holder{
-
-    min-height: 650px;
+    min-height: 1200px;
     display: inline-table;
     float: left;
 }
@@ -1244,7 +1243,9 @@ div.thumbnail{
     overflow-y: scroll;
 }
 
-
+.booking-form label {
+    margin-top: 5px;
+}
 
 
 /*jssor slider loading skin spin css*/
