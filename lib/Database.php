@@ -35,10 +35,8 @@ abstract class DataBase {
     public static function run_select($query){
         $result_set= DataBase::run_query($query);
         $values = array();
-        $i = 0;
         while ($result = mysqli_fetch_array($result_set)){
-            $values[$i] = $result;
-            $i++;
+            $values[] = $result;
 	    }
         return $values;
     }

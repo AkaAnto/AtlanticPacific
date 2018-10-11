@@ -64,7 +64,7 @@
     </style>
 </head>
 <body id="body">
-        <h1 class="title-contact" align="center" style="color:#005292; ">Booking 0023933821</h1>
+        <h1 class="title-contact" align="center" style="color:#005292; ">Booking {$codigo_booking}</h1>
 
         <div class="alert alert-dismissible alert-info">
             Hemos registrado su cotizacion y la estamos procesando, una vez sea aprobada recibirá un nuevo correo con la

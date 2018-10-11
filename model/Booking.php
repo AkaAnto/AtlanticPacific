@@ -4,7 +4,13 @@ include_once Login;
 include_once Lib_String;
 
 
-define ("get_all_bookings", 'SELECT b.*, bc.*,bp.*, bca.* FROM booking b, booking_contacto bc, booking_pasajero bp, booking_carga bca  WHERE bc.Id_booking = b.id and bp.Id_booking = b.id and bca.Id_booking = b.id');
+define ("get_all_bookings", 'SELECT b.fecha as fecha_booking, b.precio as precio_booking, b.codigo as codigo_booking, b.id, b.id_viaje from booking b');
+define ("get_booking_estatus", 'SELECT e.estatus as estatus_booking, e.fecha as fecha_estatus_booking from booking_estatus e WHERE e.id_booking=%');
+define ("get_booking_contacto", 'SELECT nombre, pasaporte, telefono, numero_dut, email  from booking_contacto bc WHERE bc.id_booking=%');
+define ("get_booking_viaje", 'SELECT fecha, puerto_origen, puerto_destino from viaje v WHERE v.id=%');
+define ("get_booking_carga", 'SELECT * from booking_carga  WHERE id_booking=%');
+define ("get_booking_passengers", 'SELECT * from booking_pasajero  WHERE id_booking=%');
+
 define ("get_booking_id", 'SELECT id FROM booking   WHERE  codigo = "%" and id_viaje=%');
 define ("create_booking", "INSERT INTO booking (fecha, codigo, precio, id_viaje) VALUES('%', '%', %, %)");
 define ("create_booking_carga", "INSERT INTO `booking_carga` (tipo_vehiculo, alto, largo, ancho, peso, placa, nombre_responsable_carga, pasaporte_responsable_carga, tipo_carga, peso_carga, descripcion_carga, precio, Id_booking) VALUES ('%', '%', '%', '%', %, '%', '%', '%', '%', %, '%', %, %)");
@@ -18,8 +24,32 @@ class Booking extends Login {
 
     public static function get_list() {
         $bookings = Booking::run_select(get_all_bookings);
+        $result = array();
         if (sizeof($bookings) >= 1){
-            return $bookings;
+            foreach ($bookings as $booking){
+                $values = array();
+                $values[0] = $booking['id'];
+                $query = CustomString::concatenate(get_booking_estatus, $values);
+                $estatus = Booking::run_select($query);
+                $booking['estatus_list'] = $estatus;
+                $query = CustomString::concatenate(get_booking_contacto, $values);
+                $client = Booking::run_select($query);
+                $booking['client'] = $client[0];
+                $values[0] = $booking['id_viaje'];
+                $query = CustomString::concatenate(get_booking_viaje, $values);
+                $travel = Booking::run_select($query);
+                $booking['travel'] = $travel[0];
+                $values[0] = $booking['id'];
+                $query = CustomString::concatenate(get_booking_carga, $values);
+                $carga = Booking::run_select($query);
+                $booking['carga'] = $carga[0];
+                $query = CustomString::concatenate(get_booking_passengers, $values);
+                $pasajeros = Booking::run_select($query);
+                $booking['pasajeros'] =$pasajeros;
+                array_push($result, $booking);
+            }
+
+            return $result;
         }
         else {
             return [];

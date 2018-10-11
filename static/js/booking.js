@@ -141,9 +141,9 @@ function goToSecondStep(){
             return id +sum;
             
         },0);
-        console.log(booking.availableTravels);
-        console.log(booking.travel_date);
-        console.log(booking.travel_id);
+        // console.log(booking.availableTravels);
+        // console.log(booking.travel_date);
+        // console.log(booking.travel_id);
         $.ajax({
             type: "GET",
             url: "api.php",

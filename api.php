@@ -76,7 +76,7 @@ if ($post_booking){
                     Booking::addPassenger($passenger['passengerType'], $passenger['passengerName'], $passenger['passengerPassport'], $passenger['passengerPrice'], $new_booking_id);
                 }
             }
-            Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking [En prueba]', $_POST, $smarty);
+            Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking ',$codigo.' [En prueba]', $_POST, $codigo, $smarty);
             echo '{status:"success"}';
         }
     }

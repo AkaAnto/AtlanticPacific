@@ -15,14 +15,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="col-md-12">
-
                             <form class="form-horizontal" role="form" id="search_booking">
                                 <div class="form-group row" style="margin-bottom: 50px; position: relative;">
                                     <div class="col-md-4">
-                                        {*Create Button*}
-                                        {*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#barcoAdd">*}
-                                            {*<span class="glyphicon glyphicon-plus"></span> Nuevo Booking*}
-                                        {*</button>*}
                                     </div>
                                     <div class="col-md-8">
                                         <div class="col-md-9">
@@ -48,32 +43,40 @@
                 <table class="table" id="table-booking">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Ancho Plataforma</th>
-                            <th>Alto Plataforma</th>
-                            <th>Largo Plataforma</th>
-                            <th>Peso Máx</th>
+                            <th>Código</th>
+                            <th>Estatus</th>
+                            <th>Ruta</th>
+                            <th>Cliente</th>
+                            <th>Costo Total</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="add_barco_success_table">
+                    <tbody id="booking_success_table">
                     {foreach  from=$bookings item=booking}
-                        <tr id="barco_{$barco.id}" class="{$barco.nombre}">
-                            <td id="nombre_barco_{$barco.id}" >{$barco.nombre}</td>
-                            <td id="ancho_barco_{$barco.id}">{intval($barco.ancho)} Mts</td>
-                            <td id="alto_barco_{$barco.id}">{intval($barco.alto)} Mts</td>
-                            <td id="largo_barco_{$barco.id}">{intval($barco.largo)} Mts</td>
-                            <td id="capacidad_barco_{$barco.id}">{intval($barco.capacidad)} Ton</td>
+                        <tr id="booking_{$booking.id}" class="{$booking.codigo_booking}">
+                            <td id="codigo_booking_{$booking.id}" >{$booking.codigo_booking}</td>
+                            <td id="estatus_booking_{$booking.id}" >
+                                {foreach  from=$booking.estatus_list item=estatus}
+                                    <span style="font-size: 100%" class="label label-warning"> {$estatus.estatus_booking} - {$estatus.fecha_estatus_booking} </span>
+                                    <b/>
+                                {/foreach}
+                            </td>
+
+                            <td id="ruta_booking_{$booking.id}"> {$booking.travel.puerto_origen} - {$booking.travel.puerto_destino} <br/> {$booking.travel.fecha} </td>
+                            <td id="cliente_booking_{$booking.id}"> {$booking.client.nombre} <br/> {$booking.client.pasaporte} <br/> {$booking.client.telefono} <br/> {$booking.client.email} </td>
+                            <td id="costo_booking_{$booking.id}"> ${$booking.precio_booking} </td>
                             <td>
                             <span class="">
-                                {*<a href="#" class="btn btn-default" title="ver barco"  data-toggle="modal" data-target="#barcoDetail">*}
-                                    {*<i data-id="barco_{$barco.id}" class="glyphicon glyphicon-eye-open"></i>*}
-                                {*</a>*}
-                                <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="editar barco" data-toggle="modal" data-target="#barcoEdit">
-                                    <i class="glyphicon glyphicon-edit"></i>
-                                </a>
+                                <a href="#" data-id="booking_{$booking.id}" class="btn btn-default" title="CONSULTAR" onclick="" data-toggle="modal" data-target="#bookingDetail"><i class="glyphicon glyphicon-eye-open"></i></a>
+                                <a href="#" class="btn btn-warning" title="COTIZAR" onclick="" data-toggle="modal" data-target="#bookingEdit"><i class="glyphicon glyphicon-usd"></i></a>
+                                <a href="#" class="btn btn-success" title="APROBAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                                <a href="#" class="btn btn-danger" title="RECHAZAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+                                <a href="#" class="btn btn-success" title="EMBARCAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-ok"></i></a>
                             </span>
                             </td>
+                            <td class="hide" id="dut_number_booking_{$booking.id}">{$booking.client.numero_dut}</td>
+                            <td class="hide" id="cargo_booking_{$booking.id}">{json_encode($booking.carga)}</td>
+                            <td class="hide" id="cargo_passengers_{$booking.id}">{json_encode($booking.pasajeros)}</td>
                         </tr>
                     {/foreach}
                     </tbody>
@@ -83,10 +86,9 @@
             <hr>
         </div>
     </div>
-    {include file="admin/modal/add_barco.tpl"}
-    {include file="admin/modal/edit_barco.tpl"}
+    {include file="admin/modal/booking_detail.tpl"}
 {/block}
 
 {block name="js"}
-    <script type="text/javascript" src="{$js}barco.js"></script>
+    <script type="text/javascript" src="{$js}booking_admin.js"></script>
 {/block}
