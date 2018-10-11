@@ -85,7 +85,7 @@ if ($edit){
         $puerto_origen = $_POST['puerto_origen'];
         $puerto_destino = $_POST['puerto_destino'];
         $estado = $_POST['estado'];
-
+        echo 'Post de Id '. $_POST['id'] ;
         $insert_result = Viaje::update($id, $id_barco, $fecha , $puerto_origen, $puerto_destino, $estado);
         if ($insert_result == 1 ){
             $new_viaje = Viaje::get_viaje_as_row_by_barco_id($id_barco)[0];
@@ -99,7 +99,7 @@ if ($edit){
             $values[6] = $new_viaje['id_barco'];
             $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;
-            
+
         }
         else{
             echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al editar el viaje</div> ';
