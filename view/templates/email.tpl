@@ -118,7 +118,7 @@
                 <tbody>
                 <tr>
                     <td>
-                        <span class="label label-value text-uppercase">0023933821 </span>
+                        <span class="label label-value text-uppercase">{$codigo_booking} </span>
                     </td>
                     <td>
                         <span class="label label-value text-uppercase">{$booking.dut_number} </span>

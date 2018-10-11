@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2018 at 07:48 PM
+-- Generation Time: Oct 11, 2018 at 05:31 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `atlantic`
+-- Database: `apspty`
 --
 
 -- --------------------------------------------------------
@@ -37,6 +37,13 @@ CREATE TABLE `barco` (
   `alto` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `barco`
+--
+
+INSERT INTO `barco` (`id`, `nombre`, `largo`, `ancho`, `capacidad`, `alto`) VALUES
+(50, 'Princes', '114.00', '20.00', '45.00', '4.00');
+
 -- --------------------------------------------------------
 
 --
@@ -47,8 +54,16 @@ CREATE TABLE `booking` (
   `id` int(10) NOT NULL,
   `fecha` varchar(10) COLLATE utf32_bin NOT NULL,
   `codigo` varchar(20) COLLATE utf32_bin NOT NULL,
+  `precio` float NOT NULL,
   `id_viaje` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `fecha`, `codigo`, `precio`, `id_viaje`) VALUES
+(18, '18-10-2018', 'APS5bbcf8aa3f778', 1425, 59);
 
 -- --------------------------------------------------------
 
@@ -58,10 +73,10 @@ CREATE TABLE `booking` (
 
 CREATE TABLE `booking_carga` (
   `id` int(10) NOT NULL,
-  `tipo_vehiculo` decimal(10,0) NOT NULL,
-  `alto` decimal(10,0) NOT NULL,
+  `tipo_vehiculo` varchar(200) COLLATE utf32_bin NOT NULL,
+  `alto` varchar(100) COLLATE utf32_bin NOT NULL,
   `largo` decimal(10,0) NOT NULL,
-  `ancho` decimal(10,0) NOT NULL,
+  `ancho` varchar(100) COLLATE utf32_bin NOT NULL,
   `peso` decimal(10,0) NOT NULL,
   `placa` varchar(20) COLLATE utf32_bin NOT NULL,
   `nombre_responsable_carga` varchar(50) COLLATE utf32_bin NOT NULL,
@@ -72,6 +87,17 @@ CREATE TABLE `booking_carga` (
   `precio` decimal(10,0) NOT NULL,
   `Id_booking` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
+
+--
+-- Dumping data for table `booking_carga`
+--
+
+INSERT INTO `booking_carga` (`id`, `tipo_vehiculo`, `alto`, `largo`, `ancho`, `peso`, `placa`, `nombre_responsable_carga`, `pasaporte_responsable_carga`, `tipo_carga`, `peso_carga`, `descripcion_carga`, `precio`, `Id_booking`) VALUES
+(6, 'Furgon con cabezal', '0 - 4 mts de Altura', '12', '0 - 2,6 mts de Ancho', '15', 'qwqwqdsdsd333', 'N/A', 'N/A', 'SIN CARGA', '0', 'NO TRANSPORTA CARGA', '1375', 14),
+(7, 'Furgon con cabezal', '0 - 4 mts de Altura', '12', '0 - 2,6 mts de Ancho', '15', 'qwqwqdsdsd333', 'N/A', 'N/A', 'SIN CARGA', '0', 'NO TRANSPORTA CARGA', '1375', 15),
+(8, 'Furgon con cabezal', '0 - 4 mts de Altura', '12', '0 - 2,6 mts de Ancho', '15', 'qwqwqdsdsd333', 'N/A', 'N/A', 'SIN CARGA', '0', 'NO TRANSPORTA CARGA', '1375', 16),
+(9, 'Furgon con cabezal', '0 - 4 mts de Altura', '12', '0 - 2,6 mts de Ancho', '15', 'qwqwqdsdsd333', 'N/A', 'N/A', 'SIN CARGA', '0', 'NO TRANSPORTA CARGA', '1375', 17),
+(10, 'Furgon con cabezal', '0 - 4 mts de Altura', '12', '0 - 2,6 mts de Ancho', '15', 'qwqwqdsdsd333', 'N/A', 'N/A', 'SIN CARGA', '0', 'NO TRANSPORTA CARGA', '1375', 18);
 
 -- --------------------------------------------------------
 
@@ -89,6 +115,39 @@ CREATE TABLE `booking_contacto` (
   `id_booking` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
 
+--
+-- Dumping data for table `booking_contacto`
+--
+
+INSERT INTO `booking_contacto` (`id`, `nombre`, `pasaporte`, `telefono`, `numero_dut`, `email`, `id_booking`) VALUES
+(4, 'Anto', '838302', '3912032', '7392329', 'antojrd@gmail.com', 14),
+(5, 'Anto', '838302', '3912032', '7392329', 'antojrd@gmail.com', 15),
+(6, 'Anto', '838302', '3912032', '7392329', 'antojrd@gmail.com', 16),
+(7, 'Anto', '838302', '3912032', '7392329', 'antojrd@gmail.com', 17),
+(8, 'Anto', '838302', '3912032', '7392329', 'antojrd@gmail.com', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking_estatus`
+--
+
+CREATE TABLE `booking_estatus` (
+  `id` int(10) NOT NULL,
+  `estatus` varchar(200) NOT NULL,
+  `fecha` varchar(200) NOT NULL,
+  `id_booking` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking_estatus`
+--
+
+INSERT INTO `booking_estatus` (`id`, `estatus`, `fecha`, `id_booking`) VALUES
+(1, 'Creado', '09-10-18 20:46:32', 16),
+(2, 'Creado', '09-10-18 20:48:48', 17),
+(3, 'Creado', '09-10-18 20:51:22', 18);
+
 -- --------------------------------------------------------
 
 --
@@ -97,12 +156,63 @@ CREATE TABLE `booking_contacto` (
 
 CREATE TABLE `booking_pasajero` (
   `id` int(10) NOT NULL,
-  `tipo` varchar(80) COLLATE utf32_bin NOT NULL,
-  `nombre` varchar(50) COLLATE utf32_bin NOT NULL,
-  `pasaporte` varchar(50) COLLATE utf32_bin NOT NULL,
+  `tipo` varchar(200) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `pasaporte` varchar(200) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
   `id_booking` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking_pasajero`
+--
+
+INSERT INTO `booking_pasajero` (`id`, `tipo`, `nombre`, `pasaporte`, `precio`, `id_booking`) VALUES
+(1, 'Pasajero Conductor de gandola (1 por gandola)', 'Conductor', '3232ww', '0', 14),
+(2, 'Pasajero Conductor de gandola (1 por gandola)', 'Conductor', '3232ww', '0', 15),
+(3, 'Pasajero Ayudante de gandola (1 por gandola)', 'Ayudante', '3232ww22', '25', 15),
+(4, 'Pasajero Conductor de gandola (1 por gandola)', 'Conductor', '3232ww', '0', 16),
+(5, 'Pasajero Ayudante de gandola (1 por gandola)', 'Ayudante', '3232ww22', '25', 16),
+(6, 'Pasajero Conductor de gandola (1 por gandola)', 'Conductor', '3232ww', '0', 17),
+(7, 'Pasajero Ayudante de gandola (1 por gandola)', 'Ayudante', '3232ww22', '25', 17),
+(8, 'Pasajero Conductor de gandola (1 por gandola)', 'Conductor', '3232ww', '0', 18),
+(9, 'Pasajero Ayudante de gandola (1 por gandola)', 'Ayudante', '3232ww22', '25', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking_tarifa_carga`
+--
+
+CREATE TABLE `booking_tarifa_carga` (
+  `id` int(10) NOT NULL,
+  `id_booking` int(4) NOT NULL,
+  `tres_metros` decimal(10,2) NOT NULL,
+  `seis_metros` decimal(10,0) DEFAULT NULL,
+  `nueve_metros` decimal(10,0) DEFAULT NULL,
+  `quince_metros` decimal(10,0) DEFAULT NULL,
+  `dieciocho_metros` decimal(10,0) DEFAULT NULL,
+  `moto_grande` decimal(10,0) DEFAULT NULL,
+  `moto_chica` decimal(10,0) DEFAULT NULL,
+  `bicicleta` decimal(10,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking_tarifa_pasajero`
+--
+
+CREATE TABLE `booking_tarifa_pasajero` (
+  `id_booking` int(4) NOT NULL,
+  `particular` decimal(10,0) DEFAULT NULL,
+  `en_auto` decimal(10,0) DEFAULT NULL,
+  `en_autobus` decimal(10,0) DEFAULT NULL,
+  `ayudante_gandola` decimal(10,0) DEFAULT NULL,
+  `conductor_gandola` decimal(10,0) DEFAULT NULL,
+  `conductor_autobus` decimal(10,0) DEFAULT NULL,
+  `id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -381,13 +491,7 @@ CREATE TABLE `tarifa_carga` (
 --
 
 INSERT INTO `tarifa_carga` (`id`, `id_barco`, `tres_metros`, `seis_metros`, `nueve_metros`, `quince_metros`, `dieciocho_metros`, `moto_grande`, `moto_chica`, `bicicleta`) VALUES
-(18, 33, '550.00', '750', '950', '1375', '1575', '150', '100', '75'),
-(19, 34, '10.00', '20', '30', '40', '50', '60', '70', '80'),
-(20, 45, '100.00', '200', '300', '400', '500', '600', '700', '800'),
-(21, 43, '100.00', '100', '100', '100', '100', '100', '100', '100'),
-(22, 44, '100.00', '100', '100', '100', '100', '100', '100', '100'),
-(23, 46, '500.00', '500', '500', '500', '500', '500', '500', '500'),
-(24, 47, '9.00', '9', '9', '9', '9', '9', '9', '9');
+(25, 50, '550.00', '750', '950', '1375', '1575', '150', '100', '75');
 
 -- --------------------------------------------------------
 
@@ -417,7 +521,8 @@ INSERT INTO `tarifa_pasajero` (`id_barco`, `particular`, `en_auto`, `en_autobus`
 (44, '1', '77', '78', '888', '8', '8', 43),
 (45, '1', '2', '3', '4', '5', '6', 44),
 (46, '1', '2', '4', '5', '7', '6', 45),
-(43, '9', '9', '9', '9', '9', '9', 46);
+(43, '9', '9', '9', '9', '9', '9', 46),
+(50, '60', '25', '25', '25', '0', '0', 47);
 
 -- --------------------------------------------------------
 
@@ -500,8 +605,12 @@ CREATE TABLE `viaje` (
 --
 
 INSERT INTO `viaje` (`fecha`, `puerto_origen`, `puerto_destino`, `id_barco`, `id`) VALUES
-('28-09-2018', 'Costa Rica', 'El Salvador', 33, 47),
-('03-10-2018', 'El Salvador', 'Costa Rica', 45, 48);
+('10-10-2018', 'Costa Rica', 'El Salvador', 50, 54),
+('17-10-2018', 'Costa Rica', 'El Salvador', 50, 55),
+('19-10-2018', 'Costa Rica', 'El Salvador', 50, 56),
+('20-11-2018', 'El Salvador', 'Costa Rica', 50, 57),
+('13-11-2018', 'El Salvador', 'Costa Rica', 50, 58),
+('18-10-2018', 'El Salvador', 'Costa Rica', 50, 59);
 
 --
 -- Indexes for dumped tables
@@ -529,6 +638,18 @@ ALTER TABLE `booking_carga`
 -- Indexes for table `booking_contacto`
 --
 ALTER TABLE `booking_contacto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking_estatus`
+--
+ALTER TABLE `booking_estatus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking_pasajero`
+--
+ALTER TABLE `booking_pasajero`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -641,25 +762,37 @@ ALTER TABLE `viaje`
 -- AUTO_INCREMENT for table `barco`
 --
 ALTER TABLE `barco`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `booking_carga`
 --
 ALTER TABLE `booking_carga`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `booking_contacto`
 --
 ALTER TABLE `booking_contacto`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `booking_estatus`
+--
+ALTER TABLE `booking_estatus`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `booking_pasajero`
+--
+ALTER TABLE `booking_pasajero`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `clientes`
@@ -713,13 +846,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `tarifa_carga`
 --
 ALTER TABLE `tarifa_carga`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tarifa_pasajero`
 --
 ALTER TABLE `tarifa_pasajero`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tmp`
@@ -737,7 +870,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

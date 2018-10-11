@@ -24,48 +24,62 @@ $(document).ready(function() {
         return detail;
     }
 
-    function setCargoModalInfo(cargo){
-        $('#vehicle_type').text(cargo.tipo_vehiculo);
-        $('#vehicle_plate').text(cargo.placa);
-        $('#vehicle_height').text(cargo.alto);
-        $('#vehicle_width').text(cargo.ancho);
-        $('#vehicle_length').text(cargo.largo + ' MTS de largo');
+    function setCargoModalInfo(modalId, cargo){
+        $(modalId + ' #vehicle_type').text(cargo.tipo_vehiculo);
+        $(modalId + ' #vehicle_plate').text(cargo.placa);
+        $(modalId + ' #vehicle_height').text(cargo.alto);
+        $(modalId + ' #vehicle_width').text(cargo.ancho);
+        $(modalId + ' #vehicle_length').text(cargo.largo + ' MTS de largo');
 
-
-        $('#cargo_owner').text(cargo.nombre_responsable_carga);
-        $('#cargo_passport').text(cargo.pasaporte_responsable_carga);
-        $('#cargo_type').text(cargo.tipo_carga);
-        $('#cargo_description').text(cargo.descripcion_carga);
-        $('#cargo_price').text('$' +cargo.precio);
-        $('#bookingCargoPrice').html(' <b>SUB-TOTAL CARGA: $' +cargo.precio+'</b>');
-
-
+        $(modalId + ' #cargo_owner').text(cargo.nombre_responsable_carga);
+        $(modalId + ' #cargo_passport').text(cargo.pasaporte_responsable_carga);
+        $(modalId + ' #cargo_type').text(cargo.tipo_carga);
+        $(modalId + ' #cargo_description').text(cargo.descripcion_carga);
+        $(modalId + ' #cargo_price').text('$' +cargo.precio);
+        $(modalId + ' #bookingCargoPrice').html(' <b>SUB-TOTAL CARGA: $' +cargo.precio+'</b>');
 
     }
+
+    function setBookingHeaderInfo(modalId, booking){
+        $(modalId + ' #bookingCodigo').html('<b> BOOKING #' +booking.code + ' </b>');
+        $(modalId + ' #dutNumber').html('<b> RUTA: ' +booking.route + ' </b>');
+        $(modalId + ' #routeDetail').html('<p><b>NUMERO DUT: ' +booking.dutNumber + ' </b></p>');
+        $(modalId +' #clientDetail').html(clientDetail(booking.client));
+    }
+
+    function setPassengersInfo(modalId, booking){
+        var passengerSubTotal = 0;
+        booking.passengers.forEach(function(passenger) {
+            $(modalId + ' #passengerListTable tbody').append(passengerDetail(passenger));
+            if (parseInt(passenger.precio) != NaN) {
+                passengerSubTotal += parseInt(passenger.precio);
+            }
+        });
+        $(modalId + ' #bookingPassengerTotalPrice').html('<b>SUB-TOTAL PASAJEROS:  $'+ passengerSubTotal + '</b>');
+        $(modalId + ' #bookingPriceBeforeTaxes').html('<b>SUB-TOTAL: '+ (parseInt(booking.price.replace('$','')) - 25)+ '</b>');
+        $(modalId + ' #bookingPriceAfterTaxes').html('<b>TOTAL: '+ booking.price + '</b>');
+    }
+
+    function updateBookingModal(modalId, bookingId){
+        var id = parseInt(bookingId.replace('booking_',''));
+        var booking = getBookingInfo(id);
+        setBookingHeaderInfo(modalId, booking);
+        setCargoModalInfo(modalId, booking.cargo);
+        setPassengersInfo(modalId, booking);
+    }
+
+
 
     // Booking Detail
     // Update values as the modal shows
     $('#bookingDetail').on('show.bs.modal', function (event) {
-        var booking_id = event.relatedTarget.getAttribute("data-id");
-        var id = parseInt(booking_id.replace('booking_',''));
-        var booking = getBookingInfo(id);
+        var bookingId = event.relatedTarget.getAttribute("data-id");
+        updateBookingModal('#bookingDetail',bookingId);
+    });
 
-        $('#bookingCodigo').html('<b> BOOKING #' +booking.code + ' </b>');
-        $('#dutNumber').html('<b> RUTA: ' +booking.route + ' </b>');
-        $('#routeDetail').html('<p><b>NUMERO DUT: ' +booking.dutNumber + ' </b></p>');
-        $('#clientDetail').html(clientDetail(booking.client));
-
-        setCargoModalInfo(booking.cargo);
-        var passengerSubTotal = 0;
-        booking.passengers.forEach(function(passenger) {
-           $('#passengerListTable tbody').append(passengerDetail(passenger));
-           if (parseInt(passenger.precio) != NaN) {
-               passengerSubTotal += parseInt(passenger.precio);
-           }
-        });
-        $('#bookingPassengerTotalPrice').html('<b>SUB-TOTAL PASAJEROS:  $'+ passengerSubTotal + '</b>');
-        $('#bookingPriceBeforeTaxes').html('<b>SUB-TOTAL: '+ (parseInt(booking.price.replace('$','')) - 25)+ '</b>');
-        $('#bookingPriceAfterTaxes').html('<b>TOTAL: '+ booking.price + '</b>');
+    $('#bookingApprove').on('show.bs.modal', function (event) {
+        var bookingId = event.relatedTarget.getAttribute("data-id");
+        updateBookingModal('#bookingApprove',bookingId);
     });
 
     $('#barcoEdit').on('hide.bs.modal', function (event) {

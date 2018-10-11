@@ -69,7 +69,7 @@
                             <span class="">
                                 <a href="#" data-id="booking_{$booking.id}" class="btn btn-default" title="CONSULTAR" onclick="" data-toggle="modal" data-target="#bookingDetail"><i class="glyphicon glyphicon-eye-open"></i></a>
                                 <a href="#" class="btn btn-warning" title="COTIZAR" onclick="" data-toggle="modal" data-target="#bookingEdit"><i class="glyphicon glyphicon-usd"></i></a>
-                                <a href="#" class="btn btn-success" title="APROBAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                                <a href="#" data-id="booking_{$booking.id}" class="btn btn-success" title="APROBAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-up"></i></a>
                                 <a href="#" class="btn btn-danger" title="RECHAZAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-down"></i></a>
                                 <a href="#" class="btn btn-success" title="EMBARCAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-ok"></i></a>
                             </span>
@@ -87,6 +87,7 @@
         </div>
     </div>
     {include file="admin/modal/booking_detail.tpl"}
+    {include file="admin/modal/booking_approve.tpl"}
 {/block}
 
 {block name="js"}
