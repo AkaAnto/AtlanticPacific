@@ -4,6 +4,7 @@ $(document).ready(function() {
     $( "#agregar_viaje" ).submit(function( event ) {
         $('#guardar_datos').attr("disabled", true);
         var parametros = $(this).serialize();
+
         $.ajax({
             type: "POST",
             url: "viajes.php",
@@ -32,7 +33,8 @@ $(document).ready(function() {
     $('#viajeEdit').on('show.bs.modal', function (event) {
         var id_viaje = event.relatedTarget.getAttribute("data-id");
         var id = parseInt(id_viaje.replace('viaje_',''));
-        var name = $('td#nombre_viaje_' + id_viaje).text();
+        // var name = $('td#nombre_viaje_' + id_viaje).text();
+        var viaje_id = $('td#viaje_fecha_' + id_viaje).text();
         var viaje_fecha = $('td#viaje_fecha_' + id_viaje).text();
         var viaje_puerto_origen = $('td#viaje_puerto_origen' + id_viaje).text();
         var viaje_puerto_destino = $('td#viaje_puerto_destino_' + id_viaje).text();
@@ -43,7 +45,8 @@ $(document).ready(function() {
         $('div#viajeEdit input#puerto_origen').val(viaje_puerto_origen);
         $('div#viajeEdit input#puerto_destino').val(viaje_puerto_destino);
         $('div#viajeEdit input#estado').val(viaje_estado);
-        $('div#viajeEdit input#barco_id').val(id);
+        //$('div#viajeEdit input#barco_id').val(id);
+        $('div#viajeEdit input#viaje_id').val(id);
     });
 
     $('#viajeEdit').on('hide.bs.modal', function (event) {
@@ -54,6 +57,7 @@ $(document).ready(function() {
         event.preventDefault();
         $('#viajeEdit #guardar_datos').attr("disabled", true);
         var parametros = $(this).serialize();
+        // console.log('parametros', parametros);
         $.ajax({
             type: "POST",
             url: "viajes.php",
@@ -63,7 +67,7 @@ $(document).ready(function() {
             },
             success: function(datos){
                 console.log('datos ', datos);
-                var id = parametros.split('barco_id=')[1].split('&')[0];
+                var id = parametros.split('id=')[1].split('&')[0];
 
                 $("tr#viaje_" + id).remove();
                 $("#add_viaje_success_table").prepend(datos);
