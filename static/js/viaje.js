@@ -42,7 +42,7 @@ $(document).ready(function() {
         $('div#viajeEdit input#fecha').val(viaje_fecha);
         $('div#viajeEdit select#puerto_origen option').val(viaje_puerto_origen);
         $('div#viajeEdit select#puerto_destino option').val(viaje_puerto_destino);
-        $('div#viajeEdit input#estado').val(viaje_estado);
+        $('div#viajeEdit select#estado option').val(viaje_estado);
         $('div#viajeEdit input#barco_id').val(id);
     });
 
@@ -63,7 +63,8 @@ $(document).ready(function() {
             },
             success: function(datos){
                 console.log('datos ', datos);
-                var id = parametros.split('barco_id=')[1].split('&')[0];
+
+                var id = parametros.split('id=')[1].split('&')[0];
 
                 $("tr#viaje_" + id).remove();
                 $("#add_viaje_success_table").prepend(datos);
