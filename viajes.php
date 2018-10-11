@@ -10,6 +10,9 @@ define('new_Viaje_row', '
         <td>%</td>
         <td>%</td>
         <td>%</td>
+        <td>%</td>
+
+
          
         
         <td>
@@ -46,7 +49,8 @@ if ($create){
         $fecha = $split_fecha[2].'-'.$split_fecha[1].'-'.$split_fecha[0];
         $puerto_origen = $_POST['puerto_origen'];
         $puerto_destino = $_POST['puerto_destino'];
-        $id_barco = $_POST['barco_tarifa'];
+        //$estado = $_POST['estado'];
+        $id_barco = $_POST['barco_viaje'];
 
 
         $insert_result = Viaje::create($fecha, $puerto_origen , $puerto_destino, $id_barco);
@@ -58,7 +62,8 @@ if ($create){
             $values[2] = $fecha;
             $values[3] = $puerto_origen ;
             $values[4] = $puerto_destino;
-            $values[5] = $new_viaje['id_barco'];
+            $values[5] = 'activo';
+            $values[6] = $new_viaje['id_barco'];
             $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;
         }
@@ -72,13 +77,13 @@ if ($create){
 }
 
 
-// Edit TarifaPasajero
+// Edit Viaje
 if ($edit){
-    $is_authenticated = TarifaPasajero::verify();
+    $is_authenticated = Viaje::verify();
     if ($is_authenticated){
         $id = $_POST['id'];
-        $id_barco = $_POST['barco_tarifa'];
-        $particular = $_POST['particular'];
+        $id_barco = $_POST['barco_viaje'];
+        $fecha = $_POST['fecha'];
         $en_auto = $_POST['en_auto'];
         $en_autobus = $_POST['en_autobus'];
         $ayudante_gandola = $_POST['ayudante_gandola'];

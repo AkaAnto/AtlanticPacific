@@ -7,10 +7,10 @@ include_once Lib_String;
 define ("get_all_viajes", 'SELECT b.nombre, v.*  FROM  barco b, viaje v where b.id=v.id_barco order by v.id_barco ASC');
 define ("get_all_barcos", 'SELECT b.nombre, b.id from barco b');
 define ("get_viaje_by_barco_id", 'SELECT b.nombre as nombre , v.*  FROM barco b, viaje v where v.id_barco=% and b.id=v.id_barco');
-define ("create_viaje", "INSERT INTO viaje (fecha, puerto_origen, puerto_destino, id_barco)
-        VALUES('%', '%', '%', %)");
-define ("update_tarifa_pasajero", "update tarifa_pasajero set id_barco=%, particular=%, en_auto=%, en_autobus=%, 
-ayudante_gandola=%, conductor_gandola=% ,conductor_autobus=% where id_barco=%");
+define ("create_viaje", "INSERT INTO viaje (fecha, puerto_origen, puerto_destino, estado, id_barco)
+        VALUES('%', '%', '%', '%', '%')");
+define ("update_viaje", "update viaje set id_barco=%, fecha=%, puerto_origen=%, puerto_destino=%, 
+estado=% where id_barco=%");
 
 
 class Viaje extends Login {
@@ -40,23 +40,22 @@ class Viaje extends Login {
         $values[0] = $fecha;
         $values[1] = $puerto_origen;
         $values[2] = $puerto_destino;
-        $values[3] = $id_barco;
+        $values[3] = "activo";
+        $values[4] = $id_barco;
         $query = CustomString::concatenate(create_viaje, $values);
 //        echo $query;
         return Viaje::run_query($query);
     }
 
-    public static function update($id, $id_barco, $particular , $en_auto, $en_autobus, $ayudante_gandola , $conductor_gandola, $conductor_autobus) {
+    public static function update($id, $id_barco, $fecha, $puerto_origen, $puerto_destino, $estado) {
         $values = array();
         $values[0] = $id_barco;
-        $values[1] = $particular;
-        $values[2] = $en_auto;
-        $values[3] = $en_autobus;
-        $values[4] = $ayudante_gandola ;
-        $values[5] = $conductor_gandola ;
-        $values[6] = $conductor_autobus;
+        $values[1] = $fecha;
+        $values[2] = $puerto_origen;
+        $values[3] = $puerto_destino;
+        $values[4] = $estado ;
         $values[7] = $id;
-        $query = CustomString::concatenate(update_tarifa_pasajero, $values);
+        $query = CustomString::concatenate(update_viaje, $values);
         return Viaje::run_query($query);
        
     }
