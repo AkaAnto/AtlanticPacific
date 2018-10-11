@@ -11,7 +11,7 @@
                     <div id="ajax_message"></div>
                     <div class="form-group hide">
                         <div class="col-sm-8">
-                            <input type="number" class="form-control" id="barco_id" name="barco_id"/>
+                            <input type="number" class="form-control" id="id" name="id"/>
                         </div>
                     </div>
                     <div class="form-group">

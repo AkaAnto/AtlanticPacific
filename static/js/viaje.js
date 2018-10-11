@@ -30,13 +30,13 @@ $(document).ready(function() {
     // Edit viaje
     // Update values as the modal shows
     $('#viajeEdit').on('show.bs.modal', function (event) {
-        var id_barco = event.relatedTarget.getAttribute("data-id");
-        var id = parseInt(id_barco.replace('viaje_',''));
-        var name = $('td#nombre_viaje_' + id_barco).text();
-        var viaje_fecha = $('td#viaje_fecha_' + id_barco).text();
-        var viaje_puerto_origen = $('td#viaje_puerto_origen' + id_barco).text();
-        var viaje_puerto_destino = $('td#viaje_puerto_destino_' + id_barco).text();
-        var viaje_estado = $('td#viaje_estado_' + id_barco).text();
+        var id_viaje = event.relatedTarget.getAttribute("data-id");
+        var id = parseInt(id_viaje.replace('viaje_',''));
+        var name = $('td#nombre_viaje_' + id_viaje).text();
+        var viaje_fecha = $('td#viaje_fecha_' + id_viaje).text();
+        var viaje_puerto_origen = $('td#viaje_puerto_origen' + id_viaje).text();
+        var viaje_puerto_destino = $('td#viaje_puerto_destino_' + id_viaje).text();
+        var viaje_estado = $('td#viaje_estado_' + id_viaje).text();
 
 
         $('div#viajeEdit input#fecha').val(viaje_fecha);
