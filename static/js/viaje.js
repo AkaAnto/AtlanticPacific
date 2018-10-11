@@ -27,52 +27,54 @@ $(document).ready(function() {
         setTimeout(function (){location.reload()},1000);
     });
 
-    // Edit barco
+    // Edit viaje
     // Update values as the modal shows
-    $('#barcoEdit').on('show.bs.modal', function (event) {
-        var barco_id = event.relatedTarget.getAttribute("data-id");
-        var id = parseInt(barco_id.replace('barco_',''));
-        var name = $('td#nombre_' + barco_id).text();
-        var ancho = parseInt($('td#ancho_' + barco_id).text().replace('Mts', ''));
-        var alto = parseInt($('td#alto_' + barco_id).text().replace('Mts', ''));
-        var largo = parseInt($('td#largo_' + barco_id).text().replace('Mts', ''));
-        var capacidad = parseInt($('td#capacidad_' + barco_id).text().replace('Ton', ''));
-        $('div#barcoEdit input#nombre').val(name);
-        $('div#barcoEdit input#ancho').val(ancho);
-        $('div#barcoEdit input#alto').val(alto);
-        $('div#barcoEdit input#largo').val(largo);
-        $('div#barcoEdit input#capacidad').val(capacidad);
-        $('div#barcoEdit input#barco_id').val(id);
+    $('#viajeEdit').on('show.bs.modal', function (event) {
+        var id_barco = event.relatedTarget.getAttribute("data-id");
+        var id = parseInt(id_barco.replace('viaje_',''));
+        var name = $('td#nombre_viaje_' + id_barco).text();
+        var viaje_fecha = $('td#viaje_fecha_' + id_barco).text();
+        var viaje_puerto_origen = $('td#viaje_puerto_origen' + id_barco).text();
+        var viaje_puerto_destino = $('td#viaje_puerto_destino_' + id_barco).text();
+        var viaje_estado = $('td#viaje_estado_' + id_barco).text();
+
+
+        $('div#viajeEdit input#fecha').val(viaje_fecha);
+        $('div#viajeEdit input#puerto_origen').val(viaje_puerto_origen);
+        $('div#viajeEdit input#puerto_destino').val(viaje_puerto_destino);
+        $('div#viajeEdit input#estado').val(viaje_estado);
+        $('div#viajeEdit input#barco_id').val(id);
     });
 
-    $('#barcoEdit').on('hide.bs.modal', function (event) {
+    $('#viajeEdit').on('hide.bs.modal', function (event) {
         setTimeout(function (){location.reload()},1000);
     });
 
-    $( "#editar_barco" ).submit(function( event ) {
-        $('#barcoEdit #guardar_datos').attr("disabled", true);
+    $( "#editar_viaje" ).submit(function( event ) {
+        event.preventDefault();
+        $('#viajeEdit #guardar_datos').attr("disabled", true);
         var parametros = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "barcos.php",
+            url: "viajes.php",
             data: parametros,
             beforeSend: function(objeto){
-                $("#ajax_message").html('<div class="alert alert-warning" role="alert">Editando barco</div>');
+                $("#ajax_message").html('<div class="alert alert-warning" role="alert">Editando viaje</div>');
             },
             success: function(datos){
-                var id = parametros.split('&nombre')[0].replace('id=','');
-                $("tr#barco_" + id).remove();
-                $("#add_barco_success_table").prepend(datos);
-                $('#editar_barco #guardar_datos').attr("disabled", false);
-                $("#editar_barco #ajax_message").html("");
-                $("#editar_barco #ajax_message").html('<div class="alert alert-success" role="alert">Barco editado</div>');
-                setTimeout(function (){$("#editar_barco #ajax_message").html("");},3000);
+                console.log('datos ', datos);
+                var id = parametros.split('barco_id=')[1].split('&')[0];
+
+                $("tr#viaje_" + id).remove();
+                $("#add_viaje_success_table").prepend(datos);
+                $('#editar_viaje #guardar_datos').attr("disabled", false);
+                $("#editar_viaje #ajax_message").html("");
+                $("#editar_viaje #ajax_message").html('<div class="alert alert-success" role="alert">Viaje editado</div>');
+                setTimeout(function (){$("#editar_viaje #ajax_message").html("");},3000);
             }
         });
-        event.preventDefault();
+
     });
-
-
     //Search
     function doSearch(trSelector, searchText){
         $(trSelector).each(function(){

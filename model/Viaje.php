@@ -9,8 +9,8 @@ define ("get_all_barcos", 'SELECT b.nombre, b.id from barco b');
 define ("get_viaje_by_barco_id", 'SELECT b.nombre as nombre , v.*  FROM barco b, viaje v where v.id_barco=% and b.id=v.id_barco');
 define ("create_viaje", "INSERT INTO viaje (fecha, puerto_origen, puerto_destino, estado, id_barco)
         VALUES('%', '%', '%', '%', '%')");
-define ("update_viaje", "update viaje set id_barco=%, fecha=%, puerto_origen=%, puerto_destino=%, 
-estado=% where id_barco=%");
+define ("update_viaje", "update viaje set id_barco=%, fecha='%', puerto_origen='%', puerto_destino='%', 
+estado='%' where id=%");
 
 
 class Viaje extends Login {
@@ -54,8 +54,9 @@ class Viaje extends Login {
         $values[2] = $puerto_origen;
         $values[3] = $puerto_destino;
         $values[4] = $estado ;
-        $values[7] = $id;
+        $values[5] = $id;
         $query = CustomString::concatenate(update_viaje, $values);
+        echo $query;
         return Viaje::run_query($query);
        
     }

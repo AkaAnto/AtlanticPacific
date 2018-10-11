@@ -43,16 +43,7 @@
                             </select>
                         </div>
                     </div>
-                    <!--<div class="form-group">
-                        <label for="estado" class="col-sm-3 control-label">Puerto destino</label>
-                        <div class="col-sm-7">
-                            <select class="form-control" id="estado" name="estado">
-                                <option value="Activo">Costa Rica</option>
-                                <option value="Cerrar Booking">Cerrar Booking</option>
-                                <option value="Inactivo">Inactivo</option>
-                            </select>
-                        </div>
-                    </div>-->
+                    
                    
             </div>
 
