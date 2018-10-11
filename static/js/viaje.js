@@ -40,8 +40,8 @@ $(document).ready(function() {
 
 
         $('div#viajeEdit input#fecha').val(viaje_fecha);
-        $('div#viajeEdit input#puerto_origen').val(viaje_puerto_origen);
-        $('div#viajeEdit input#puerto_destino').val(viaje_puerto_destino);
+        $('div#viajeEdit select#puerto_origen option').val(viaje_puerto_origen);
+        $('div#viajeEdit select#puerto_destino option').val(viaje_puerto_destino);
         $('div#viajeEdit input#estado').val(viaje_estado);
         $('div#viajeEdit input#barco_id').val(id);
     });
