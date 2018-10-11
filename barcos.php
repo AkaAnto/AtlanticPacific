@@ -15,7 +15,7 @@ define('new_barco_row', '
 
 $show_list = $_SERVER['REQUEST_METHOD'] === 'GET';
 $create = $_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['id']);
-$edit= $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
+$edit = $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
 
 
 // Show list
@@ -56,7 +56,7 @@ if ($create){
             echo $response;
         }
         else{
-           echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al crear el nuevo barco</div> ';
+            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al crear el nuevo barco</div> ';
         }
 
     }

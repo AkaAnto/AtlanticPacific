@@ -87,14 +87,14 @@ $(document).ready(function() {
         });
     };
 
-    $('#search_booking_input').keyup(function (event) {
+    $('#search_viaje_input').keyup(function (event) {
         var searchText = event.target.value;
-        doSearch('#add_barco_success_table tr', searchText);
+        doSearch('#add_viaje_success_table tr', searchText);
 
     });
-    $('#search_booking_button').click(function (event) {
+    $('#search_viaje_button').click(function (event) {
         var searchText = $('#search_booking_input').val();
-        doSearch('#add_barco_success_table tr', searchText);
+        doSearch('#add_viaje_success_table tr', searchText);
     });
 
 });
