@@ -15,7 +15,10 @@ if ($show_list){
 
         $booking = Booking::get_by_code($_GET['booking']);
 
-        $smarty->display(Template_Dir.'/admin/login.tpl');
+        $smarty->assign('booking', $booking[0]);
+
+
+        $smarty->display(Template_Dir.'/admin/paybooking.tpl');
         
     }
     else{

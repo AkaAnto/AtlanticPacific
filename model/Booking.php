@@ -12,7 +12,7 @@ define ("get_booking_carga", 'SELECT * from booking_carga  WHERE id_booking=%');
 define ("get_booking_passengers", 'SELECT * from booking_pasajero  WHERE id_booking=%');
 
 define ("get_booking_id", 'SELECT id FROM booking   WHERE  codigo = "%" and id_viaje=%');
-define ("get_booking_by_code", 'SELECT * FROM booking   WHERE  codigo = "%"');
+define ("get_booking_by_code", 'SELECT * FROM booking b, viaje v WHERE  codigo = "%" and b.id_viaje=v.id');
 define ("create_booking", "INSERT INTO booking (fecha, codigo, precio, id_viaje) VALUES('%', '%', %, %)");
 define ("create_booking_carga", "INSERT INTO `booking_carga` (tipo_vehiculo, alto, largo, ancho, peso, placa, nombre_responsable_carga, pasaporte_responsable_carga, tipo_carga, peso_carga, descripcion_carga, precio, Id_booking) VALUES ('%', '%', '%', '%', %, '%', '%', '%', '%', %, '%', %, %)");
 define ("create_booking_contacto", "INSERT INTO `booking_contacto` (nombre, pasaporte, telefono, numero_dut, email, Id_booking) VALUES ('%', '%', '%', '%', '%', %)");
