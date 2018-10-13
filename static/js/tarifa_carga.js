@@ -39,6 +39,7 @@ $(document).ready(function() {
         var moto_grande = parseInt($('td#tarifa_moto_grande_' + id).text().replace('$', ''));
         var moto_chica = parseInt($('td#tarifa_moto_chica_' + id).text().replace('$', ''));
         var bicicleta = parseInt($('td#tarifa_bicicleta_' + id).text().replace('$', ''));
+        var nombre_barco = $('td#nombre_tarifa_' + id).text();
 
         $('div#tarifaEdit input#tres_metros').val(tarifa_3_mts);
         $('div#tarifaEdit input#seis_metros').val(tarifa_6mts);
@@ -49,6 +50,8 @@ $(document).ready(function() {
         $('div#tarifaEdit input#moto_chica').val(moto_chica);
         $('div#tarifaEdit input#bicicleta').val(bicicleta);
         $('div#tarifaEdit input#barco_id').val(id);
+        $('div#tarifaEdit input#barco_tarifa').val(id);
+        $('div#tarifaEdit #tarifa_title').text(nombre_barco);
     });
 
     $('#tarifaEdit').on('hide.bs.modal', function (event) {
