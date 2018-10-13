@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 12-10-2018 a las 05:00:11
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.1.21
+-- Host: localhost
+-- Generation Time: Oct 11, 2018 at 05:31 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 5.6.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `apspty`
+-- Database: `apspty`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `barco`
+-- Table structure for table `barco`
 --
 
 CREATE TABLE `barco` (
@@ -38,7 +38,7 @@ CREATE TABLE `barco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `barco`
+-- Dumping data for table `barco`
 --
 
 INSERT INTO `barco` (`id`, `nombre`, `largo`, `ancho`, `capacidad`, `alto`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `barco` (`id`, `nombre`, `largo`, `ancho`, `capacidad`, `alto`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking`
+-- Table structure for table `booking`
 --
 
 CREATE TABLE `booking` (
@@ -59,7 +59,7 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
 
 --
--- Volcado de datos para la tabla `booking`
+-- Dumping data for table `booking`
 --
 
 INSERT INTO `booking` (`id`, `fecha`, `codigo`, `precio`, `id_viaje`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `booking` (`id`, `fecha`, `codigo`, `precio`, `id_viaje`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking_carga`
+-- Table structure for table `booking_carga`
 --
 
 CREATE TABLE `booking_carga` (
@@ -89,7 +89,7 @@ CREATE TABLE `booking_carga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
 
 --
--- Volcado de datos para la tabla `booking_carga`
+-- Dumping data for table `booking_carga`
 --
 
 INSERT INTO `booking_carga` (`id`, `tipo_vehiculo`, `alto`, `largo`, `ancho`, `peso`, `placa`, `nombre_responsable_carga`, `pasaporte_responsable_carga`, `tipo_carga`, `peso_carga`, `descripcion_carga`, `precio`, `Id_booking`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `booking_carga` (`id`, `tipo_vehiculo`, `alto`, `largo`, `ancho`, `p
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking_contacto`
+-- Table structure for table `booking_contacto`
 --
 
 CREATE TABLE `booking_contacto` (
@@ -116,7 +116,7 @@ CREATE TABLE `booking_contacto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin;
 
 --
--- Volcado de datos para la tabla `booking_contacto`
+-- Dumping data for table `booking_contacto`
 --
 
 INSERT INTO `booking_contacto` (`id`, `nombre`, `pasaporte`, `telefono`, `numero_dut`, `email`, `id_booking`) VALUES
@@ -129,7 +129,7 @@ INSERT INTO `booking_contacto` (`id`, `nombre`, `pasaporte`, `telefono`, `numero
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking_estatus`
+-- Table structure for table `booking_estatus`
 --
 
 CREATE TABLE `booking_estatus` (
@@ -140,7 +140,7 @@ CREATE TABLE `booking_estatus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `booking_estatus`
+-- Dumping data for table `booking_estatus`
 --
 
 INSERT INTO `booking_estatus` (`id`, `estatus`, `fecha`, `id_booking`) VALUES
@@ -151,7 +151,7 @@ INSERT INTO `booking_estatus` (`id`, `estatus`, `fecha`, `id_booking`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking_pasajero`
+-- Table structure for table `booking_pasajero`
 --
 
 CREATE TABLE `booking_pasajero` (
@@ -164,7 +164,7 @@ CREATE TABLE `booking_pasajero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `booking_pasajero`
+-- Dumping data for table `booking_pasajero`
 --
 
 INSERT INTO `booking_pasajero` (`id`, `tipo`, `nombre`, `pasaporte`, `precio`, `id_booking`) VALUES
@@ -181,7 +181,7 @@ INSERT INTO `booking_pasajero` (`id`, `tipo`, `nombre`, `pasaporte`, `precio`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking_tarifa_carga`
+-- Table structure for table `booking_tarifa_carga`
 --
 
 CREATE TABLE `booking_tarifa_carga` (
@@ -200,7 +200,7 @@ CREATE TABLE `booking_tarifa_carga` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `booking_tarifa_pasajero`
+-- Table structure for table `booking_tarifa_pasajero`
 --
 
 CREATE TABLE `booking_tarifa_pasajero` (
@@ -217,7 +217,7 @@ CREATE TABLE `booking_tarifa_pasajero` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clientes`
+-- Table structure for table `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -233,7 +233,7 @@ CREATE TABLE `clientes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contactenos`
+-- Table structure for table `contactenos`
 --
 
 CREATE TABLE `contactenos` (
@@ -248,7 +248,7 @@ CREATE TABLE `contactenos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `contactenos`
+-- Dumping data for table `contactenos`
 --
 
 INSERT INTO `contactenos` (`id`, `nombre`, `apellido`, `correo`, `ciudad`, `mensaje`, `estatus`, `usuario`) VALUES
@@ -260,7 +260,7 @@ INSERT INTO `contactenos` (`id`, `nombre`, `apellido`, `correo`, `ciudad`, `mens
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cotizaciones`
+-- Table structure for table `cotizaciones`
 --
 
 CREATE TABLE `cotizaciones` (
@@ -302,7 +302,7 @@ CREATE TABLE `cotizaciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `currencies`
+-- Table structure for table `currencies`
 --
 
 CREATE TABLE `currencies` (
@@ -316,7 +316,7 @@ CREATE TABLE `currencies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `currencies`
+-- Dumping data for table `currencies`
 --
 
 INSERT INTO `currencies` (`id`, `name`, `symbol`, `precision`, `thousand_separator`, `decimal_separator`, `code`) VALUES
@@ -356,7 +356,7 @@ INSERT INTO `currencies` (`id`, `name`, `symbol`, `precision`, `thousand_separat
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_factura`
+-- Table structure for table `detalle_factura`
 --
 
 CREATE TABLE `detalle_factura` (
@@ -370,7 +370,7 @@ CREATE TABLE `detalle_factura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `facturas`
+-- Table structure for table `facturas`
 --
 
 CREATE TABLE `facturas` (
@@ -387,21 +387,7 @@ CREATE TABLE `facturas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pago`
---
-
-CREATE TABLE `pago` (
-  `id` int(10) NOT NULL,
-  `ruta_comprobante` varchar(2000) COLLATE utf8_bin NOT NULL,
-  `fecha` varchar(20) COLLATE utf8_bin NOT NULL,
-  `id_booking` int(11) NOT NULL,
-  `status` varchar(200) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `perfil`
+-- Table structure for table `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -419,7 +405,7 @@ CREATE TABLE `perfil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `perfil`
+-- Dumping data for table `perfil`
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nombre_empresa`, `direccion`, `ciudad`, `codigo_postal`, `estado`, `telefono`, `email`, `impuesto`, `moneda`, `logo_url`) VALUES
@@ -428,7 +414,7 @@ INSERT INTO `perfil` (`id_perfil`, `nombre_empresa`, `direccion`, `ciudad`, `cod
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permisos`
+-- Table structure for table `permisos`
 --
 
 CREATE TABLE `permisos` (
@@ -438,7 +424,7 @@ CREATE TABLE `permisos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `permisos`
+-- Dumping data for table `permisos`
 --
 
 INSERT INTO `permisos` (`user_id`, `process_id`, `activo`) VALUES
@@ -447,7 +433,7 @@ INSERT INTO `permisos` (`user_id`, `process_id`, `activo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `procesos`
+-- Table structure for table `procesos`
 --
 
 CREATE TABLE `procesos` (
@@ -457,7 +443,7 @@ CREATE TABLE `procesos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `procesos`
+-- Dumping data for table `procesos`
 --
 
 INSERT INTO `procesos` (`process_id`, `nombre`, `descripcion`) VALUES
@@ -469,7 +455,7 @@ INSERT INTO `procesos` (`process_id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -484,7 +470,7 @@ CREATE TABLE `products` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tarifa_carga`
+-- Table structure for table `tarifa_carga`
 --
 
 CREATE TABLE `tarifa_carga` (
@@ -501,7 +487,7 @@ CREATE TABLE `tarifa_carga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `tarifa_carga`
+-- Dumping data for table `tarifa_carga`
 --
 
 INSERT INTO `tarifa_carga` (`id`, `id_barco`, `tres_metros`, `seis_metros`, `nueve_metros`, `quince_metros`, `dieciocho_metros`, `moto_grande`, `moto_chica`, `bicicleta`) VALUES
@@ -510,7 +496,7 @@ INSERT INTO `tarifa_carga` (`id`, `id_barco`, `tres_metros`, `seis_metros`, `nue
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tarifa_pasajero`
+-- Table structure for table `tarifa_pasajero`
 --
 
 CREATE TABLE `tarifa_pasajero` (
@@ -525,7 +511,7 @@ CREATE TABLE `tarifa_pasajero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `tarifa_pasajero`
+-- Dumping data for table `tarifa_pasajero`
 --
 
 INSERT INTO `tarifa_pasajero` (`id_barco`, `particular`, `en_auto`, `en_autobus`, `ayudante_gandola`, `conductor_gandola`, `conductor_autobus`, `id`) VALUES
@@ -541,7 +527,7 @@ INSERT INTO `tarifa_pasajero` (`id_barco`, `particular`, `en_auto`, `en_autobus`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tmp`
+-- Table structure for table `tmp`
 --
 
 CREATE TABLE `tmp` (
@@ -555,7 +541,7 @@ CREATE TABLE `tmp` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -569,7 +555,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user data';
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `user_name`, `user_password_hash`, `user_email`, `date_added`) VALUES
@@ -580,7 +566,7 @@ INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `user_name`, `user_pass
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -590,7 +576,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`user_id`, `password`, `nombre`) VALUES
@@ -603,7 +589,7 @@ INSERT INTO `usuarios` (`user_id`, `password`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `viaje`
+-- Table structure for table `viaje`
 --
 
 CREATE TABLE `viaje` (
@@ -615,7 +601,7 @@ CREATE TABLE `viaje` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `viaje`
+-- Dumping data for table `viaje`
 --
 
 INSERT INTO `viaje` (`fecha`, `puerto_origen`, `puerto_destino`, `id_barco`, `id`) VALUES
@@ -627,135 +613,129 @@ INSERT INTO `viaje` (`fecha`, `puerto_origen`, `puerto_destino`, `id_barco`, `id
 ('18-10-2018', 'El Salvador', 'Costa Rica', 50, 59);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `barco`
+-- Indexes for table `barco`
 --
 ALTER TABLE `barco`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `booking`
+-- Indexes for table `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `booking_carga`
+-- Indexes for table `booking_carga`
 --
 ALTER TABLE `booking_carga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `booking_contacto`
+-- Indexes for table `booking_contacto`
 --
 ALTER TABLE `booking_contacto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `booking_estatus`
+-- Indexes for table `booking_estatus`
 --
 ALTER TABLE `booking_estatus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `booking_pasajero`
+-- Indexes for table `booking_pasajero`
 --
 ALTER TABLE `booking_pasajero`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `clientes`
+-- Indexes for table `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`),
   ADD UNIQUE KEY `codigo_producto` (`nombre_cliente`);
 
 --
--- Indices de la tabla `contactenos`
+-- Indexes for table `contactenos`
 --
 ALTER TABLE `contactenos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cotizaciones`
+-- Indexes for table `cotizaciones`
 --
 ALTER TABLE `cotizaciones`
   ADD PRIMARY KEY (`doc_ID`);
 
 --
--- Indices de la tabla `currencies`
+-- Indexes for table `currencies`
 --
 ALTER TABLE `currencies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `detalle_factura`
+-- Indexes for table `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
   ADD PRIMARY KEY (`id_detalle`),
   ADD KEY `numero_cotizacion` (`numero_factura`,`id_producto`);
 
 --
--- Indices de la tabla `facturas`
+-- Indexes for table `facturas`
 --
 ALTER TABLE `facturas`
   ADD PRIMARY KEY (`id_factura`),
   ADD UNIQUE KEY `numero_cotizacion` (`numero_factura`);
 
 --
--- Indices de la tabla `pago`
---
-ALTER TABLE `pago`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `perfil`
+-- Indexes for table `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`id_perfil`);
 
 --
--- Indices de la tabla `permisos`
+-- Indexes for table `permisos`
 --
 ALTER TABLE `permisos`
   ADD PRIMARY KEY (`user_id`,`process_id`);
 
 --
--- Indices de la tabla `procesos`
+-- Indexes for table `procesos`
 --
 ALTER TABLE `procesos`
   ADD PRIMARY KEY (`process_id`);
 
 --
--- Indices de la tabla `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id_producto`),
   ADD UNIQUE KEY `codigo_producto` (`codigo_producto`);
 
 --
--- Indices de la tabla `tarifa_carga`
+-- Indexes for table `tarifa_carga`
 --
 ALTER TABLE `tarifa_carga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tarifa_pasajero`
+-- Indexes for table `tarifa_pasajero`
 --
 ALTER TABLE `tarifa_pasajero`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tmp`
+-- Indexes for table `tmp`
 --
 ALTER TABLE `tmp`
   ADD PRIMARY KEY (`id_tmp`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -763,137 +743,131 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `user_email` (`user_email`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indices de la tabla `viaje`
+-- Indexes for table `viaje`
 --
 ALTER TABLE `viaje`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `barco`
+-- AUTO_INCREMENT for table `barco`
 --
 ALTER TABLE `barco`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT de la tabla `booking`
+-- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `booking_carga`
+-- AUTO_INCREMENT for table `booking_carga`
 --
 ALTER TABLE `booking_carga`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `booking_contacto`
+-- AUTO_INCREMENT for table `booking_contacto`
 --
 ALTER TABLE `booking_contacto`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `booking_estatus`
+-- AUTO_INCREMENT for table `booking_estatus`
 --
 ALTER TABLE `booking_estatus`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `booking_pasajero`
+-- AUTO_INCREMENT for table `booking_pasajero`
 --
 ALTER TABLE `booking_pasajero`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `clientes`
+-- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contactenos`
+-- AUTO_INCREMENT for table `contactenos`
 --
 ALTER TABLE `contactenos`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de la tabla `cotizaciones`
+-- AUTO_INCREMENT for table `cotizaciones`
 --
 ALTER TABLE `cotizaciones`
   MODIFY `doc_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `currencies`
+-- AUTO_INCREMENT for table `currencies`
 --
 ALTER TABLE `currencies`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT de la tabla `detalle_factura`
+-- AUTO_INCREMENT for table `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
   MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `facturas`
+-- AUTO_INCREMENT for table `facturas`
 --
 ALTER TABLE `facturas`
   MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `pago`
---
-ALTER TABLE `pago`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT de la tabla `perfil`
+-- AUTO_INCREMENT for table `perfil`
 --
 ALTER TABLE `perfil`
   MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tarifa_carga`
+-- AUTO_INCREMENT for table `tarifa_carga`
 --
 ALTER TABLE `tarifa_carga`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT de la tabla `tarifa_pasajero`
+-- AUTO_INCREMENT for table `tarifa_pasajero`
 --
 ALTER TABLE `tarifa_pasajero`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT de la tabla `tmp`
+-- AUTO_INCREMENT for table `tmp`
 --
 ALTER TABLE `tmp`
   MODIFY `id_tmp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `viaje`
+-- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;

@@ -18,7 +18,7 @@ class Barco extends Login {
             return $barcos;
         }
         else {
-//            return "No se encontraron barcos!.";
+//            return "No se encontraron barcos.";
             return [];
         }
     }
