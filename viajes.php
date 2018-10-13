@@ -44,10 +44,9 @@ if ($create){
     $is_authenticated = Viaje::verify();
     if ($is_authenticated){
         $split_fecha = explode("-", $_POST['fecha']);
-        $fecha = $split_fecha[2].'-'.$split_fecha[1].'-'.$split_fecha[0];
+        $fecha = $_POST['fecha'];
         $puerto_origen = $_POST['puerto_origen'];
         $puerto_destino = $_POST['puerto_destino'];
-        //$estado = $_POST['estado'];
         $id_barco = $_POST['barco_viaje'];
 
 
@@ -60,7 +59,7 @@ if ($create){
             $values[2] = $fecha;
             $values[3] = $puerto_origen ;
             $values[4] = $puerto_destino;
-            $values[5] = 'activo';
+            $values[5] = 'Activo';
             $values[6] = $new_viaje['id_barco'];
             $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;

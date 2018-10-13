@@ -56,7 +56,7 @@ class Viaje extends Login {
         $values[4] = $estado ;
         $values[5] = $id;
         $query = CustomString::concatenate(update_viaje, $values);
-        echo $query;
+        //echo $query;
         return Viaje::run_query($query);
        
     }

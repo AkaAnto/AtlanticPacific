@@ -60,10 +60,10 @@
                         <tr id="viaje_{$viaje.id}" class="{$viaje.nombre}">
                             <td id="nombre_viaje_{$viaje.id}" >{$viaje.nombre}</td>
                             <td id="viaje_fecha_{$viaje.id}"> <b> {$viaje.fecha}</b></td>
-                            <td id="viaje_puerto_origen_{$viaje.id}"> <b> {$viaje.puerto_origen}</b></td>
-                            <td id="viaje_puerto_destino_{$viaje.id}"> <b> {$viaje.puerto_destino}</b></td>
-                            <td id="viaje_estado_{$viaje.id}"> <b> {$viaje.estado}</b></td>
-
+                            <td id="viaje_puerto_origen_{$viaje.id}"><b>{$viaje.puerto_origen}</b></td>
+                            <td id="viaje_puerto_destino_{$viaje.id}"><b>{$viaje.puerto_destino}</b></td>
+                            <td id="viaje_estado_{$viaje.id}"><b>{$viaje.estado}</b></td>
+                            <td class="hide" id="id_barco_viaje_{$viaje.id}" >{$viaje.id_barco}</td>
                             <td>
                             <span class="">
                                 <a href="#" data-id="viaje_{$viaje.id}" class="btn btn-default" title="editar viaje" data-toggle="modal" data-target="#viajeEdit">

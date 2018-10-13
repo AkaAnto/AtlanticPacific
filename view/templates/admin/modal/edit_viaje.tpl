@@ -34,9 +34,8 @@
                         <label for="puerto_origen" class="col-sm-3 control-label">Puerto Origen</label>
                         <div class="col-sm-7">
                             <select class="form-control" id="puerto_origen" name="puerto_origen">
-                                {foreach  from=$viajes item=viaje}
-                                    <option value="{$viaje.puerto_origen}"> {$viaje.puerto_origen} </option>
-                                {/foreach}
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="El Salvador">El Salvador</option>
                             </select>
                         </div>
                     </div>
@@ -44,9 +43,8 @@
                         <label for="puerto_destino" class="col-sm-3 control-label">Puerto Destino</label>
                         <div class="col-sm-7">
                             <select class="form-control" id="puerto_destino" name="puerto_destino">
-                                {foreach  from=$viajes item=viaje}
-                                    <option value="{$viaje.puerto_destino}"> {$viaje.puerto_destino} </option>
-                                {/foreach}
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="El Salvador">El Salvador</option>
                             </select>
                         </div>
                     </div>
