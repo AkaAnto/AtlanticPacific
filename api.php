@@ -24,13 +24,17 @@ if ($get_route_dates){
 }
 
 if ($get_tarifas){
-    $result = Api::get_cargo_tarifas($_GET['route'], $_GET['travel_date']);
+    $formated_date = explode('-', $_GET['travel_date']);
+    $date = $formated_date[2].'-'.$formated_date[1].'-'.$formated_date[0];
+    $result = Api::get_cargo_tarifas($_GET['route'], $date);
     echo json_encode($result);
 }
 
 
 if ($get_passenger_tarifas){
-    $result = Api::get_passenger_tarifas($_GET['route'], $_GET['travel_date']);
+    $formated_date = explode('-', $_GET['travel_date']);
+    $date = $formated_date[2].'-'.$formated_date[1].'-'.$formated_date[0];
+    $result = Api::get_passenger_tarifas($_GET['route'], $date);
     echo json_encode($result);
 }
 

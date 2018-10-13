@@ -164,7 +164,7 @@ function goToSecondStep(){
 }
 
 function goToThirdStep(){
-
+    $('#cargo-list-table tbody div.alert').remove();
     $.ajax({
         type: "GET",
         url: "api.php",
