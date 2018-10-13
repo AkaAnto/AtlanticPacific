@@ -44,29 +44,29 @@
                     <br/>
                 </div>
                 <div class="panel-body">
-                <table class="table" id="table-tarifa">
+                <table class="table" id="table-viaje">
                     <thead>
                         <tr>
                             <th>Barco</th>
                             <th>Fecha</th>
                             <th>Puerto Origen</th>
                             <th>Puerto Destino</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="add_viaje_success_table">
                     {foreach  from=$viajes item=viaje}
-                        <tr id="viaje_{$viaje.id_barco}" class="{$viaje.nombre}">
-                            <td id="nombre_viaje_{$viaje.id_barco}" >{$viaje.nombre}</td>
-                            <td id="viaje_fecha_{$viaje.id_barco}"> <b> {$viaje.fecha}</b></td>
-                            <td id="viaje_puerto_origen_{$viaje.id_barco}"> <b> {$viaje.puerto_origen}</b></td>
-                            <td id="viaje_puerto_destino_{$viaje.id_barco}"> <b> {$viaje.puerto_destino}</b></td>
+                        <tr id="viaje_{$viaje.id}" class="{$viaje.nombre}">
+                            <td id="nombre_viaje_{$viaje.id}" >{$viaje.nombre}</td>
+                            <td id="viaje_fecha_{$viaje.id}"> <b> {$viaje.fecha}</b></td>
+                            <td id="viaje_puerto_origen_{$viaje.id}"> <b> {$viaje.puerto_origen}</b></td>
+                            <td id="viaje_puerto_destino_{$viaje.id}"> <b> {$viaje.puerto_destino}</b></td>
+                            <td id="viaje_estado_{$viaje.id}"> <b> {$viaje.estado}</b></td>
+
                             <td>
                             <span class="">
-                                {*<a href="#" class="btn btn-default" title="ver tarifa"  data-toggle="modal" data-target="#tarifaDetail">*}
-                                    {*<i data-id="tarifa_{$tarifa.id_barco}" class="glyphicon glyphicon-eye-open"></i>*}
-                                {*</a>*}
-                                <a href="#" data-id="tarifa_{$tarifa.id_barco}" class="btn btn-default" title="editar tarifa" data-toggle="modal" data-target="#tarifaEdit">
+                                <a href="#" data-id="viaje_{$viaje.id}" class="btn btn-default" title="editar viaje" data-toggle="modal" data-target="#viajeEdit">
                                     <i class="glyphicon glyphicon-edit"></i>
                                 </a>
                             </span>
@@ -81,6 +81,8 @@
         </div>
     </div>
     {include file="admin/modal/add_viaje.tpl"}
+    {include file="admin/modal/edit_viaje.tpl"}
+
 {/block}
 
 {block name="js"}

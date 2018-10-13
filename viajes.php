@@ -10,6 +10,7 @@ define('new_Viaje_row', '
         <td>%</td>
         <td>%</td>
         <td>%</td>
+        <td>%</td>
          
         
         <td>
@@ -46,7 +47,8 @@ if ($create){
         $fecha = $split_fecha[2].'-'.$split_fecha[1].'-'.$split_fecha[0];
         $puerto_origen = $_POST['puerto_origen'];
         $puerto_destino = $_POST['puerto_destino'];
-        $id_barco = $_POST['barco_tarifa'];
+        //$estado = $_POST['estado'];
+        $id_barco = $_POST['barco_viaje'];
 
 
         $insert_result = Viaje::create($fecha, $puerto_origen , $puerto_destino, $id_barco);
@@ -58,7 +60,8 @@ if ($create){
             $values[2] = $fecha;
             $values[3] = $puerto_origen ;
             $values[4] = $puerto_destino;
-            $values[5] = $new_viaje['id_barco'];
+            $values[5] = 'activo';
+            $values[6] = $new_viaje['id_barco'];
             $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;
         }
@@ -72,38 +75,33 @@ if ($create){
 }
 
 
-// Edit TarifaPasajero
+// Edit Viaje
 if ($edit){
-    $is_authenticated = TarifaPasajero::verify();
+    $is_authenticated = Viaje::verify();
     if ($is_authenticated){
         $id = $_POST['id'];
-        $id_barco = $_POST['barco_tarifa'];
-        $particular = $_POST['particular'];
-        $en_auto = $_POST['en_auto'];
-        $en_autobus = $_POST['en_autobus'];
-        $ayudante_gandola = $_POST['ayudante_gandola'];
-        $conductor_gandola = $_POST['conductor_gandola'];
-        $conductor_autobus  = $_POST['conductor_autobus'];
-
-        $insert_result = TarifaPasajero::update($id, $id_barco, $particular , $en_auto, $en_autobus, $ayudante_gandola , $conductor_gandola, $conductor_autobus);
+        $id_barco = $_POST['barco_viaje'];
+        $fecha = $_POST['fecha'];
+        $puerto_origen = $_POST['puerto_origen'];
+        $puerto_destino = $_POST['puerto_destino'];
+        $estado = $_POST['estado'];
+        $insert_result = Viaje::update($id, $id_barco, $fecha , $puerto_origen, $puerto_destino, $estado);
         if ($insert_result == 1 ){
-            $new_tarifa_pasajero = TarifaPasajero::get_tarifa_pasajero_as_row_by_barco_id($id_barco)[0];
+            $new_viaje = Viaje::get_viaje_as_row_by_barco_id($id_barco)[0];
             $values = array();
-            $values[0] = $new_tarifa_pasajero['id_barco'];
-            $values[1] = $new_tarifa_pasajero['nombre'];
-            $values[2] = $particular; 
-            $values[3] = $en_auto ;
-            $values[4] = $en_autobus;
-            $values[5] = $ayudante_gandola;
-            $values[6] = $conductor_gandola;
-            $values[7] = $conductor_autobus;
-            $values[8] = $new_tarifa_pasajero['id_barco'];
-            $response = CustomString::concatenate(new_TarifaPasajero_row, $values);
+            $values[0] = $new_viaje['id_barco'];
+            $values[1] = $new_viaje['nombre'];
+            $values[2] = $fecha;
+            $values[3] = $puerto_origen ;
+            $values[4] = $puerto_destino;
+            $values[5] = $estado;
+            $values[6] = $new_viaje['id_barco'];
+            $response = CustomString::concatenate(new_Viaje_row, $values);
             echo $response;
-            
+
         }
         else{
-            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al editar el TarifaPasajero</div> ';
+            echo '<div class="alert alert-danger" role="alert">Ocurrió un problema al editar el viaje</div> ';
         }
 
     }
