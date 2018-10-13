@@ -46,7 +46,7 @@
 
         .alert-info {
             color: #0c5460;
-            background-color: #d1ecf1;
+            background-color: #fff;
             border-color: #bee5eb;
         }
         .alert-dismissible {
@@ -61,6 +61,8 @@
             font-size: medium;
         }
 
+
+
     </style>
 </head>
 <body id="body">
@@ -68,9 +70,13 @@
 
         <div class="alert alert-dismissible alert-info">
             Su cotización ha sido aprobada, a cotinuación la información para realizar su pago. Tiene 72 horas para reportar su pago:
-            <a class="btn btn-lg btn-success btn-block btn-signin" href="http://www.atpashipping.com/paybooking.php?booking={$codigo_booking}" target="_blank">
-                Click Aquí para reportar el pago
-            </a>
+            <div align="center">
+                <br/>
+                <a style="font-size: 25px; text-decoration: none;" href="http://www.atpashipping.com/paybooking.php?booking={$codigo_booking}" target="_blank">
+                    Click Aquí para reportar el pago
+                </a>
+                <br/>
+            </div>
         </div>
         <div class="col-md-12">
             <table class="table">

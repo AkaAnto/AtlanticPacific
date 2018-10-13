@@ -14,6 +14,7 @@ $local = [
     "css" => "static/css/",
     "js" => "static/js/",
     "img" => "static/img/",
+    "uploads" => "uploads/payments/",
 
     //Lib
     "Lib_Database" => "lib/Database.php",
@@ -56,4 +57,5 @@ $smarty->compile_dir = Smarty_Template_Dir_Comp;
 $smarty->assign("css",css);
 $smarty->assign("js",js);
 $smarty->assign("img",img);
+$smarty->assign("uploads",uploads);
 $smarty->addTemplateDir(Smarty_Template_Dir.'/admin/');

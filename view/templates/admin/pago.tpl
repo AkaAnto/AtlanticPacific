@@ -60,7 +60,11 @@
                     {foreach  from=$pagos item=pago}
                         <tr id="pago_{$pago.id_pago}" class="{$pago.codigo}">
                             <td id="codigo_pago_{$pago.id_pago}" >{$pago.codigo}</td>
-                            <td id="pago_ruta_comprobante_{$pago.id_pago}"> <b> {$pago.ruta_comprobante}</b></td>
+                            <td id="pago_ruta_comprobante_{$pago.id_pago}">
+                                <a href="{$uploads}{$pago.ruta_comprobante}" target="_blank">
+                                    <img src="{$uploads}{$pago.ruta_comprobante}" style="height: 150px; width: 200px"/>
+                                </a>
+                            </td>
                             <td id="pago_estatus_{$pago.id_pago}"> <b> {$pago.status}</b></td>
                             <td id="pago_fecha_{$pago.id_pago}"> <b> {$pago.fecha}</b></td>
                             <td>
@@ -79,7 +83,7 @@
             <hr>
         </div>
     </div>
-   {include file="admin/modal/add_pago.tpl"}
+   {*{include file="admin/modal/add_pago.tpl"}*}
    {include file="admin/modal/edit_pago.tpl"}
    
 {/block}

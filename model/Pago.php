@@ -5,7 +5,7 @@ include_once Lib_String;
 
 
 define ("get_all_pagos", 'SELECT pago.*, pago.id as id_pago,  booking.codigo as codigo FROM pago, booking  WHERE pago.id_booking=booking.id order by pago.id DESC');
-define ("get_all_bookings", 'SELECT b.codigo, b.id from booking b');
+define ("get_all_bookings_pago", 'SELECT b.codigo, b.id from booking b');
 define ("get_pago_by_id", 'SELECT b.id as idPago, b.codigo as codigo , p.*  FROM booking b, pago p where p.id=% and b.id=p.id_booking');
 define ("get_pago_by_booking_id", 'SELECT b.id as idPago, b.codigo as codigo , p.*   FROM booking b, pago p where p.id_booking=% and b.id=p.id_booking');
 define ("create_pago", "INSERT INTO pago (ruta_comprobante, fecha, id_booking, status) VALUES('%', '%', %, '%')");
@@ -25,7 +25,7 @@ class Pago extends Login {
     }
 
     public static function get_bookings() {
-        $bookings = Pago::run_select(get_all_bookings);
+        $bookings = Pago::run_select(get_all_bookings_pago);
         if (sizeof($bookings) >= 1){
             return $bookings;
         }

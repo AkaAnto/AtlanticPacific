@@ -32,7 +32,7 @@ if ($show_list){
     $is_authenticated = Pago::verify();
     if ($is_authenticated){
         $smarty->assign('pagos', Pago::get_list());
-//        $smarty->assign('available_bookings', Pago::get_bookings());
+        $smarty->assign('available_bookings', Pago::get_bookings());
         $smarty->display(Template_Dir.'/admin/pago.tpl');
     }
     else{
