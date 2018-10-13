@@ -58,12 +58,12 @@ if ($create){
             $values[2] = $new_pago['id'];
             $values[3] = $new_pago['codigo'];
             $values[4] = $new_pago['id'];
-            $values[5] = $ruta_comprobante;
+            $values[5] = $new_pago['ruta_comprobante'];
             $values[6] = $new_pago['id'];
             $values[7] = $new_pago['status'];
-            $values[6] = $new_pago['id'];
-            $values[7] = $fecha;
             $values[8] = $new_pago['id'];
+            $values[9] = $new_pago['fecha'];
+            $values[10] = $new_pago['id'];
 
             $response = CustomString::concatenate(new_pago_row, $values);
             echo $response;

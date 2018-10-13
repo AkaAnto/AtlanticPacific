@@ -20,9 +20,9 @@
                                 <div class="form-group row" style="margin-bottom: 50px; position: relative;">
                                     <div class="col-md-4">
                                         {*Create Button*}
-                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#pagoAdd">
-                                            <span class="glyphicon glyphicon-plus"></span> Nuevo Pago
-                                        </button>
+                                        {*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#pagoAdd">*}
+                                            {*<span class="glyphicon glyphicon-plus"></span> Nuevo Pago*}
+                                        {*</button>*}
                                     </div>
                                     <div class="col-md-8">
                                         <div class="col-md-9">
