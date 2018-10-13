@@ -12,6 +12,7 @@
                         <div class="caption" style="border-bottom: 0px solid black; ">
                             <h4 id="bookingCodigo" class="title-contact" align="center" style="color:#005292; "></h4>
                             <br>
+                            <input class="hide" type="number" id="booking_id"/>
                             <p id="dutNumber"></p>
                             <div id="routeDetail"></div>
                             <div id="clientDetail"></div>
@@ -109,10 +110,15 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="modal-footer">
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal">Aprobar <i class="glyphicon glyphicon-thumbs-up"></i></button>
+                <button id="approve_booking_button" type="button" class="btn btn-success">Aprobar <i class="glyphicon glyphicon-thumbs-up"></i></button>
+                <br/>
+                <br/>
+                <div id="ajax_message"></div>
             </div>
         </div>
     </div>

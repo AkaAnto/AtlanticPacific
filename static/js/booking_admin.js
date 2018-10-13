@@ -68,8 +68,6 @@ $(document).ready(function() {
         setPassengersInfo(modalId, booking);
     }
 
-
-
     // Booking Detail
     // Update values as the modal shows
     $('#bookingDetail').on('show.bs.modal', function (event) {
@@ -80,10 +78,23 @@ $(document).ready(function() {
     $('#bookingApprove').on('show.bs.modal', function (event) {
         var bookingId = event.relatedTarget.getAttribute("data-id");
         updateBookingModal('#bookingApprove',bookingId);
+        $('#bookingApprove #booking_id').val(parseInt(bookingId.replace('booking_','')));
     });
 
-    $('#barcoEdit').on('hide.bs.modal', function (event) {
-        setTimeout(function (){location.reload()},1000);
+    $('#approve_booking_button').click(function (event) {
+        var bookingId = $('#bookingApprove #booking_id').val();
+        $.ajax({
+            type: "POST",
+            url: "booking.php",
+            data: {approve:1, booking_id:bookingId},
+            success: function(datos){
+                console.log(datos);
+                $("#bookingApprove #ajax_message").html('<div class="alert alert-success" role="alert">Booking Aprobado, se enviara un correo al cliente con la informacion de pago.</div>');
+                setTimeout(function (){location.reload()},3000);
+            }
+        });
+
+
     });
 
     $( "#editar_barco" ).submit(function( event ) {
@@ -108,7 +119,6 @@ $(document).ready(function() {
         });
         event.preventDefault();
     });
-
 
     //Search
     function doSearch(trSelector, searchText){

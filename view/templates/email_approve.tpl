@@ -67,7 +67,10 @@
         <h1 class="title-contact" align="center" style="color:#005292; ">Booking {$codigo_booking}</h1>
 
         <div class="alert alert-dismissible alert-info">
-            Su cotización ha sido aprobada, a cotinuación la información para realizar su pago:
+            Su cotización ha sido aprobada, a cotinuación la información para realizar su pago. Tiene 72 horas para reportar su pago:
+            <a class="btn btn-lg btn-success btn-block btn-signin" href="http://www.atpashipping.com/paybooking.php?booking={$codigo_booking}" target="_blank">
+                Click Aquí para reportar el pago
+            </a>
         </div>
         <div class="col-md-12">
             <table class="table">
@@ -247,149 +250,6 @@
                 </tbody>
             </table>
         </div>
-        {*<div class="col-md-12">*}
-            {*<h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Cotización</h2>*}
-            {*<table class="table">*}
-                {*<thead>*}
-                {*<tr>*}
-                    {*<th> <span class="label label-success text-uppercase"> Nombre</span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Pasaporte </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Teléfono </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Email </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Fecha</span> </th>*}
-                {*</tr>*}
-                {*</thead>*}
-                {*<tbody>*}
-                {*<tr>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.clientName}</span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.clientPassport}</span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.clientPhone} </span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.clientEmail} </span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{date("d-m-y")}</span>*}
-                    {*</td>*}
-                {*</tr>*}
-                {*</tbody>*}
-            {*</table>*}
-            {*<br>*}
-            {*<h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Viaje</h2>*}
-            {*<table class="table">*}
-                {*<thead>*}
-                {*<tr>*}
-                    {*<th> <span class="label label-success text-uppercase"> Número Booking </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Número Dut </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Puerto Salida </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Puerto Llegada </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Fecha/Hora </span> </th>*}
-                {*</tr>*}
-                {*</thead>*}
-                {*<tbody>*}
-                {*<tr>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">0023933821 </span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.dut_number} </span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.route}</span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">*}
-                            {*{if $booking.route eq 'Costa Rica'}*}
-                                {*El Salvador*}
-                            {*{else}*}
-                                {*Costa Rica*}
-                            {*{/if}*}
-                        {*</span>*}
-                    {*</td>*}
-                    {*<td>*}
-                        {*<span class="label label-value text-uppercase">{$booking.travel_date} - 7:00 AM</span>*}
-                    {*</td>*}
-                {*</tr>*}
-                {*</tbody>*}
-            {*</table>*}
-            {*<br>*}
-            {*<h2 class="title-contact" align="left" style="color:#005292; ">Detalles de la Carga</h2>*}
-            {*<table class="table">*}
-                {*<thead>*}
-                {*<tr>*}
-                    {*<th> <span class="label label-success text-uppercase"> Detalles Vehículo </span></th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Dueño de Carga </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Detalles Carga </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Precio </span></th>*}
-                {*</tr>*}
-                {*</thead>*}
-                {*<tbody>*}
-                    {*<tr>*}
-                        {*<td>*}
-                            {*<span class="label label-value text-uppercase">{$booking.vehicleType} </span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.vehiclePlate}</span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.vehicleHeight} </span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.vehicleWidth}</span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.vehicleLength} mts Largo </span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.vehicleWeight}TON </span>*}
-                        {*</td>*}
-                        {*<td>*}
-                            {*<span class="label label-value text-uppercase">{$booking.cargoOwner}</span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.cargoOwnerPassport}</span>*}
-                        {*</td>*}
-                        {*<td>*}
-                            {*<span class="label label-value text-uppercase">{$booking.cargoType} </span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.cargoDescription}</span>*}
-                            {*<span class="label label-value text-uppercase">{$booking.cargoWeight} TON </span>*}
-                        {*</td>*}
-                        {*<td>*}
-                            {*<span class="label label-value text-uppercase"> <b>{$booking.cargoPrice}$</b> </span>*}
-                        {*</td>*}
-                    {*</tr>*}
-                {*</tbody>*}
-            {*</table>*}
-            {*<br>*}
-            {*<h2 class="title-contact" align="left" style="color:#005292; ">Detalles de Pasajeros</h2>*}
-            {*<table class="table">*}
-                {*<thead>*}
-                {*<tr>*}
-                    {*<th> <span class="label label-success text-uppercase"> Tipo Pasajero </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Información Pasajero </span> </th>*}
-                    {*<th> <span class="label label-success text-uppercase"> Precio </span> </th>*}
-                    {*<th></th>*}
-                {*</tr>*}
-                {*</thead>*}
-                {*<tbody>*}
-                    {*{foreach from=$booking.passengerList item=passenger}*}
-                        {*<tr>*}
-                            {*<td> <span class="label label-value text-uppercase"> {$passenger.passengerType} </span> </td>*}
-                            {*<td> <span class="label label-value text-uppercase"> {$passenger.passengerName}  <br> {$passenger.passengerPassport} </span> </td>*}
-                            {*<td> <span class="label label-value text-uppercase"> <b>{$passenger.passengerPrice}$</b> </span> </td>*}
-                        {*</tr>*}
-                    {*{/foreach}*}
-                {*</tbody>*}
-            {*</table>*}
-        {*</div>*}
-        {*<br/>*}
-        {*<div class="col-md-12">*}
-            {*<div class="col-md-4" align="right">*}
-                {*<hr style="border-top:solid 1px black;">*}
-                {*<div class="col-md-12" style="display: block">*}
-                    {*<h3>Sub Total:  <b>{$booking.totalPrice}$</b> </h3>*}
-                {*</div>*}
-                {*<div class="col-md-12" style="display: block">*}
-                    {*<h3>Impuestos:  <b> 25$</b> </h3>*}
-                {*</div>*}
-            {*</div>*}
-            {*<div class="col-md-12" align="right">*}
-                {*<h2>Total:  <b> {$booking.totalPrice + 25}$</b> </h2>*}
-            {*</div>*}
-        {*</div>*}
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

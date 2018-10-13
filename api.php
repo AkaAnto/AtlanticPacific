@@ -30,14 +30,12 @@ if ($get_tarifas){
     echo json_encode($result);
 }
 
-
 if ($get_passenger_tarifas){
     $formated_date = explode('-', $_GET['travel_date']);
     $date = $formated_date[2].'-'.$formated_date[1].'-'.$formated_date[0];
     $result = Api::get_passenger_tarifas($_GET['route'], $date);
     echo json_encode($result);
 }
-
 
 if ($post_booking){
     $travel_date = $_POST['travel_date'];

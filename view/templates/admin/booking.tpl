@@ -58,7 +58,8 @@
                             <td id="estatus_booking_{$booking.id}" >
                                 {foreach  from=$booking.estatus_list item=estatus}
                                     <span style="font-size: 100%" class="label label-warning"> {$estatus.estatus_booking} - {$estatus.fecha_estatus_booking} </span>
-                                    <b/>
+                                    <br/>
+                                    <br/>
                                 {/foreach}
                             </td>
 
@@ -70,8 +71,8 @@
                                 <a href="#" data-id="booking_{$booking.id}" class="btn btn-default" title="CONSULTAR" onclick="" data-toggle="modal" data-target="#bookingDetail"><i class="glyphicon glyphicon-eye-open"></i></a>
                                 <a href="#" class="btn btn-warning" title="COTIZAR" onclick="" data-toggle="modal" data-target="#bookingEdit"><i class="glyphicon glyphicon-usd"></i></a>
                                 <a href="#" data-id="booking_{$booking.id}" class="btn btn-success" title="APROBAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                                <a href="#" class="btn btn-danger" title="RECHAZAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-down"></i></a>
-                                <a href="#" class="btn btn-success" title="EMBARCAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-ok"></i></a>
+                                {*<a href="#" class="btn btn-danger" title="RECHAZAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-thumbs-down"></i></a>*}
+                                {*<a href="#" class="btn btn-success" title="EMBARCAR" onclick="" data-toggle="modal" data-target="#bookingApprove"><i class="glyphicon glyphicon-ok"></i></a>*}
                             </span>
                             </td>
                             <td class="hide" id="dut_number_booking_{$booking.id}">{$booking.client.numero_dut}</td>

@@ -10,9 +10,14 @@ define ("get_booking_contacto", 'SELECT nombre, pasaporte, telefono, numero_dut,
 define ("get_booking_viaje", 'SELECT fecha, puerto_origen, puerto_destino from viaje v WHERE v.id=%');
 define ("get_booking_carga", 'SELECT * from booking_carga  WHERE id_booking=%');
 define ("get_booking_passengers", 'SELECT * from booking_pasajero  WHERE id_booking=%');
-
 define ("get_booking_id", 'SELECT id FROM booking   WHERE  codigo = "%" and id_viaje=%');
 define ("get_booking_by_code", 'SELECT * FROM booking b, viaje v WHERE  codigo = "%" and b.id_viaje=v.id');
+
+
+define ("get_booking_by_id", 'SELECT b.*, bc.* FROM booking b, booking_contacto bc WHERE  b.id = % and b.id=bc.id_booking');
+
+
+
 define ("create_booking", "INSERT INTO booking (fecha, codigo, precio, id_viaje) VALUES('%', '%', %, %)");
 define ("create_booking_carga", "INSERT INTO `booking_carga` (tipo_vehiculo, alto, largo, ancho, peso, placa, nombre_responsable_carga, pasaporte_responsable_carga, tipo_carga, peso_carga, descripcion_carga, precio, Id_booking) VALUES ('%', '%', '%', '%', %, '%', '%', '%', '%', %, '%', %, %)");
 define ("create_booking_contacto", "INSERT INTO `booking_contacto` (nombre, pasaporte, telefono, numero_dut, email, Id_booking) VALUES ('%', '%', '%', '%', '%', %)");
@@ -64,6 +69,13 @@ class Booking extends Login {
         return $result;
     }
 
+    public static function get_by_id($id) {
+        $values = array();
+        $values[0] = $id;
+        $query = CustomString::concatenate(get_booking_by_id, $values);
+        $result = Booking::run_select($query);
+        return $result;
+    }
 
     public static function create($fecha, $codigo, $precio,$id_viaje) {
         $values = array();
