@@ -31,7 +31,7 @@ $(document).ready(function() {
     $('#tarifaEdit').on('show.bs.modal', function (event) {
         var id_barco = event.relatedTarget.getAttribute("data-id");
         var id = parseInt(id_barco.replace('tarifa_',''));
-        var name = $('td#nombre_tarifa_' + id_barco).text();
+        var name = $('td#nombre_tarifa_' + id).text();
         var tarifa_particular = parseInt($('td#tarifa_particular_' + id).text().replace('$', ''));
         var tarifa_en_auto = parseInt($('td#tarifa_en_auto_' + id).text().replace('$', ''));
         var tarifa_en_autobus = parseInt($('td#tarifa_en_autobus_' + id).text().replace('$', ''));
@@ -39,7 +39,10 @@ $(document).ready(function() {
         var tarifa_conductor_gandola = parseInt($('td#tarifa_conductor_gandola_' + id).text().replace('$', ''));
         var tarifa_conductor_autobus = parseInt($('td#tarifa_conductor_autobus_' + id).text().replace('$', ''));
 
+        console.log('name', name);
         $('div#tarifaEdit input#id_barco').val(id);
+        $('div#tarifaEdit input#barco_tarifa').val(id);
+        $('div#tarifaEdit #tarifa_title').text(name);
         $('div#tarifaEdit input#particular').val(tarifa_particular);
         $('div#tarifaEdit input#en_auto').val(tarifa_en_auto);
         $('div#tarifaEdit input#en_autobus').val(tarifa_en_autobus);

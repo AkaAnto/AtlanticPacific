@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-plus'></i> Editar tarifa</h4>
+                <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-plus'></i> Editar tarifa <b id="tarifa_title"></b> </h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" method="post" id="editar_tarifa" name="editar_tarifa">
@@ -12,18 +12,10 @@
                     <div class="form-group hide">
                         <div class="col-sm-8">
                             <input type="number" class="form-control" id="id_barco" name="id" required>
+                            <input type="number" class="form-control" id="barco_tarifa" name="barco_tarifa" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="nombre" class="col-sm-3 control-label">Barco</label>
-                        <div class="col-sm-8">
-                            <select class="form-control" id="barco_tarifa" name="barco_tarifa">
-                                {foreach  from=$available_barcos item=barco}
-                                    <option value="{$barco.id}"> {$barco.nombre} </option>
-                                {/foreach}
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="form-group">
                         <label for="alto" class="col-sm-3 control-label">Pasajero particular </label>
                         <div class="col-sm-7">
