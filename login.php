@@ -16,12 +16,22 @@ if ($show_login){
         $smarty->display(Template_Dir.'/admin/login.tpl');
     }
 }
-else {
-    if ($perform_login){
-        Login::perform('efriedman', '4859ef');
+
+if ($perform_login){
+    $got_data = isset($_POST['user_name']) && isset($_POST['user_password']);
+
+    if ($got_data){
+        if (Login::perform($_POST['user_name'], $_POST['user_password'])) {
+            Login::navigate('admin');
+        }
+        else{
+            $smarty->assign('error_message', 'Usuario o clave no válidos');
+            $smarty->display(Template_Dir.'/admin/login.tpl');
+        }
+    }
+    else{
+        $smarty->assign('error_message', 'Por favor suministre la información requerida');
+        $smarty->display(Template_Dir.'/admin/login.tpl');
     }
 }
-
-
-
 

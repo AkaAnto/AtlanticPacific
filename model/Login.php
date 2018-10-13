@@ -8,15 +8,6 @@ define ("login", "SELECT user_id, user_name, user_email, user_password_hash  FRO
 
 class Login extends DataBase {
 
-    private $username;
-    private $password;
-
-    public function Login( $username, $password){
-        $this->username = $username;
-        $this->password = $password;
-       
-    }
-   
     public static function perform($username, $password){
         $values = array();
         $values[0] = "'".$username."'";
@@ -32,13 +23,13 @@ class Login extends DataBase {
                 $_SESSION['user_login_status'] = 1;
                 $_SESSION['is_staff'] = false;
                 $_SESSION['is_admin'] =false;
-                return 'true';
+                return true;
 
             } else {
-                return "Usuario y/o contraseña no coinciden.";
+                return false;
             }
         }
-        return 'false';
+        return false;
     }
 
     public static function verify(){

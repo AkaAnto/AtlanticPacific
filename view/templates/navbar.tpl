@@ -71,4 +71,13 @@
                 </ul>
         </div>
 </nav>
+
 <!-- //navbar ends here -->
+<nav class="fixed-top" style="top: 75px; z-index: 0">
+        <div class="col-md-3"  style="float: right">
+                <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>En Mantenimiento</strong>
+                </div>
+        </div>
+</nav>

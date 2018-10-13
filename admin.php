@@ -13,7 +13,7 @@ if ($show_admin){
         $smarty->display(Template_Dir.'/admin/dashboard.tpl');
     }
     else{
-        Login::navigate('index');
+        Login::navigate('login');
     }
 }
 else {

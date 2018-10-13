@@ -1193,8 +1193,7 @@ a.btn-inactive:hover {
 }
 
 .tab-content-holder{
-
-    min-height: 650px;
+    min-height: 1200px;
     display: inline-table;
     float: left;
 }
@@ -1244,7 +1243,9 @@ div.thumbnail{
     overflow-y: scroll;
 }
 
-
+.booking-form label {
+    margin-top: 5px;
+}
 
 
 /*jssor slider loading skin spin css*/
@@ -1285,3 +1286,69 @@ div.thumbnail{
 .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
 
 
+.list-group-item{
+    cursor: pointer;
+    margin-top: 12px;
+    display: inline;
+    font-size: small;
+}
+
+
+.booking_date {
+    display: inline-flex;
+    margin-left: -20px;
+    font-size: 15px;
+    color: #495057;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: white;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0px solid #ccc;
+    border: 0px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+}
+
+.date-btn:hover{
+    background-color: green !important;
+}
+
+.list-group-item-heading{
+    color: white;
+}
+
+::-webkit-input-placeholder {
+    text-align: left;
+    font-size: 15px;
+}
+
+:-moz-placeholder {
+    text-align: left;
+    font-size: 15px;
+}
+
+select {
+    font-size: 13px;
+}
+
+.available_date{
+    background-color: green;
+}
+
+.unavailable_date{
+    background-color: lightgray;
+    cursor: default !important;
+}

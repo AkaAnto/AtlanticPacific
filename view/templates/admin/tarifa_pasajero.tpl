@@ -11,7 +11,7 @@
                 <div class="panel-heading">
                     <div class="col-md-4">
                         {*Title*}
-                        <h4> Tarifas de Carga</h4>
+                        <h4> Tarifas de Pasajero</h4>
                     </div>
                     <div class="col-md-8">
                         <div class="col-md-12">
@@ -20,7 +20,7 @@
                                     <div class="col-md-4">
                                         {*Create Button*}
                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#tarifaAdd">
-                                            <span class="glyphicon glyphicon-plus"></span> Nueva Tarifa de Carga
+                                            <span class="glyphicon glyphicon-plus"></span> Nueva Tarifa de Pasajero
                                         </button>
                                     </div>
                                     <div class="col-md-8">
@@ -48,29 +48,25 @@
                     <thead>
                         <tr>
                             <th>Barco</th>
-                            <th>0 - 3 mts</th>
-                            <th>3 - 6 mts</th>
-                            <th>6 - 9 mts</th>
-                            <th>9 - 15 mts</th>
-                            <th>15 - 18 mts</th>
-                            <th>Moto Grande</th>
-                            <th>Moto Chica</th>
-                            <th>Bicicleta</th>
+                            <th>Particular</th>
+                            <th>En auto a bordo</th>
+                            <th>En autobus a bordo</th>
+                            <th>Ayudante de gandola</th>
+                            <th>Conductor de gandola</th>
+                            <th>Conductor de autobus</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="add_tarifa_success_table">
-                    {foreach  from=$tarifa_cargas item=tarifa}
+                    {foreach  from=$tarifa_pasajeros item=tarifa}
                         <tr id="tarifa_{$tarifa.id_barco}" class="{$tarifa.nombre}">
                             <td id="nombre_tarifa_{$tarifa.id_barco}" >{$tarifa.nombre}</td>
-                            <td id="tarifa_3_mts_{$tarifa.id_barco}"> <b> {intval($tarifa.tres_metros)}$</b></td>
-                            <td id="tarifa_6_mts_{$tarifa.id_barco}"> <b> {intval($tarifa.seis_metros)}$</b></td>
-                            <td id="tarifa_9_mts_{$tarifa.id_barco}"> <b> {intval($tarifa.nueve_metros)}$</b></td>
-                            <td id="tarifa_15_mts_{$tarifa.id_barco}"> <b> {intval($tarifa.quince_metros)}$</b></td>
-                            <td id="tarifa_18_mts_{$tarifa.id_barco}"> <b> {intval($tarifa.dieciocho_metros)}$</b></td>
-                            <td id="tarifa_moto_grande_{$tarifa.id_barco}"> <b> {intval($tarifa.moto_grande)}$</b></td>
-                            <td id="tarifa_moto_chica_{$tarifa.id_barco}"> <b> {intval($tarifa.moto_chica)}$</b></td>
-                            <td id="tarifa_bicicleta_{$tarifa.id_barco}"> <b> {intval($tarifa.bicicleta)}$</b></td>
+                            <td id="tarifa_particular_{$tarifa.id_barco}"> <b> {intval($tarifa.particular)}$</b></td>
+                            <td id="tarifa_en_auto_{$tarifa.id_barco}"> <b> {intval($tarifa.en_auto)}$</b></td>
+                            <td id="tarifa_en_autobus_{$tarifa.id_barco}"> <b> {intval($tarifa.en_autobus)}$</b></td>
+                            <td id="tarifa_ayudante_gandola_{$tarifa.id_barco}"> <b> {intval($tarifa.ayudante_gandola)}$</b></td>
+                            <td id="tarifa_conductor_gandola_{$tarifa.id_barco}"> <b> {intval($tarifa.conductor_gandola)}$</b></td>
+                            <td id="tarifa_conductor_autobus_{$tarifa.id_barco}"> <b> {intval($tarifa.conductor_autobus)}$</b></td>
                             <td>
                             <span class="">
                                 {*<a href="#" class="btn btn-default" title="ver tarifa"  data-toggle="modal" data-target="#tarifaDetail">*}
@@ -90,10 +86,10 @@
             <hr>
         </div>
     </div>
-    {include file="admin/modal/add_tarifa_carga.tpl"}
-    {include file="admin/modal/edit_tarifa_carga.tpl"}
+    {include file="admin/modal/add_tarifa_pasajero.tpl"}
+    {include file="admin/modal/edit_tarifa_pasajero.tpl"}
 {/block}
 
 {block name="js"}
-    <script type="text/javascript" src="{$js}tarifa_carga.js"></script>
+    <script type="text/javascript" src="{$js}tarifa_pasajero.js"></script>
 {/block}

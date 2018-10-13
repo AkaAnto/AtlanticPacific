@@ -2,15 +2,14 @@
 
 include_once "CustomException.php";
 
-define("concatenate_values_exception", 'Amount of % in expression is different than given values amount (sizeof(values))');
-
 abstract class CustomString {
     
     static function concatenate($string, $values){
         $requested_values_amount = substr_count($string, '%');
         $given_values_amount = sizeof($values);
-        if ($requested_values_amount != $given_values_amount){  
-            return CustomException::build_exception(concatenate_values_exception, "11", "CustomString::concatenate");
+        if ($requested_values_amount != $given_values_amount){
+            $exception_message = "Amount of % ($requested_values_amount)in expression is different than given values amount ($given_values_amount)";
+            return CustomException::build_exception($exception_message, "11", "CustomString::concatenate");
         }       
         $string_iterator = strtok($string,"%");
         $response = "";     

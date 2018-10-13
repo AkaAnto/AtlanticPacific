@@ -25,6 +25,10 @@ $local = [
     "Login" => "model/Login.php",
     "Barco" => "model/Barco.php",
     "TarifaCarga" => "model/TarifaCarga.php",
+    "TarifaPasajero" => "model/TarifaPasajero.php",
+    "Viaje" => "model/Viaje.php",
+    "Booking" => "model/Booking.php",
+    "Api" => "model/Api.php",
 
 ];
 

@@ -57,6 +57,7 @@
                         </tr>
                     </thead>
                     <tbody id="add_barco_success_table">
+
                     {foreach  from=$barcos item=barco}
                         <tr id="barco_{$barco.id}" class="{$barco.nombre}">
                             <td id="nombre_barco_{$barco.id}" >{$barco.nombre}</td>
@@ -66,9 +67,6 @@
                             <td id="capacidad_barco_{$barco.id}">{intval($barco.capacidad)} Ton</td>
                             <td>
                             <span class="">
-                                {*<a href="#" class="btn btn-default" title="ver barco"  data-toggle="modal" data-target="#barcoDetail">*}
-                                    {*<i data-id="barco_{$barco.id}" class="glyphicon glyphicon-eye-open"></i>*}
-                                {*</a>*}
                                 <a href="#" data-id="barco_{$barco.id}" class="btn btn-default" title="editar barco" data-toggle="modal" data-target="#barcoEdit">
                                     <i class="glyphicon glyphicon-edit"></i>
                                 </a>
