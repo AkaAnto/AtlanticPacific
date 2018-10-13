@@ -27,7 +27,7 @@
                                     <div class="col-md-8">
                                         <div class="col-md-9">
                                             {*Search Input*}
-                                            <input type="text" class="form-control" id="search_booking_input" placeholder="ID DEL PAGO">
+                                            <input type="text" class="form-control" id="search_booking_input" placeholder="CODIGO BOOKING">
                                         </div>
                                         <div class="col-md-3">
                                             {*Search Button*}
@@ -49,7 +49,8 @@
                     <thead>
                         <tr>
                             <th>Código Booking</th>
-                            <th>Ruta del comprobante</th>
+                            <th>Comprobante</th>
+                            <th>Estatus</th>
                             <th>Fecha</th>
                             <th>Acciones</th>
                         </tr>
@@ -57,13 +58,14 @@
                     <tbody id="add_pago_success_table">
 
                     {foreach  from=$pagos item=pago}
-                        <tr id="pago_{$pago.id_booking}" class="{$pago.id_booking}">
-                            <td id="codigo_pago_{$pago.id_booking}" >{$pago.id_booking}</td>
-                            <td id="pago_ruta_comprobante_{$pago.id_booking}"> <b> {$pago.ruta_comprobante}</b></td>
-                            <td id="pago_fecha_{$pago.id_booking}"> <b> {$pago.fecha}</b></td>
+                        <tr id="pago_{$pago.id_pago}" class="{$pago.codigo}">
+                            <td id="codigo_pago_{$pago.id_pago}" >{$pago.codigo}</td>
+                            <td id="pago_ruta_comprobante_{$pago.id_pago}"> <b> {$pago.ruta_comprobante}</b></td>
+                            <td id="pago_estatus_{$pago.id_pago}"> <b> {$pago.status}</b></td>
+                            <td id="pago_fecha_{$pago.id_pago}"> <b> {$pago.fecha}</b></td>
                             <td>
                             <span class="">
-                                <a href="#" data-id="pago_{$pago.id}" class="btn btn-default" title="editar pago" data-toggle="modal" data-target="#pagoEdit">
+                                <a href="#" data-id="pago_{$pago.id_pago}" class="btn btn-default" title="editar pago" data-toggle="modal" data-target="#pagoEdit">
                                     <i class="glyphicon glyphicon-edit"></i>
                                 </a>
                             </span>

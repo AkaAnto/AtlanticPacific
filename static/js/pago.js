@@ -29,18 +29,11 @@ $(document).ready(function() {
     // Edit pago
     // Update values as the modal shows
     $('#pagoEdit').on('show.bs.modal', function (event) {
-        var id_booking = event.relatedTarget.getAttribute("data-id");
-        var codigo = $('td#codigo_' + id_booking).text();
-        var id = parseInt(id_booking.replace('pago_',''));
-        var ruta_comprobante = $('td#ruta_comprobante' + id).text();
-        var fecha = $('td#fecha' + id).text();
-        var estado = $('td#estado' + id).text();
-       
-        $('div#pagoEdit input#codigo').val(codigo);
-        $('div#pagoEdit input#ruta_comprobante').val(ruta_comprobante);
-        $('div#pagoEdit input#fecha').val(fecha);
-        $('div#pagoEdit input#estado').val(estado);
-       
+        var id_pago = event.relatedTarget.getAttribute("data-id");
+        var id = parseInt(id_pago.replace('pago_',''));
+        var codigo = $('td#codigo_pago_' + id).text();
+        $('form#editar_pago input#pago_id').val(id);
+        $('div#pagoEdit #codigo').text(codigo);
     });
 
     $('#pagoEdit').on('hide.bs.modal', function (event) {
@@ -58,7 +51,7 @@ $(document).ready(function() {
                 $("#ajax_message").html('<div class="alert alert-warning" role="alert">Editando pago</div>');
             },
             success: function(datos){
-                var id = parametros.split('&id')[0].replace('id=','');
+                var id = parametros.split('&id')[0].replace('id=','').split('&estado')[0];
                 $("tr#pago_" + id).remove();
                 $("#add_pago_success_table").prepend(datos);
                 $('#editar_pago #guardar_datos').attr("disabled", false);
