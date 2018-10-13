@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    // Add barco
+    // Add pago
     $( "#agregar_pago" ).submit(function( event ) {
         $('#guardar_datos').attr("disabled", true);
         var parametros = $(this).serialize();
@@ -78,14 +78,13 @@ $(document).ready(function() {
         });
     };
 
-    $('#search_booking_input').keyup(function (event) {
+    $('#search_payment_input').keyup(function (event) {
         var searchText = event.target.value;
-        doSearch('#add_barco_success_table tr', searchText);
-
-    });
-    $('#search_booking_button').click(function (event) {
-        var searchText = $('#search_booking_input').val();
-        doSearch('#add_barco_success_table tr', searchText);
+        doSearch('#add_pago_success_table tr', searchText);
     });
 
+    $('#search_payment_button').click(function (event) {
+        var searchText = $('#search_payment_input').val();
+        doSearch('#add_pago_success_table tr', searchText);
+    });
 });

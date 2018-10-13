@@ -27,11 +27,11 @@
                                     <div class="col-md-8">
                                         <div class="col-md-9">
                                             {*Search Input*}
-                                            <input type="text" class="form-control" id="search_booking_input" placeholder="CODIGO BOOKING">
+                                            <input type="text" class="form-control" id="search_payment_input" placeholder="CODIGO BOOKING">
                                         </div>
                                         <div class="col-md-3">
                                             {*Search Button*}
-                                            <button id="search_booking_button" type="button" class="btn btn-default"style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
+                                            <button id="search_payment_button" type="button" class="btn btn-default"style="margin-left: -25px;border:  0px solid transparent;height: 33px;margin-top: 1px;">
                                                 <span class="glyphicon glyphicon-search"></span> Buscar
                                             </button>
                                         </div>
