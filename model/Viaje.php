@@ -40,7 +40,7 @@ class Viaje extends Login {
         $values[0] = $fecha;
         $values[1] = $puerto_origen;
         $values[2] = $puerto_destino;
-        $values[3] = "activo";
+        $values[3] = "Activo";
         $values[4] = $id_barco;
         $query = CustomString::concatenate(create_viaje, $values);
 //        echo $query;

@@ -22,7 +22,7 @@ if ($perform_login){
 
     if ($got_data){
         if (Login::perform($_POST['user_name'], $_POST['user_password'])) {
-            Login::navigate('admin');
+            Login::navigate('booking');
         }
         else{
             $smarty->assign('error_message', 'Usuario o clave no válidos');
