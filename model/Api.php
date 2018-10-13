@@ -4,7 +4,7 @@ include_once Login;
 include_once Lib_String;
 
 
-define ("get_travel_dates", 'SELECT fecha, id FROM viaje where puerto_origen="%"');
+define ("get_travel_dates", 'SELECT fecha, id FROM viaje where puerto_origen="%" and estado="Activo"');
 define ("get_cargo_tarifas", "SELECT tc.* from tarifa_carga tc, viaje v where v.puerto_origen='%' and v.fecha='%' and v.id_barco = tc.id_barco");
 define ("get_passenger_tarifas", "SELECT tp.* from tarifa_pasajero tp, viaje v where v.puerto_origen='%' and v.fecha='%' and v.id_barco = tp.id_barco");
 
