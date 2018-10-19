@@ -10,7 +10,15 @@ $perform_login = $_SERVER['REQUEST_METHOD'] === 'POST';
 if ($show_login){
     $is_authenticated = Login::verify();
     if ($is_authenticated){
-        Login::navigate('admin');
+        if ($_SESSION['is_admin']) {
+            Login::navigate('pagos.php');
+        }
+        if ($_SESSION['is_cotizador']) {
+            Login::navigate('booking.php');
+        }
+        if ($_SESSION['is_aprobador']) {
+            Login::navigate('booking.php');
+        }
     }
     else{
         $smarty->display(Template_Dir.'/admin/login.tpl');

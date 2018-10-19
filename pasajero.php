@@ -29,6 +29,7 @@ $edit= $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
 if ($show_list){
     $is_authenticated = TarifaPasajero::verify();
     if ($is_authenticated){
+        $smarty->assign('auth', TarifaPasajero::getAuth());
         $smarty->assign('tarifa_pasajeros', TarifaPasajero::get_list());
         $smarty->assign('available_barcos', TarifaPasajero::get_barcos());
         $smarty->display(Template_Dir.'/admin/tarifa_pasajero.tpl');

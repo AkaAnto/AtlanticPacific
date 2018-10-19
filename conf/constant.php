@@ -30,6 +30,7 @@ $local = [
     "TarifaPasajero" => "model/TarifaPasajero.php",
     "Viaje" => "model/Viaje.php",
     "Booking" => "model/Booking.php",
+    "User" => "model/User.php",
     "Api" => "model/Api.php",
     
 

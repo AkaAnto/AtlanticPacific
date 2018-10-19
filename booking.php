@@ -12,6 +12,7 @@ $approve_booking = ($_SERVER['REQUEST_METHOD'] === 'POST') && (isset($_POST['app
 if ($show_list){
     $is_authenticated = Booking::verify();
     if ($is_authenticated){
+        $smarty->assign('auth', Booking::getAuth());
         $smarty->assign('bookings', Booking::get_list());
         $smarty->display(Template_Dir.'/admin/booking.tpl');
     }
@@ -26,7 +27,7 @@ if ($approve_booking){
     if ($is_authenticated){
         $today = date('d-m-y H:i:s');
         $booking = Booking::get_by_id($_POST['booking_id'])[0];
-        Email::send_booking_approved_mail($booking['email'], 'Nuevo Booking Aprobado '.$booking['codigo'].' [En prueba]', $booking['codigo'], $smarty);
+        Email::send_booking_approved_mail($booking['email'], '[APS] Nuevo Booking Aprobado '.$booking['codigo'].' [En prueba]', $booking['codigo'], $smarty);
         Booking::addEstatus('Aprobado',$today, $_POST['booking_id']);
     }
     else{

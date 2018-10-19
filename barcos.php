@@ -22,6 +22,7 @@ $edit = $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
 if ($show_list){
     $is_authenticated = Barco::verify();
     if ($is_authenticated){
+        $smarty->assign('auth', Barco::getAuth());
         $smarty->assign('barcos', Barco::get_list());
         $smarty->display(Template_Dir.'/admin/barco.tpl');
     }
@@ -64,7 +65,6 @@ if ($create){
         Barco::navigate('index');
     }
 }
-
 
 // Edit barco
 if ($edit){

@@ -78,9 +78,8 @@ if ($post_booking){
                     Booking::addPassenger($passenger['passengerType'], $passenger['passengerName'], $passenger['passengerPassport'], $passenger['passengerPrice'], $new_booking_id);
                 }
             }
-             Email::send_booking_mail($_POST['clientEmail'], 'Nuevo Booking '.$codigo.' [En prueba]', $_POST, $codigo, $smarty);
-            //Email::send_booking_approved_mail($_POST['clientEmail'], 'Nuevo Booking Aprobado '.$codigo.' [En prueba]', $codigo, $smarty);
-            echo '{status:"success"}';
+            $result = Email::send_booking_mail($client_email, '[APS] Nuevo Booking '.$codigo.' [En prueba]', $_POST, $codigo, $smarty);
+            echo '{status:"success", result:'.$result.'}';
         }
     }
 }

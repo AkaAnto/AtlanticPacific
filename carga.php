@@ -31,6 +31,7 @@ $edit= $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['barco_id']);
 if ($show_list){
     $is_authenticated = TarifaCarga::verify();
     if ($is_authenticated){
+        $smarty->assign('auth', TarifaCarga::getAuth());
         $smarty->assign('tarifa_cargas', TarifaCarga::get_list());
         $smarty->assign('available_barcos', TarifaCarga::get_barcos());
         $smarty->display(Template_Dir.'/admin/tarifa_carga.tpl');

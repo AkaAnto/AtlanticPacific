@@ -29,6 +29,7 @@ $edit= $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']);
 if ($show_list){
     $is_authenticated = Viaje::verify();
     if ($is_authenticated){
+        $smarty->assign('auth', Viaje::getAuth());
         $smarty->assign('viajes', Viaje::get_list());
         $smarty->assign('available_barcos', Viaje::get_barcos());
         $smarty->display(Template_Dir.'/admin/viaje.tpl');
